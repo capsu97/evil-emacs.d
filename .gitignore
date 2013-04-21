@@ -1,0 +1,29 @@
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+.elc
+auto-save-list
+tramp
+.\#*
+places
+backups/
+
+# elpa (automatically downloaded)
+elpa/
+
+# eshell
+eshell/
+
+# Org-mode
+.org-id-locations
+*_archive
+
+# Projectile
+projectile.cache
+
+# Autocomplete
+ac-comphist.dat
+
+# Smex
+.smex-items
