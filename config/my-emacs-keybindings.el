@@ -9,6 +9,7 @@
     (er/mark-outside-pairs))
 
 (global-set-key (kbd "C-=") 'ot-mark-outside-pairs)
+(global-set-key (kbd "M-=") 'er/expand-region)
 
 ;(global-set-key (kbd "C-l") 'forward-char)
 ;(global-set-key (kbd "C-h") 'backward-char)

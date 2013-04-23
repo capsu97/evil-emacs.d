@@ -76,7 +76,9 @@
   (exchange-point-and-mark))
 
 (define-key evil-normal-state-map "\\q" '(lambda () (kill-buffer "*nREPL error*")))
-(define-key evil-normal-state-map "\\w" 'paredit-wrap-round)
+(define-key evil-normal-state-map "\\wr" 'paredit-wrap-round)
+(define-key evil-normal-state-map "\\ws" 'paredit-wrap-square)
+(define-key evil-normal-state-map "\\wc" 'paredit-wrap-curly)
 (define-key evil-normal-state-map "\\d" 'paredit-duplicate-after-point)
 (define-key evil-normal-state-map "\\S" 'paredit-split-sexp)
 (define-key evil-normal-state-map "\\s" 'paredit-splice-sexp)
