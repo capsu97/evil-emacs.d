@@ -33,6 +33,7 @@
 (define-key evil-insert-state-map (kbd "M-L") 'evil-forward-word-begin)
 
 (define-key evil-insert-state-map (kbd "S-SPC") 'ace-jump-char-mode)
+(define-key evil-insert-state-map (kbd "M-SPC") 'ace-jump-line-mode)
 
 ;(define-key evil-insert-state-map (kbd "C-x") 'evil-execute-in-normal-state)
 
@@ -50,6 +51,7 @@
 (define-key evil-normal-state-map ",,r" 'nrepl-jack-in)
 
 (define-key evil-normal-state-map ",g" 'ace-jump-line-mode)
+(define-key evil-normal-state-map (kbd "M-SPC") 'ace-jump-line-mode)
 (define-key evil-normal-state-map (kbd "SPC") 'ace-jump-char-mode)
 
 (defun paredit-duplicate-after-point
@@ -83,6 +85,9 @@
 (define-key evil-normal-state-map "\\j" 'paredit-join-sexps)
 (define-key evil-normal-state-map "\\r" 'paredit-reindent-defun)
 (define-key evil-normal-state-map "\\ef" 'nrepl-eval-expression-at-point)
+(define-key evil-normal-state-map (kbd "<C-return>") 'nrepl-eval-expression-at-point)
+(define-key evil-insert-state-map (kbd "<C-return>") 'nrepl-eval-expression-at-point)
+(define-key evil-visual-state-map (kbd "<C-return>") 'nrepl-eval-region)
 (define-key evil-normal-state-map "\\es" 'nrepl-eval-last-expression)
 (define-key evil-normal-state-map "\\en" 'nrepl-eval-ns-form)
 (define-key evil-normal-state-map "\\eb" 'nrepl-load-current-buffer)
@@ -94,7 +99,7 @@
 (define-key evil-normal-state-map (kbd "C-<") 'paredit-backward-slurp-sexp)
 (define-key evil-normal-state-map (kbd "C->") 'paredit-backward-barf-sexp)
 
-(define-key evil-normal-state-map (kbd "M -;") 'evil-paredit-comment-dwim)
+(define-key evil-normal-state-map (kbd "M-;") 'evil-paredit-comment-dwim)
 
 ;; Visual
 (define-key evil-visual-state-map "\\W" 'paredit-wrap-round)
