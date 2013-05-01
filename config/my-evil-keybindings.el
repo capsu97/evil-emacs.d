@@ -46,9 +46,10 @@
 (define-key evil-normal-state-map ",t" 'projectile-find-file)
 (define-key evil-normal-state-map ",h" 'helm-mini)
 (define-key evil-normal-state-map ",f" 'recentf-open-files)
-(define-key evil-normal-state-map ",lb" 'ido-switch-buffer)
+(define-key evil-normal-state-map ",l" 'ido-switch-buffer)
 (define-key evil-normal-state-map ",r" 'nrepl)
 (define-key evil-normal-state-map ",,r" 'nrepl-jack-in)
+(define-key evil-normal-state-map ",ut" 'undo-tree-visualize)
 
 (define-key evil-normal-state-map ",g" 'ace-jump-line-mode)
 (define-key evil-normal-state-map (kbd "M-SPC") 'ace-jump-line-mode)
