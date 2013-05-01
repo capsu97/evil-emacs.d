@@ -7,6 +7,8 @@
   (message ".emacs loaded in %fms" (/ (- (anarcat/time-to-ms (current-time)) (anarcat/time-to-ms *emacs-load-start*)) 1000000.0)))
 (add-hook 'after-init-hook 'anarcat/display-timing t)
 
+(when (string= system-name "VDI056-PRD")
+  (setq url-proxy-services '(("http" . "proxy.eno.dom:8080"))))
 
 (require 'package)
 (add-to-list 'package-archives
@@ -56,3 +58,16 @@
 (require 'my-auto-complete-settings)
 (require 'my-yasnippet-settings)
 ;(server-start)
+
+(global-auto-revert-mode t)
+
+(add-to-list 'default-frame-alist '(height . 50))
+(add-to-list 'default-frame-alist '(width . 180))
+
+(defun hide-eol ()
+  "Do not show ^M in files containing mixed UNIX and DOS line endings."
+  (interactive)
+  (setq buffer-display-table (make-display-table))
+  (aset buffer-display-table ?\^M []))
+
+(add-hook 'nrepl-mode-hook 'hide-eol)
