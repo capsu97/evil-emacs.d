@@ -28,7 +28,7 @@
 (defvar my-packages '(starter-kit starter-kit-lisp starter-kit-bindings clojure-mode ace-jump-mode starter-kit-js paredit nrepl nrepl-ritz markdown-mode clojure-test-mode evil ac-nrepl color-theme
     evil-leader evil-numbers evil-paredit groovy-mode magit markdown-mode+ nrepl-eval-sexp-fu zencoding-mode surround linum-relative ido-ubiquitous rainbow-delimiters undo-tree helm
     projectile helm-projectile git-commit-mode gitconfig-mode gitignore-mode helm-git coffee-mode zenburn-theme solarized-theme birds-of-paradise-plus-theme color-theme-sanityinc-tomorrow
-    color-theme-sanityinc-solarized helm-themes molokai-theme auto-complete skewer-mode js2-mode web-mode ac-js2 yasnippet clojure-snippets lein mmm-mode sass-mode workgroups browse-kill-ring dired+ expand-region
+    color-theme-sanityinc-solarized helm-themes molokai-theme skewer-mode js2-mode auto-complete web-mode ac-js2 yasnippet clojure-snippets lein mmm-mode sass-mode workgroups browse-kill-ring dired+ expand-region
     smartparens)
   "A list of packages to ensure are installed at launch.")
 
