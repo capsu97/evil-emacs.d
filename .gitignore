@@ -10,7 +10,7 @@ places
 backups/
 
 # elpa (automatically downloaded)
-elpa/
+# elpa/
 
 # eshell
 eshell/
@@ -21,6 +21,7 @@ eshell/
 
 # Projectile
 projectile.cache
+projectile-bookmarks.eld
 
 # Autocomplete
 ac-comphist.dat
