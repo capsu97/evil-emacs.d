@@ -29,7 +29,7 @@
     evil-leader evil-numbers evil-paredit groovy-mode magit markdown-mode+ nrepl-eval-sexp-fu zencoding-mode surround linum-relative ido-ubiquitous rainbow-delimiters undo-tree helm
     projectile helm-projectile git-commit-mode gitconfig-mode gitignore-mode helm-git coffee-mode zenburn-theme solarized-theme birds-of-paradise-plus-theme color-theme-sanityinc-tomorrow
     color-theme-sanityinc-solarized helm-themes molokai-theme skewer-mode js2-mode auto-complete web-mode ac-js2 yasnippet clojure-snippets lein mmm-mode sass-mode workgroups browse-kill-ring dired+ expand-region
-    smartparens midje-mode)
+    smartparens midje-mode multi-eshell multi-term)
   "A list of packages to ensure are installed at launch.")
 
 (dolist (p my-packages)
@@ -42,6 +42,8 @@
 (add-to-list 'load-path "~/.emacs.d/config/")
 
 (add-to-list 'auto-mode-alist '("\.cljs$" . clojure-mode))
+(require 'midje-mode)
+(add-hook 'clojure-mode-hook 'midje-mode)
 
 (add-hook 'sgml-mode-hook 'zencoding-mode) ;; Auto-start on any markup modes
 
