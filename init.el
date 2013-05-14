@@ -57,6 +57,7 @@
 (require 'my-projectile-settings)
 (require 'my-auto-complete-settings)
 (require 'my-yasnippet-settings)
+(require 'my-magit-settings)
 ;(server-start)
 
 (global-auto-revert-mode t)
