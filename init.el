@@ -47,18 +47,6 @@
 
 (add-hook 'sgml-mode-hook 'zencoding-mode) ;; Auto-start on any markup modes
 
-(defadvice nrepl-default-err-handler (after nrepl-focus-errors activate)
-  "Focus the error buffer after errors, like Emacs normally does."
-  (select-window (get-buffer-window "*nrepl-error*")))
-
-(defadvice nrepl-eval-last-expression (after nrepl-flash-last activate)
-  (if (fboundp 'slime-flash-region)
-      (slime-flash-region (save-excursion (backward-sexp) (point)) (point))))
-
-(defadvice nrepl-eval-expression-at-point (after nrepl-flash-at activate)
-  (if (fboundp 'slime-flash-region)
-      (apply #'slime-flash-region (nrepl-region-for-expression-at-point))))
-
 (defun indent-whole-buffer ()
   "indent whole buffer"
   (interactive)
