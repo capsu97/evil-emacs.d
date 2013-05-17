@@ -25,10 +25,10 @@
 
 ;; Add in your own as you wish:
 ;; TODO add smartparens (melpa couldn't find it for some reason)
-(defvar my-packages '(starter-kit starter-kit-lisp starter-kit-bindings clojure-mode ace-jump-mode starter-kit-js paredit nrepl nrepl-ritz markdown-mode clojure-test-mode evil ac-nrepl color-theme
+(defvar my-packages '(starter-kit starter-kit-lisp starter-kit-bindings starter-kit-eshell clojure-mode ace-jump-mode starter-kit-js paredit nrepl nrepl-ritz markdown-mode clojure-test-mode evil ac-nrepl color-theme
     evil-leader evil-numbers evil-paredit groovy-mode magit markdown-mode+ nrepl-eval-sexp-fu zencoding-mode surround linum-relative ido-ubiquitous rainbow-delimiters undo-tree helm
-    projectile helm-projectile git-commit-mode gitconfig-mode gitignore-mode helm-git coffee-mode zenburn-theme solarized-theme birds-of-paradise-plus-theme color-theme-sanityinc-tomorrow
-    color-theme-sanityinc-solarized helm-themes molokai-theme skewer-mode js2-mode auto-complete web-mode ac-js2 yasnippet clojure-snippets lein mmm-mode sass-mode workgroups browse-kill-ring dired+ expand-region
+    projectile helm-projectile git-commit-mode gitconfig-mode gitignore-mode helm-git helm-themes molokai-theme skewer-mode js2-mode auto-complete web-mode ac-js2 yasnippet
+    clojure-snippets lein sass-mode workgroups browse-kill-ring dired+ expand-region
     smartparens midje-mode multi-eshell multi-term)
   "A list of packages to ensure are installed at launch.")
 
@@ -54,19 +54,20 @@
   (indent-region (point-min) (point-max) nil)
   (untabify (point-min) (point-max)))
 
-(require 'my-ui-settings)
-(require 'my-basic-settings)
-(require 'my-rainbow-delimiters-settings)
-(require 'my-emacs-keybindings)
-(require 'my-nrepl-settings)
-(require 'my-ace-jump-settings)
-(require 'my-powerline-settings)
-(require 'my-evil-settings)
-(require 'my-evil-keybindings)
-(require 'my-projectile-settings)
-(require 'my-auto-complete-settings)
-(require 'my-yasnippet-settings)
-(require 'my-magit-settings)
+(require 'web-mode-settings)
+(require 'ui-settings)
+(require 'basic-settings)
+(require 'rainbow-delimiters-settings)
+(require 'emacs-keybindings)
+(require 'nrepl-settings)
+(require 'ace-jump-settings)
+(require 'powerline-settings)
+(require 'evil-settings)
+(require 'evil-keybindings)
+(require 'projectile-settings)
+(require 'auto-complete-settings)
+(require 'yasnippet-settings)
+(require 'magit-settings)
 ;(server-start)
 
 (global-auto-revert-mode t)
