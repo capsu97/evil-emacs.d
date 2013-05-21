@@ -3,6 +3,9 @@
 
 (autoload 'nrepl-mode "nrepl-mode" "nrepl mode" t)
 
+(setq nrepl-hide-special-buffers t)
+;(setq nrepl-popup-stacktraces-in-repl t)
+
 (eval-after-load "nrepl"
   '(progn
         (setq nrepl-popup-stacktraces nil) ;Stop the error buffer from popping up while working in the REPL buffer

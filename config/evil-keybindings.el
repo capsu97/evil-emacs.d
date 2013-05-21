@@ -43,6 +43,9 @@
 (define-key evil-normal-state-map (kbd "M-K") 'evil-backward-section-begin)
 (define-key evil-normal-state-map (kbd "M-L") 'evil-forward-word-begin)
 
+(define-key evil-normal-state-map (kbd "M-.") 'nrepl-jump)
+(define-key evil-normal-state-map (kbd "M-,") 'nrepl-jump-back)
+
 (define-key evil-normal-state-map ",t" 'projectile-find-file)
 (define-key evil-normal-state-map ",pff" 'projectile-find-file)
 (define-key evil-normal-state-map ",pft" 'projectile-find-test-file)
