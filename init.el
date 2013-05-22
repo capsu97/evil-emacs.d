@@ -82,3 +82,4 @@
   (aset buffer-display-table ?\^M []))
 
 (add-hook 'nrepl-mode-hook 'hide-eol)
+(add-hook 'nrepl-popup-buffer-mode-hook 'hide-eol)
