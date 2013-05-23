@@ -122,6 +122,11 @@
 (define-key evil-normal-state-map (kbd "C-<") 'paredit-backward-slurp-sexp)
 (define-key evil-normal-state-map (kbd "C->") 'paredit-backward-barf-sexp)
 
+(define-key evil-insert-state-map (kbd "M->") 'paredit-forward-slurp-sexp)
+(define-key evil-insert-state-map (kbd "M-<") 'paredit-forward-barf-sexp)
+(define-key evil-insert-state-map (kbd "C-<") 'paredit-backward-slurp-sexp)
+(define-key evil-insert-state-map (kbd "C->") 'paredit-backward-barf-sexp)
+
 (define-key evil-normal-state-map (kbd "M-;") 'evil-paredit-comment-dwim)
 
 ;; Visual
