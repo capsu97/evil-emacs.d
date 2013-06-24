@@ -23,7 +23,9 @@
 (defun my-nrepl-mode-setup ()
   (require 'nrepl-ritz))
 
-(add-hook 'nrepl-interaction-mode-hook 'my-nrepl-mode-setup)
+;; turned off because of autocomplete not fully functional. have to
+;check this out
+;(add-hook 'nrepl-interaction-mode-hook 'my-nrepl-mode-setup)
 
 ;; Clojure mode
 (add-hook 'clojure-mode-hook 'nrepl-interaction-mode)
