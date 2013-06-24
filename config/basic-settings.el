@@ -3,8 +3,11 @@
 ;; Turn off highlighting words under cursor from starterkit
 ;(remove-hook 'prog-mode-hook 'idle-highlight-mode)
 
-; Disable scroll jump
+; Smooth scrolling
 (setq scroll-step 1)
+(setq scroll-conservatively 10000)
+(setq auto-window-vscroll nil)
+(setq scroll-margin 2)
 
 ; Highlight selected text - Ctrl-Space
 (transient-mark-mode t)
