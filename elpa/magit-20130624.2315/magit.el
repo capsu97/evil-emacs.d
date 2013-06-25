@@ -1010,7 +1010,7 @@ Also, do not record undo information."
        (if (not (file-symlink-p directory))
            (mapc (lambda (file)
                    (if (eq t (car (file-attributes file)))
-                       (org-delete-directory file recursive)
+                       (magit-delete-directory file recursive)
                      (delete-file file)))
                  (directory-files
                   directory 'full "^\\([^.]\\|\\.\\([^.]\\|\\..\\)\\).*")))
@@ -6952,14 +6952,14 @@ This can be added to `magit-mode-hook' for example"
                      (read-string "git grep: "
                                   (shell-quote-argument (grep-tag-default))))))
     (with-current-buffer (generate-new-buffer "*Magit Grep*")
-      (let ((default-directory (magit-get-top-dir)))
-        (insert magit-git-executable " "
-                (mapconcat 'identity magit-git-standard-options " ")
-                " grep -n "
-                (shell-quote-argument pattern) "\n\n")
-        (magit-git-insert (list "grep" "--line-number" pattern))
-        (grep-mode)
-        (pop-to-buffer (current-buffer))))))
+      (setq default-directory (magit-get-top-dir))
+      (insert magit-git-executable " "
+              (mapconcat 'identity magit-git-standard-options " ")
+              " grep -n "
+              (shell-quote-argument pattern) "\n\n")
+      (magit-git-insert (list "grep" "--line-number" pattern))
+      (grep-mode)
+      (pop-to-buffer (current-buffer)))))
 
 (defconst magit-font-lock-keywords
   (eval-when-compile
