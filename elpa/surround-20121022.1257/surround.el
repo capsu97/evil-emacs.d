@@ -6,7 +6,8 @@
 ;;      Vegard Øye <vegard_oye at hotmail dot com>
 ;; Maintainer: Please send bug reports to the mailing list (below).
 ;; Created: July 23 2011
-;; Version: 0.1
+;; Version: 20121022.1257
+;; X-Original-Version: 0.1
 ;; Keywords: emulation, vi, evil
 ;; Mailing list: <implementations-list at lists.ourproject.org>
 ;;      Subscribe: http://tinyurl.com/implementations-list

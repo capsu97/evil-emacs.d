@@ -3,7 +3,7 @@
 ;;; Code:
 
 
-;;;### (autoloads (sass-mode) "sass-mode" "sass-mode.el" (20816 42252
+;;;### (autoloads (sass-mode) "sass-mode" "sass-mode.el" (20949 41279
 ;;;;;;  0 0))
 ;;; Generated autoloads from sass-mode.el
 
@@ -16,7 +16,7 @@ Major mode for editing Sass files.
 
 ;;;***
 
-;;;### (autoloads nil nil ("sass-mode-pkg.el") (20816 42252 984699
+;;;### (autoloads nil nil ("sass-mode-pkg.el") (20949 41279 248383
 ;;;;;;  0))
 
 ;;;***

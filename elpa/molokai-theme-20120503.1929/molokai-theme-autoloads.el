@@ -3,7 +3,7 @@
 ;;; Code:
 
 
-;;;### (autoloads nil "molokai-theme" "molokai-theme.el" (20682 41170
+;;;### (autoloads nil "molokai-theme" "molokai-theme.el" (20949 41201
 ;;;;;;  0 0))
 ;;; Generated autoloads from molokai-theme.el
 
@@ -11,7 +11,7 @@
 
 ;;;***
 
-;;;### (autoloads nil nil ("molokai-theme-pkg.el") (20682 41170 488386
+;;;### (autoloads nil nil ("molokai-theme-pkg.el") (20949 41201 490525
 ;;;;;;  0))
 
 ;;;***

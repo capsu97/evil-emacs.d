@@ -5,7 +5,7 @@
 
 ;;;### (autoloads (markdown-copy-paste-html markdown-copy-rtf markdown-code-copy
 ;;;;;;  markdown-export-pandoc-pdf markdown-export-pdf markdown-export-latex)
-;;;;;;  "markdown-mode+" "markdown-mode+.el" (20673 9980 0 0))
+;;;;;;  "markdown-mode+" "markdown-mode+.el" (20949 41147 0 0))
 ;;; Generated autoloads from markdown-mode+.el
 
 (autoload 'markdown-export-latex "markdown-mode+" "\
@@ -43,8 +43,8 @@ Process file with multimarkdown, copy it to the clipboard, and paste in safari's
 
 ;;;***
 
-;;;### (autoloads nil nil ("markdown-mode+-pkg.el") (20673 9980 272384
-;;;;;;  0))
+;;;### (autoloads nil nil ("markdown-mode+-pkg.el") (20949 41147
+;;;;;;  873308 0))
 
 ;;;***
 

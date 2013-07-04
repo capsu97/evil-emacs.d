@@ -6,7 +6,8 @@
 ;; Author: Phil Hagelberg, Doug Alcorn, and Will Farrington
 ;; URL: http://www.emacswiki.org/cgi-bin/wiki/FindFileInProject
 ;; Git: git://github.com/technomancy/find-file-in-project.git
-;; Version: 3.2
+;; Version: 20120716.1655
+;; X-Original-Version: 3.2
 ;; Created: 2008-03-18
 ;; Keywords: project, convenience
 ;; EmacsWiki: FindFileInProject

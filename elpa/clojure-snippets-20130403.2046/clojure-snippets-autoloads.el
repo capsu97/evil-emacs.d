@@ -4,7 +4,7 @@
 
 
 ;;;### (autoloads (clojure-snippets-initialize) "clojure-snippets"
-;;;;;;  "clojure-snippets.el" (20882 21982 0 0))
+;;;;;;  "clojure-snippets.el" (20949 41273 0 0))
 ;;; Generated autoloads from clojure-snippets.el
 
 (autoload 'clojure-snippets-initialize "clojure-snippets" "\
@@ -16,8 +16,8 @@
 
 ;;;***
 
-;;;### (autoloads nil nil ("clojure-snippets-pkg.el") (20882 21983
-;;;;;;  313001 0))
+;;;### (autoloads nil nil ("clojure-snippets-pkg.el") (20949 41274
+;;;;;;  181363 0))
 
 ;;;***
 

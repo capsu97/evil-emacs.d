@@ -4,7 +4,7 @@
 
 
 ;;;### (autoloads nil nil ("evil-paredit-pkg.el" "evil-paredit.el")
-;;;;;;  (20882 21952 682087 0))
+;;;;;;  (20949 41128 340366 0))
 
 ;;;***
 

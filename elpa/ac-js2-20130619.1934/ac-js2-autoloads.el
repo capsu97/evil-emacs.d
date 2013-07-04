@@ -5,7 +5,7 @@
 
 ;;;### (autoloads (ac-js2-mode ac-js2-jump-to-definition ac-js2-company
 ;;;;;;  ac-js2-completion-function ac-js2-expand-function) "ac-js2"
-;;;;;;  "ac-js2.el" (20935 62763 0 0))
+;;;;;;  "ac-js2.el" (20949 41240 0 0))
 ;;; Generated autoloads from ac-js2.el
 
 (autoload 'ac-js2-expand-function "ac-js2" "\
@@ -41,8 +41,8 @@ A minor mode that provides auto-completion and navigation for Js2-mode.
 
 ;;;***
 
-;;;### (autoloads nil nil ("ac-js2-pkg.el" "ac-js2-tests.el") (20935
-;;;;;;  62764 74000 0))
+;;;### (autoloads nil nil ("ac-js2-pkg.el" "ac-js2-tests.el") (20949
+;;;;;;  41240 740641 0))
 
 ;;;***
 

@@ -6,7 +6,7 @@
 ;;;### (autoloads (elisp-slime-nav-describe-elisp-thing-at-point
 ;;;;;;  elisp-slime-nav-find-elisp-thing-at-point turn-on-elisp-slime-nav-mode
 ;;;;;;  elisp-slime-nav-mode) "elisp-slime-nav" "elisp-slime-nav.el"
-;;;;;;  (20935 62756 0 0))
+;;;;;;  (20949 41388 0 0))
 ;;; Generated autoloads from elisp-slime-nav.el
 
 (autoload 'elisp-slime-nav-mode "elisp-slime-nav" "\
@@ -36,8 +36,8 @@ Argument SYM-NAME thing to find.
 
 ;;;***
 
-;;;### (autoloads nil nil ("elisp-slime-nav-pkg.el") (20935 62756
-;;;;;;  671000 0))
+;;;### (autoloads nil nil ("elisp-slime-nav-pkg.el") (20949 41388
+;;;;;;  277378 0))
 
 ;;;***
 

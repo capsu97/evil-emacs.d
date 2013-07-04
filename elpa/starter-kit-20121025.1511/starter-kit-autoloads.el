@@ -3,7 +3,7 @@
 ;;; Code:
 
 
-;;;### (autoloads nil "starter-kit" "starter-kit.el" (20673 9946
+;;;### (autoloads nil "starter-kit" "starter-kit.el" (20949 41386
 ;;;;;;  0 0))
 ;;; Generated autoloads from starter-kit.el
 
@@ -29,7 +29,7 @@ Add `(lambda () FORM)' to `after-init-hook'.
 ;;;***
 
 ;;;### (autoloads nil nil ("starter-kit-defuns.el" "starter-kit-misc.el"
-;;;;;;  "starter-kit-pkg.el") (20673 9946 726176 0))
+;;;;;;  "starter-kit-pkg.el") (20949 41386 720671 0))
 
 ;;;***
 

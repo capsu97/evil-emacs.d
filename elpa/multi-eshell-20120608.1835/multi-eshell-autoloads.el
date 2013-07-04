@@ -4,7 +4,7 @@
 
 
 ;;;### (autoloads (multi-eshell multi-eshell-switch multi-eshell-go-back)
-;;;;;;  "multi-eshell" "multi-eshell.el" (20882 24290 0 0))
+;;;;;;  "multi-eshell" "multi-eshell.el" (20949 41323 0 0))
 ;;; Generated autoloads from multi-eshell.el
 
 (autoload 'multi-eshell-go-back "multi-eshell" "\
@@ -24,7 +24,7 @@ Creates a shell buffer. If one already exists, this creates a new buffer, with t
 
 ;;;***
 
-;;;### (autoloads nil nil ("multi-eshell-pkg.el") (20882 24290 276557
+;;;### (autoloads nil nil ("multi-eshell-pkg.el") (20949 41323 720681
 ;;;;;;  0))
 
 ;;;***

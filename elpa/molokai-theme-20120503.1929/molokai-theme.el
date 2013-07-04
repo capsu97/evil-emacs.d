@@ -1,4 +1,5 @@
 (deftheme molokai
+;; Version: 20120503.1929
   "emacs24 port of molokai for vim")
 
 (custom-theme-set-faces
@@ -39,3 +40,5 @@
                (file-name-as-directory (file-name-directory load-file-name))))
 
 (provide-theme 'molokai)
+
+;;; molokai-theme.el ends here

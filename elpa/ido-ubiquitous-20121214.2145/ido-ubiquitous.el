@@ -3,6 +3,7 @@
 ;; Author: Ryan C. Thompson
 ;; URL: https://github.com/DarwinAwardWinner/ido-ubiquitous
 ;; Version: 20121214.2145
+;; X-Original-Version: 1.6
 ;; Created: 2011-09-01
 ;; Keywords: convenience
 ;; EmacsWiki: InteractivelyDoThings

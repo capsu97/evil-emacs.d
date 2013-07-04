@@ -4,7 +4,7 @@
 
 
 ;;;### (autoloads nil nil ("nrepl-eval-sexp-fu-pkg.el" "nrepl-eval-sexp-fu.el")
-;;;;;;  (20828 33268 380284 0))
+;;;;;;  (20949 41149 166277 0))
 
 ;;;***
 

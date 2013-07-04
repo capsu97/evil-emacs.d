@@ -1,4 +1,5 @@
 ;;; helm-git.el --- Helm extension for Git.
+;; Version: 20120629.1358
 
 ;; Copyright (C) 2012 Marian Schubert
 

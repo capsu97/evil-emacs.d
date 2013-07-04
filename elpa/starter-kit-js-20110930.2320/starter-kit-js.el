@@ -4,7 +4,8 @@
 ;;
 ;; Author: Phil Hagelberg <technomancy@gmail.com>
 ;; URL: http://www.emacswiki.org/cgi-bin/wiki/StarterKit
-;; Version: 2.0
+;; Version: 20110930.2320
+;; X-Original-Version: 2.0
 ;; Keywords: convenience
 ;; Package-Requires: ((starter-kit "2.0.1"))
 

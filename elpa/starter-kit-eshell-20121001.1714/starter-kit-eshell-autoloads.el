@@ -5,7 +5,7 @@
 
 ;;;### (autoloads (eshell/extract eshell/cdg eshell/cdl eshell/cds
 ;;;;;;  eshell/cds) "starter-kit-eshell" "starter-kit-eshell.el"
-;;;;;;  (20886 4123 0 0))
+;;;;;;  (20949 41390 0 0))
 ;;; Generated autoloads from starter-kit-eshell.el
 
 (eval-after-load 'esh-opt '(progn (require 'em-prompt) (require 'em-term) (require 'em-cmpl) (setenv "PAGER" "cat") (set-face-attribute 'eshell-prompt nil :foreground "turquoise1") (add-hook 'eshell-mode-hook '(lambda nil (define-key eshell-mode-map "" 'eshell-bol))) (setq eshell-cmpl-cycle-completions nil) (add-to-list 'eshell-visual-commands "ssh") (add-to-list 'eshell-visual-commands "tail") (add-to-list 'eshell-command-completions-alist '("gunzip" "gz\\'")) (add-to-list 'eshell-command-completions-alist '("tar" "\\(\\.tar|\\.tgz\\|\\.tar\\.gz\\)\\'"))))
@@ -41,8 +41,8 @@ Change directory to the project's root.
 
 ;;;***
 
-;;;### (autoloads nil nil ("starter-kit-eshell-pkg.el") (20886 4123
-;;;;;;  393000 0))
+;;;### (autoloads nil nil ("starter-kit-eshell-pkg.el") (20949 41390
+;;;;;;  667741 0))
 
 ;;;***
 

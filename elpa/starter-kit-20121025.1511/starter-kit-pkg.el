@@ -1,4 +1,4 @@
-(define-package "starter-kit" "20121025.1511" "Saner defaults and goodies. [source: github]"
+(define-package "starter-kit" "20121025.1511" "Saner defaults and goodies. [github]"
   '((paredit "22")
     (idle-highlight-mode "1.1.1")
     (find-file-in-project "3.0")

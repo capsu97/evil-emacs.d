@@ -4,7 +4,8 @@
 
 ;; Author: Nathan Weizenbaum
 ;; URL: http://github.com/nex3/haml/tree/master
-;; Version: 3.0.15
+;; Version: 20101019.30
+;; X-Original-Version: 3.0.15
 ;; Created: 2007-03-15
 ;; By: Nathan Weizenbaum
 ;; Keywords: markup, language, css

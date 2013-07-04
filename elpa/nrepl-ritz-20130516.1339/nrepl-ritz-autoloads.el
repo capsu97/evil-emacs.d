@@ -4,7 +4,7 @@
 
 
 ;;;### (autoloads (nrepl-ritz-jack-in) "nrepl-ritz" "nrepl-ritz.el"
-;;;;;;  (20890 45558 0 0))
+;;;;;;  (20949 41074 0 0))
 ;;; Generated autoloads from nrepl-ritz.el
 
 (autoload 'nrepl-ritz-jack-in "nrepl-ritz" "\
@@ -16,7 +16,7 @@ start the server.
 
 ;;;***
 
-;;;### (autoloads nil nil ("nrepl-ritz-pkg.el") (20890 45558 592269
+;;;### (autoloads nil nil ("nrepl-ritz-pkg.el") (20949 41074 445319
 ;;;;;;  0))
 
 ;;;***

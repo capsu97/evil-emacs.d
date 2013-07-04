@@ -6,6 +6,7 @@
 ;;         Phil Hagelberg <technomancy@gmail.com>
 ;; URL: http://www.github.com/kingtim/nrepl.el
 ;; Version: 20130330.1126
+;; X-Original-Version: 0.1.8
 ;; Keywords: languages, clojure, nrepl
 ;; Package-Requires: ((clojure-mode "2.0.0"))
 

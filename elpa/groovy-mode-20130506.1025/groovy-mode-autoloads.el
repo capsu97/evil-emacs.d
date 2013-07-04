@@ -3,8 +3,8 @@
 ;;; Code:
 
 
-;;;### (autoloads (grails-mode) "grails-mode" "grails-mode.el" (20882
-;;;;;;  21938 0 0))
+;;;### (autoloads (grails-mode) "grails-mode" "grails-mode.el" (20949
+;;;;;;  41130 0 0))
 ;;; Generated autoloads from grails-mode.el
 
 (autoload 'grails-mode "grails-mode" "\
@@ -21,7 +21,7 @@ Grails Minor Mode.
 ;;;***
 
 ;;;### (autoloads (groovy-electric-mode) "groovy-electric" "groovy-electric.el"
-;;;;;;  (20882 21938 0 0))
+;;;;;;  (20949 41130 0 0))
 ;;; Generated autoloads from groovy-electric.el
 
 (autoload 'groovy-electric-mode "groovy-electric" "\
@@ -40,7 +40,7 @@ have Font Lock enabled. ${ } is expanded when in a GString
 ;;;***
 
 ;;;### (autoloads (groovy-mode groovy-mode-hook) "groovy-mode" "groovy-mode.el"
-;;;;;;  (20882 21938 0 0))
+;;;;;;  (20949 41130 0 0))
 ;;; Generated autoloads from groovy-mode.el
 
 (add-to-list 'auto-mode-alist '("\\.groovy$" . groovy-mode))
@@ -66,7 +66,7 @@ Key bindings:
 ;;;***
 
 ;;;### (autoloads (run-groovy inferior-groovy-mode inf-groovy-keys)
-;;;;;;  "inf-groovy" "inf-groovy.el" (20882 21938 0 0))
+;;;;;;  "inf-groovy" "inf-groovy.el" (20949 41130 0 0))
 ;;; Generated autoloads from inf-groovy.el
 
 (autoload 'inf-groovy-keys "inf-groovy" "\
@@ -125,7 +125,7 @@ of `groovy-program-name').  Runs the hooks `inferior-groovy-mode-hook'
 
 ;;;***
 
-;;;### (autoloads nil nil ("groovy-mode-pkg.el") (20882 21938 571121
+;;;### (autoloads nil nil ("groovy-mode-pkg.el") (20949 41130 274626
 ;;;;;;  0))
 
 ;;;***
