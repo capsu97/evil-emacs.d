@@ -25,21 +25,21 @@
 
 ;; Evil relative line numbers
 
-(defvar cofi/current-line 0
-  "Stores the current line before linum numbers the lines.")
+;(defvar cofi/current-line 0
+;  "Stores the current line before linum numbers the lines.")
 
-(defadvice linum-update (before set-current-line activate)
-  (setq cofi/current-line (line-number-at-pos)))
+;(defadvice linum-update (before set-current-line activate)
+;  (setq cofi/current-line (line-number-at-pos)))
 
-(defun cofi/relative-line (line-number)
-  (propertize (format "%2d" (abs (- line-number cofi/current-line)))
-              'face 'linum))
+;(defun cofi/relative-line (line-number)
+;  (propertize (format "%2d" (abs (- line-number cofi/current-line)))
+;              'face 'linum))
 
-(defface linum-current-line '((t (:bold t :background "#202020" :foreground "yellow")))
-  "Face linum uses for the current line"
-  :group 'linum)
+;(defface linum-current-line '((t (:bold t :background "#202020" :foreground "yellow")))
+;  "Face linum uses for the current line"
+;  :group 'linum)
 
-(setq linum-format #'cofi/relative-line)
+;(setq linum-format #'cofi/relative-line)
 
 ;; Hollow cursor
 ;;(setq evil-normal-state-cursor '("yellow" hollow))

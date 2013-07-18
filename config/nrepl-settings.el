@@ -25,7 +25,7 @@
 
 ;; turned off because of autocomplete not fully functional. have to
 ;check this out
-;(add-hook 'nrepl-interaction-mode-hook 'my-nrepl-mode-setup)
+(add-hook 'nrepl-interaction-mode-hook 'my-nrepl-mode-setup)
 
 ;; Clojure mode
 (add-hook 'clojure-mode-hook 'nrepl-interaction-mode)
@@ -49,7 +49,6 @@
 (define-key nrepl-interaction-mode-map (kbd "C-c C-d") 'ac-nrepl-popup-doc)
 
 ;; Javert object inspector https://github.com/technomancy/javert.git
-(load-file "~/.emacs.d/vendor/javert/nrepl-inspect.el")
-(define-key nrepl-interaction-mode-map (kbd "C-c i") 'nrepl-inspect)
+;(define-key nrepl-interaction-mode-map (kbd "C-c i") 'nrepl-inspect)
 
 (provide 'nrepl-settings)

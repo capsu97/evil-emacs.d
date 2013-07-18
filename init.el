@@ -67,6 +67,7 @@
 (require 'auto-complete-settings)
 (require 'yasnippet-settings)
 (require 'magit-settings)
+(require 'nrepl-inspect-settings)
 ;(server-start)
 
 (global-auto-revert-mode t)
