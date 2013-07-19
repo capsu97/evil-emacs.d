@@ -10,7 +10,7 @@ places
 backups/
 
 # elpa (automatically downloaded)
-# elpa/
+elpa/
 
 # eshell
 eshell/
