@@ -48,7 +48,4 @@
 ;; You might consider using ac-nrepl's popup documentation in place of nrepl-doc:
 (define-key nrepl-interaction-mode-map (kbd "C-c C-d") 'ac-nrepl-popup-doc)
 
-;; Javert object inspector https://github.com/technomancy/javert.git
-;(define-key nrepl-interaction-mode-map (kbd "C-c i") 'nrepl-inspect)
-
 (provide 'nrepl-settings)
