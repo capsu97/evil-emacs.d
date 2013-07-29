@@ -28,3 +28,7 @@ ac-comphist.dat
 
 # Smex
 .smex-items
+
+# persp-mode / workgroups
+.emacs-wg-session
+persp-confs/

@@ -27,8 +27,8 @@
 (defvar my-packages '(starter-kit starter-kit-lisp starter-kit-bindings starter-kit-eshell clojure-mode clojure-test-mode ace-jump-mode starter-kit-js paredit paredit-menu nrepl nrepl-ritz markdown-mode evil ac-nrepl color-theme
     evil-leader evil-numbers evil-paredit groovy-mode magit markdown-mode+ nrepl-eval-sexp-fu zencoding-mode surround linum-relative ido-ubiquitous rainbow-delimiters undo-tree helm
     projectile helm-projectile git-commit-mode gitconfig-mode gitignore-mode helm-git helm-themes molokai-theme skewer-mode js2-mode auto-complete web-mode ac-js2 yasnippet
-    clojure-snippets lein sass-mode workgroups2 browse-kill-ring dired+ expand-region
-    smartparens midje-mode multi-eshell multi-term)
+    clojure-snippets lein sass-mode browse-kill-ring dired+ expand-region
+    smartparens midje-mode multi-eshell multi-term persp-mode)
   "A list of packages to ensure are installed at launch.")
 
 (dolist (p my-packages)
@@ -71,7 +71,11 @@
 ;(server-start)
 
 ;; Paredit menu
-;(require 'paredit-menu)
+(require 'paredit-menu)
+
+;; persp-mode
+(persp-mode t)
+(setq wg-morph-on nil)
 
 (global-auto-revert-mode t)
 
