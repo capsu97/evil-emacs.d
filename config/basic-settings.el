@@ -56,7 +56,7 @@
 (put 'set-goal-column 'disabled nil) ; handy for moving down a column (always goes to the same position when set)
 
 ;; Line numbers
-(global-linum-mode t)
+;;(global-linum-mode t)
 
 ;; Recent files
 (recentf-mode 1)
