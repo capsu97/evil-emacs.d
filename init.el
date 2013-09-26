@@ -25,7 +25,7 @@
 
 ;; Add in your own as you wish:
 (defvar my-packages '(starter-kit starter-kit-lisp starter-kit-bindings starter-kit-eshell clojure-mode clojure-test-mode clojure-cheatsheet ace-jump-mode starter-kit-js paredit paredit-menu nrepl nrepl-ritz markdown-mode evil ac-nrepl color-theme org-jira
-    evil-leader evil-numbers evil-paredit groovy-mode magit markdown-mode+ nrepl-eval-sexp-fu zencoding-mode surround linum-relative ido-ubiquitous rainbow-delimiters undo-tree helm
+    evil-leader evil-numbers evil-paredit groovy-mode magit markdown-mode+ nrepl-eval-sexp-fu emmet-mode surround linum-relative ido-ubiquitous rainbow-delimiters undo-tree helm
     projectile helm-projectile git-commit-mode gitconfig-mode gitignore-mode helm-git helm-themes molokai-theme skewer-mode js2-mode auto-complete web-mode ac-js2 yasnippet
     clojure-snippets lein sass-mode browse-kill-ring dired+ expand-region
     smartparens midje-mode multi-eshell multi-term persp-mode)
@@ -69,6 +69,13 @@
 (require 'magit-settings)
 (require 'nrepl-inspect-settings)
 ;(server-start)
+
+
+;; Emmet mode
+(add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
+(add-hook 'css-mode-hook  'emmet-mode) ;; enable Emmet's css
+;; abbreviation
+(setq emmet-move-cursor-between-quotes t) ;; default nil
 
 ;; Paredit menu
 (require 'paredit-menu)
