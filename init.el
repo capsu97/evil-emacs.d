@@ -97,3 +97,12 @@
 
 (add-hook 'nrepl-repl-mode-hook 'hide-eol)
 (add-hook 'nrepl-popup-buffer-mode-hook 'hide-eol)
+
+;; Navigating Clojure with Helm
+(defun helm-clojure-headlines ()
+  "Display headlines for the current Clojure file."
+  (interactive)
+  (helm-mode t)
+  (helm :sources '(((name . "Clojure Headlines")
+                    (volatile)
+                    (headline "^[(]")))))
