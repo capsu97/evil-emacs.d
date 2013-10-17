@@ -3,6 +3,9 @@
 ;; Turn off highlighting words under cursor from starterkit
 ;(remove-hook 'prog-mode-hook 'idle-highlight-mode)
 
+; Truncate lines
+(set-default 'truncate-lines t)
+
 ; Smooth scrolling
 (setq scroll-step 1)
 (setq scroll-conservatively 10000)
