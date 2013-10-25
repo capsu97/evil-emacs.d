@@ -43,8 +43,8 @@
 (define-key evil-normal-state-map (kbd "M-K") 'evil-backward-section-begin)
 (define-key evil-normal-state-map (kbd "M-L") 'evil-forward-word-begin)
 
-(define-key evil-normal-state-map (kbd "M-.") 'nrepl-jump)
-(define-key evil-normal-state-map (kbd "M-,") 'nrepl-jump-back)
+(define-key evil-normal-state-map (kbd "M-.") 'cider-jump)
+(define-key evil-normal-state-map (kbd "M-,") 'cider-jump-back)
 
 (define-key evil-normal-state-map ",t" 'projectile-find-file)
 (define-key evil-normal-state-map ",pff" 'projectile-find-file)
@@ -66,8 +66,8 @@
 (define-key evil-normal-state-map ",h" 'helm-mini)
 (define-key evil-normal-state-map ",f" 'recentf-open-files)
 (define-key evil-normal-state-map ",l" 'ido-switch-buffer)
-(define-key evil-normal-state-map ",r" 'nrepl)
-(define-key evil-normal-state-map ",,r" 'nrepl-jack-in)
+(define-key evil-normal-state-map ",r" 'cider)
+(define-key evil-normal-state-map ",,r" 'cider-jack-in)
 (define-key evil-normal-state-map ",ut" 'undo-tree-visualize)
 
 (define-key evil-normal-state-map ",g" 'ace-jump-line-mode)
@@ -107,16 +107,16 @@
 (define-key evil-normal-state-map "\\j" 'paredit-join-sexps)
 (define-key evil-normal-state-map "\\rf" 'paredit-reindent-defun)
 (define-key evil-normal-state-map "\\rb" 'indent-whole-buffer)
-(define-key evil-normal-state-map "\\ef" 'nrepl-eval-expression-at-point)
-;(define-key evil-normal-state-map (kbd "<C-return>") 'nrepl-eval-expression-at-point)
-;(define-key evil-insert-state-map (kbd "<C-return>") 'nrepl-eval-expression-at-point)
-;(define-key evil-visual-state-map (kbd "<C-return>") 'nrepl-eval-region)
-(evil-define-key 'normal clojure-mode-map (kbd "<C-return>") 'nrepl-eval-expression-at-point)
-(evil-define-key 'insert clojure-mode-map (kbd "<C-return>") 'nrepl-eval-expression-at-point)
-(evil-define-key 'visual clojure-mode-map (kbd "<C-return>") 'nrepl-eval-region)
-(define-key evil-normal-state-map "\\es" 'nrepl-eval-last-expression)
-(define-key evil-normal-state-map "\\en" 'nrepl-eval-ns-form)
-(define-key evil-normal-state-map "\\eb" 'nrepl-load-current-buffer)
+(define-key evil-normal-state-map "\\ef" 'cider-eval-expression-at-point)
+;(define-key evil-normal-state-map (kbd "<C-return>") 'cider-eval-expression-at-point)
+;(define-key evil-insert-state-map (kbd "<C-return>") 'cider-eval-expression-at-point)
+;(define-key evil-visual-state-map (kbd "<C-return>") 'cider-eval-region)
+(evil-define-key 'normal clojure-mode-map (kbd "<C-return>") 'cider-eval-expression-at-point)
+(evil-define-key 'insert clojure-mode-map (kbd "<C-return>") 'cider-eval-expression-at-point)
+(evil-define-key 'visual clojure-mode-map (kbd "<C-return>") 'cider-eval-region)
+(define-key evil-normal-state-map "\\es" 'cider-eval-last-expression)
+(define-key evil-normal-state-map "\\en" 'cider-eval-ns-form)
+(define-key evil-normal-state-map "\\eb" 'cider-load-current-buffer)
 
 (define-key evil-normal-state-map "\\ew" 'delete-other-windows) ; expand window
 

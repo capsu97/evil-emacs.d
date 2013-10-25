@@ -24,10 +24,10 @@
   (package-refresh-contents))
 
 ;; Add in your own as you wish:
-(defvar my-packages '(starter-kit starter-kit-lisp starter-kit-bindings starter-kit-eshell clojure-mode clojure-test-mode clojure-cheatsheet ace-jump-mode starter-kit-js paredit paredit-menu nrepl nrepl-ritz markdown-mode evil ac-nrepl color-theme org-jira
-    evil-leader evil-numbers evil-paredit groovy-mode magit markdown-mode+ nrepl-eval-sexp-fu emmet-mode surround linum-relative ido-ubiquitous rainbow-delimiters undo-tree helm
+(defvar my-packages '(starter-kit starter-kit-lisp starter-kit-bindings starter-kit-eshell clojure-mode clojure-test-mode clojure-cheatsheet ace-jump-mode starter-kit-js paredit paredit-menu cider markdown-mode evil ac-nrepl color-theme org-jira
+    evil-leader evil-numbers evil-paredit groovy-mode magit markdown-mode+ emmet-mode surround linum-relative ido-ubiquitous rainbow-delimiters undo-tree helm
     projectile helm-projectile git-commit-mode gitconfig-mode gitignore-mode helm-git helm-themes molokai-theme skewer-mode js2-mode auto-complete web-mode ac-js2 yasnippet
-    clojure-snippets lein sass-mode browse-kill-ring dired+ expand-region
+    clojure-snippets sass-mode browse-kill-ring dired+ expand-region
     smartparens midje-mode multi-eshell multi-term persp-mode)
   "A list of packages to ensure are installed at launch.")
 
@@ -58,7 +58,7 @@
 (require 'basic-settings)
 (require 'rainbow-delimiters-settings)
 (require 'emacs-keybindings)
-(require 'nrepl-settings)
+(require 'cider-settings)
 (require 'ace-jump-settings)
 (require 'powerline-settings)
 (require 'evil-settings)
@@ -67,7 +67,7 @@
 (require 'auto-complete-settings)
 (require 'yasnippet-settings)
 (require 'magit-settings)
-(require 'nrepl-inspect-settings)
+;(require 'nrepl-inspect-settings)
 ;(server-start)
 
 
@@ -88,15 +88,6 @@
 
 (add-to-list 'default-frame-alist '(height . 50))
 (add-to-list 'default-frame-alist '(width . 180))
-
-(defun hide-eol ()
-  "Do not show ^M in files containing mixed UNIX and DOS line endings."
-  (interactive)
-  (setq buffer-display-table (make-display-table))
-  (aset buffer-display-table ?\^M []))
-
-(add-hook 'nrepl-repl-mode-hook 'hide-eol)
-(add-hook 'nrepl-popup-buffer-mode-hook 'hide-eol)
 
 ;; Navigating Clojure with Helm
 (defun helm-clojure-headlines ()
