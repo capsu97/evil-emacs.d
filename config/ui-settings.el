@@ -14,6 +14,7 @@
 
 ;(set-default-font "Menlo-14")
 ;(setq default-frame-alist '((font . "Inconsolata-dz-15")))
+(setq default-frame-alist '((font . "Inconsolata for Powerline-12")))
 
 (if (string= (symbol-name system-type) "windows-nt")
     (setq default-frame-alist '((font . "Consolas-11")))

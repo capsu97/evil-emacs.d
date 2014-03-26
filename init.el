@@ -1,12 +1,3 @@
-;; time the loading of the .emacs
-;; keep this on top of your .emacs
-(defvar *emacs-load-start* (current-time))
-(defun anarcat/time-to-ms (time)
-  (+ (* (+ (* (car time) (expt 2 16)) (car (cdr time))) 1000000) (car (cdr (cdr time)))))
-(defun anarcat/display-timing ()
-  (message ".emacs loaded in %fms" (/ (- (anarcat/time-to-ms (current-time)) (anarcat/time-to-ms *emacs-load-start*)) 1000000.0)))
-(add-hook 'after-init-hook 'anarcat/display-timing t)
-
 (when (string= system-name "VDI056-PRD")
   (setq url-proxy-services '(("http" . "proxy.eno.dom:8080"))))
 
@@ -24,11 +15,11 @@
   (package-refresh-contents))
 
 ;; Add in your own as you wish:
-(defvar my-packages '(starter-kit starter-kit-lisp starter-kit-bindings starter-kit-eshell clojure-mode clojure-test-mode clojure-cheatsheet ace-jump-mode starter-kit-js paredit paredit-menu cider markdown-mode evil ac-nrepl color-theme org-jira
-    evil-leader evil-numbers evil-paredit groovy-mode magit markdown-mode+ emmet-mode surround linum-relative ido-ubiquitous rainbow-delimiters undo-tree helm
-    projectile helm-projectile git-commit-mode gitconfig-mode gitignore-mode helm-git helm-themes molokai-theme skewer-mode js2-mode auto-complete web-mode ac-js2 yasnippet
+(defvar my-packages '(starter-kit starter-kit-lisp starter-kit-bindings clojure-mode clojure-test-mode clojure-cheatsheet ace-jump-mode starter-kit-js paredit paredit-menu cider markdown-mode evil color-theme org-jira
+    evil-leader evil-numbers evil-paredit magit markdown-mode+ emmet-mode surround linum-relative ido-ubiquitous rainbow-delimiters undo-tree helm ag gist
+    projectile helm-projectile git-commit-mode gitconfig-mode gitignore-mode helm-git helm-themes molokai-theme skewer-mode js2-mode company company-cider web-mode yasnippet
     clojure-snippets sass-mode browse-kill-ring dired+ expand-region
-    smartparens midje-mode multi-eshell multi-term persp-mode)
+    smartparens persp-mode)
   "A list of packages to ensure are installed at launch.")
 
 (dolist (p my-packages)
@@ -41,8 +32,6 @@
 (add-to-list 'load-path "~/.emacs.d/config/")
 
 (add-to-list 'auto-mode-alist '("\.cljs$" . clojure-mode))
-(require 'midje-mode)
-(add-hook 'clojure-mode-hook 'midje-mode)
 
 (add-hook 'sgml-mode-hook 'zencoding-mode) ;; Auto-start on any markup modes
 
@@ -85,9 +74,6 @@
 (setq wg-morph-on nil)
 
 (global-auto-revert-mode t)
-
-(add-to-list 'default-frame-alist '(height . 50))
-(add-to-list 'default-frame-alist '(width . 180))
 
 ;; Navigating Clojure with Helm
 (defun helm-clojure-headlines ()

@@ -1,44 +1,82 @@
 ;; Powerline
-;(require 'powerline)
-;(powerline-default)
-(add-to-list 'load-path "~/.emacs.d/vendor/emacs-powerline")
+
+(add-to-list 'load-path "~/.emacs.d/vendor/powerline")
 (require 'powerline)
 
-(setq powerline-arrow-shape 'arrow)
+;(powerline-evil-theme)
+(defun custom-evil-theme ()
+  "Setup the default mode-line."
+  (interactive)
+  (setq-default
+   mode-line-format
+   '("%e"
+     (:eval
+      (let* ((active (powerline-selected-window-active))
+             (mode-line (if active 'mode-line 'mode-line-inactive))
+             (face1 (if active 'powerline-active1 'powerline-inactive1))
+             (face2 (if active 'powerline-active2 'powerline-inactive2))
+             (face3 (if active 'powerline-active3 'powerline-inactive2))
+             (separator-left (intern (format "powerline-%s-%s"
+                                             powerline-default-separator
+                                             (car powerline-default-separator-dir))))
+             (separator-right (intern (format "powerline-%s-%s"
+                                              powerline-default-separator
+                                              (cdr powerline-default-separator-dir))))
+             (lhs
+              (append
+               (let ((evil-face (powerline-evil-face active)))
+                 (list 
+                  (powerline-raw (powerline-evil-tag) evil-face)
+                  (funcall separator-left evil-face face3)))
+               (list (powerline-raw " " face3)
+                     (powerline-raw mode-line-mule-info face3 'l)
+                     (powerline-client face3)
+                     (powerline-remote face3)
+                     (powerline-frame-id face3)
+                     (powerline-buffer-id face3 'l)
+                     (powerline-raw " " face3)
+                     (funcall separator-left face3 face2)
+                     (powerline-raw mode-line-modified face2 'l)
+                     (powerline-raw " " face2)
+                     (funcall separator-left face2 face1)
+                     (when (boundp 'erc-modified-channels-object)
+                       (powerline-raw erc-modified-channels-object face1 'l))
+                     (powerline-raw " " face1)
+                     (powerline-raw
+                      (if (and (boundp 'mode-line-debug-mode) mode-line-debug-mode)
+                          (mode-line-debug-control)
+                        " ")
+                      face1)
+                     (powerline-recursive-left face1)
+                     (powerline-major-mode face1)
+                     (powerline-process face1)
+                     ;(powerline-minor-modes face1 'l)
+                     (powerline-narrow face1 'l)
+                     (powerline-recursive-right face1)
+                     (powerline-raw " " face1)
+                     (funcall separator-left face1 face2)
+                     (powerline-vc face2 'r))))
+             (rhs
+              (append
+               (when (and (boundp 'which-function-mode) which-function-mode)
+                 (list
+                  (powerline-raw "[" face2)
+                  (powerline-which-func)
+                  (powerline-raw "]" face2)))
+               (list
+                (when (and (boundp 'wc-mode) wc-mode)
+                  (powerline-wc-mode face2 'r))
+                (funcall separator-right face2 face1)
+                (powerline-raw "  " face1)
+                (powerline-raw global-mode-string face1 'r)
+                (powerline-raw " " face1)
+                (funcall separator-right face1 face2)
+                (powerline-position face2 'r)
+                (powerline-hud face2 face1)))))
+        (concat (powerline-render lhs)
+                (powerline-fill face2 (powerline-width rhs))
+                (powerline-render rhs)))))))
 
-;; Setup colors
-;(setq powerline-color1 "#598559"
-;     powerline-color2 "#383838")
-(set-face-foreground 'mode-line "#030303")
-;(set-face-background 'mode-line "#f0dfaf")
-
-;; Setup modeline items
-(defun gcs-propertized-evil-mode-tag ()
-  (propertize evil-mode-line-tag 'font-lock-face
-    ;; Don't propertize if we're not in the selected buffer
-    (cond ((not (eq (current-buffer) (car (buffer-list)))) '())
-          ((evil-emacs-state-p)  '(:background "red"))
-          ((evil-motion-state-p) '(:background "orange"))
-          ((evil-visual-state-p) '(:background "IndianRed3" :foreground "white"))
-          ((evil-insert-state-p) '(:background "cornflower blue"))
-          (t '()))))
-
-(setq-default mode-line-format
-  (list "%e"
-    '(:eval (concat
-             (gcs-propertized-evil-mode-tag)
-             (powerline-rmw         'left   nil)
-             (powerline-buffer-id   'left   nil powerline-color1)
-             (powerline-major-mode  'left   powerline-color1)
-             (powerline-make-text   " :"   powerline-color1)
-             (powerline-minor-modes 'left   powerline-color1)
-             (powerline-narrow      'left   powerline-color1 powerline-color2)
-             (powerline-vc          'center powerline-color2)
-             (powerline-make-fill           powerline-color2)
-             (powerline-row         'right  powerline-color1 powerline-color2)
-             (powerline-make-text   ":"     powerline-color1)
-             (powerline-column      'right  powerline-color1)
-             (powerline-percent     'right  nil powerline-color1)
-             (powerline-make-text   "  "    nil)))))
+(custom-evil-theme)
 
 (provide 'powerline-settings)
