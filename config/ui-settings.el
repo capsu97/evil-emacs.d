@@ -2,19 +2,7 @@
 
 (global-font-lock-mode t)
 
-;(set-face-attribute 'default nil :family "Inconsolata" :height 180)
-
-;(if (string= (symbol-name system-type) "windows-nt")
-;    (set-default-font "-outline-Consolas-normal-normal-normal-mono-16-*-*-*-c-*-iso8859-1")
-;  (modify-frame-parameters nil '((wait-for-wm . nil))))
-
-;(if (string= (symbol-name system-type) "darwin")
-;    (set-default-font "-outline-Menlo-normal-normal-normal-mono-14-*-*-*-c-*-iso8859-1")
-;  (modify-frame-parameters nil '((wait-for-wm . nil))))
-
-;(set-default-font "Menlo-14")
-;(setq default-frame-alist '((font . "Inconsolata-dz-15")))
-(setq default-frame-alist '((font . "Inconsolata for Powerline-12")))
+(set-default-font "Meslo LG S DZ for Powerline-12")
 
 (if (string= (symbol-name system-type) "windows-nt")
     (setq default-frame-alist '((font . "Consolas-11")))
@@ -23,10 +11,6 @@
 (if (string= (symbol-name system-type) "darwin")
     (setq default-frame-alist '((font . "Menlo-14")))
     (modify-frame-parameters nil '((wait-for-wm . nil))))
-
-;(require 'color-theme)
-;(load-file "~/.emacs.d/themes/color-theme-railscasts.el")
-;(color-theme-railscasts)
 
 ;; Emacs 24
 ;(load-theme 'birds-of-paradise-plus t)

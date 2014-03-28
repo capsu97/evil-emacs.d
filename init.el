@@ -18,8 +18,8 @@
 (defvar my-packages '(starter-kit starter-kit-lisp starter-kit-bindings clojure-mode clojure-test-mode clojure-cheatsheet ace-jump-mode starter-kit-js paredit paredit-menu cider markdown-mode evil color-theme org-jira
     evil-leader evil-numbers evil-paredit magit markdown-mode+ emmet-mode surround linum-relative ido-ubiquitous rainbow-delimiters undo-tree helm ag gist
     projectile helm-projectile git-commit-mode gitconfig-mode gitignore-mode helm-git helm-themes molokai-theme skewer-mode js2-mode company company-cider web-mode yasnippet
-    clojure-snippets sass-mode browse-kill-ring dired+ expand-region
-    smartparens persp-mode)
+    clojure-snippets sass-mode browse-kill-ring dired+ expand-region clj-refactor ido-vertical-mode helm-dash helm-swoop swoop helm-ag evil-matchit
+    smartparens persp-mode sublime-themes diff-hl)
   "A list of packages to ensure are installed at launch.")
 
 (dolist (p my-packages)
@@ -56,9 +56,13 @@
 (require 'auto-complete-settings)
 (require 'yasnippet-settings)
 (require 'magit-settings)
+(require 'helm-settings)
+(require 'ag-settings)
 ;(require 'nrepl-inspect-settings)
 ;(server-start)
 
+;; diff-hl
+(global-diff-hl-mode)
 
 ;; Emmet mode
 (add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
@@ -75,11 +79,22 @@
 
 (global-auto-revert-mode t)
 
-;; Navigating Clojure with Helm
-(defun helm-clojure-headlines ()
-  "Display headlines for the current Clojure file."
-  (interactive)
-  (helm-mode t)
-  (helm :sources '(((name . "Clojure Headlines")
-                    (volatile)
-                    (headline "^[(]")))))
+(require 'ido-vertical-mode)
+(ido-vertical-mode 1)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes (quote ("0e121ff9bef6937edad8dfcff7d88ac9219b5b4f1570fd1702e546a80dba0832" "e26780280b5248eb9b2d02a237d9941956fc94972443b0f7aeec12b5c15db9f3" "33c5a452a4095f7e4f6746b66f322ef6da0e770b76c0ed98a438e76c497040bb" "90b5269aefee2c5f4029a6a039fb53803725af6f5c96036dee5dc029ff4dff60" default))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(rainbow-delimiters-depth-1-face ((t (:foreground "Grey55"))))
+ '(rainbow-delimiters-depth-2-face ((t (:foreground "Green"))))
+ '(rainbow-delimiters-depth-3-face ((t (:foreground "Magenta"))))
+ '(rainbow-delimiters-depth-4-face ((t (:foreground "Cyan"))))
+ '(rainbow-delimiters-depth-5-face ((t (:foreground "Red"))))
+ '(rainbow-delimiters-depth-6-face ((t (:foreground "Blue")))))

@@ -15,6 +15,13 @@
 
 ;; Motion
 (define-key evil-motion-state-map "\\" nil)
+(define-key evil-motion-state-map (kbd "SPC") 'evil-ace-jump-char-mode)
+(define-key evil-motion-state-map (kbd "C-SPC") 'evil-ace-jump-char-to-mode)
+(define-key evil-motion-state-map (kbd "M-i") 'helm-swoop-from-evil-search)
+
+;; Operator
+(define-key evil-operator-state-map (kbd "SPC") 'evil-ace-jump-char-mode)      ; similar to f
+;(define-key evil-operator-state-map (kbd "C-SPC") 'evil-ace-jump-char-to-mode) ; similar to t
 
 ;; Insert
 (define-key evil-insert-state-map "\C-e" nil)
@@ -70,9 +77,16 @@
 (define-key evil-normal-state-map ",,r" 'cider-jack-in)
 (define-key evil-normal-state-map ",ut" 'undo-tree-visualize)
 
-(define-key evil-normal-state-map ",g" 'ace-jump-line-mode)
-(define-key evil-normal-state-map (kbd "M-SPC") 'ace-jump-line-mode)
-(define-key evil-normal-state-map (kbd "SPC") 'ace-jump-char-mode)
+;;Make evil-mode up/down operate in screen lines instead of logical lines
+(define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
+(define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
+
+;;Not sure why this isn’t the default – it is in vim – but this makes C-u to go up half a page
+(define-key evil-normal-state-map (kbd "C-u") 'evil-scroll-up)
+
+;(define-key evil-normal-state-map ",g" 'evil-ace-jump-line-mode)
+;(define-key evil-normal-state-map (kbd "M-SPC") 'evil-ace-jump-line-mode)
+;(define-key evil-normal-state-map (kbd "SPC") 'evil-ace-jump-char-mode)
 
 (defun paredit-duplicate-after-point
   ()
