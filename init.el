@@ -15,11 +15,22 @@
   (package-refresh-contents))
 
 ;; Add in your own as you wish:
-(defvar my-packages '(starter-kit starter-kit-lisp starter-kit-bindings clojure-mode clojure-test-mode clojure-cheatsheet ace-jump-mode starter-kit-js paredit paredit-menu cider markdown-mode evil color-theme org-jira
-    evil-leader evil-numbers evil-paredit magit markdown-mode+ emmet-mode surround linum-relative ido-ubiquitous rainbow-delimiters undo-tree helm ag gist
-    projectile helm-projectile git-commit-mode gitconfig-mode gitignore-mode helm-git helm-themes molokai-theme skewer-mode js2-mode company company-cider web-mode yasnippet
-    clojure-snippets sass-mode browse-kill-ring dired+ expand-region clj-refactor ido-vertical-mode helm-dash helm-swoop swoop helm-ag evil-matchit
-    smartparens persp-mode sublime-themes diff-hl git-rebase-mode gitattributes-mode latest-clojure-libraries mark-multiple highlight-parentheses)
+(defvar my-packages '(starter-kit starter-kit-lisp starter-kit-bindings starter-kit-js
+                                  ido-ubiquitous undo-tree helm ag ido-vertical-mode company ido-select-window
+                                  clojure-mode clojure-test-mode clojure-cheatsheet ace-jump-mode
+                                  latest-clojure-libraries clj-refactor clojure-snippets datomic-snippets
+                                  paredit paredit-menu cider company-cider
+                                  markdown-mode markdown-mode+ 
+                                  evil evil-leader evil-numbers evil-paredit evil-matchit evil-indent-textobject
+                                  linum-relative rainbow-delimiters highlight-parentheses surround smartparens
+                                  color-theme org-jira
+                                  magit diff-hl git-rebase-mode gitattributes-mode git-commit-mode gitconfig-mode gitignore-mode
+                                  helm-git gist
+                                  emmet-mode skewer-mode js2-mode web-mode sass-mode
+                                  projectile helm-projectile helm-themes
+                                  molokai-theme yasnippet
+                                  browse-kill-ring dired+ expand-region helm-dash helm-swoop swoop helm-ag
+                                  persp-mode sublime-themes mark-multiple)
   "A list of packages to ensure are installed at launch.")
 
 (dolist (p my-packages)
@@ -66,6 +77,11 @@
 
 ;; diff-hl
 (global-diff-hl-mode)
+
+;; relative linum
+;(require 'linum-relative)
+;(global-linum-mode)
+;(linum-relative-toggle)
 
 ;; Emmet mode
 (add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes

@@ -39,8 +39,8 @@
 (define-key evil-insert-state-map (kbd "M-K") 'evil-backward-section-begin)
 (define-key evil-insert-state-map (kbd "M-L") 'evil-forward-word-begin)
 
-(define-key evil-insert-state-map (kbd "S-SPC") 'ace-jump-char-mode)
-(define-key evil-insert-state-map (kbd "M-SPC") 'ace-jump-line-mode)
+(define-key evil-insert-state-map (kbd "S-SPC") 'evil-ace-jump-char-mode)
+(define-key evil-insert-state-map (kbd "M-SPC") 'evil-ace-jump-line-mode)
 
 ;(define-key evil-insert-state-map (kbd "C-x") 'evil-execute-in-normal-state)
 
@@ -84,7 +84,7 @@
 ;;Not sure why this isn’t the default – it is in vim – but this makes C-u to go up half a page
 (define-key evil-normal-state-map (kbd "C-u") 'evil-scroll-up)
 
-;(define-key evil-normal-state-map ",g" 'evil-ace-jump-line-mode)
+(define-key evil-normal-state-map ",g" 'evil-ace-jump-line-mode)
 ;(define-key evil-normal-state-map (kbd "M-SPC") 'evil-ace-jump-line-mode)
 ;(define-key evil-normal-state-map (kbd "SPC") 'evil-ace-jump-char-mode)
 
