@@ -73,7 +73,7 @@
 (define-key evil-normal-state-map ",h" 'helm-mini)
 (define-key evil-normal-state-map ",f" 'recentf-open-files)
 (define-key evil-normal-state-map ",l" 'ido-switch-buffer)
-(define-key evil-normal-state-map ",r" 'cider)
+(define-key evil-normal-state-map ",r" 'cider-connect)
 (define-key evil-normal-state-map ",,r" 'cider-jack-in)
 (define-key evil-normal-state-map ",ut" 'undo-tree-visualize)
 
@@ -125,7 +125,7 @@
 (evil-define-key 'normal clojure-mode-map (kbd "<C-return>") 'cider-eval-defun-at-point)
 (evil-define-key 'insert clojure-mode-map (kbd "<C-return>") 'cider-eval-defun-at-point)
 (evil-define-key 'visual clojure-mode-map (kbd "<C-return>") 'cider-eval-region)
-(define-key evil-normal-state-map "\\es" 'cider-eval-last-expression)
+(define-key evil-normal-state-map "\\es" 'cider-eval-last-sexp)
 (define-key evil-normal-state-map "\\en" 'cider-eval-ns-form)
 (define-key evil-normal-state-map "\\eb" 'cider-load-current-buffer)
 

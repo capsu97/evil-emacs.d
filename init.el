@@ -19,7 +19,7 @@
     evil-leader evil-numbers evil-paredit magit markdown-mode+ emmet-mode surround linum-relative ido-ubiquitous rainbow-delimiters undo-tree helm ag gist
     projectile helm-projectile git-commit-mode gitconfig-mode gitignore-mode helm-git helm-themes molokai-theme skewer-mode js2-mode company company-cider web-mode yasnippet
     clojure-snippets sass-mode browse-kill-ring dired+ expand-region clj-refactor ido-vertical-mode helm-dash helm-swoop swoop helm-ag evil-matchit
-    smartparens persp-mode sublime-themes diff-hl)
+    smartparens persp-mode sublime-themes diff-hl git-rebase-mode gitattributes-mode latest-clojure-libraries mark-multiple highlight-parentheses)
   "A list of packages to ensure are installed at launch.")
 
 (dolist (p my-packages)
@@ -34,6 +34,9 @@
 (add-to-list 'auto-mode-alist '("\.cljs$" . clojure-mode))
 
 (add-hook 'sgml-mode-hook 'zencoding-mode) ;; Auto-start on any markup modes
+
+;; highlight surrounding parentheses
+(add-hook 'prog-mode-hook 'highlight-parentheses-mode)
 
 (defun indent-whole-buffer ()
   "indent whole buffer"
