@@ -32,3 +32,5 @@ ac-comphist.dat
 # persp-mode / workgroups
 .emacs-wg-session
 persp-confs/
+
+/session.*

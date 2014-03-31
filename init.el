@@ -30,7 +30,7 @@
                                   projectile helm-projectile helm-themes
                                   molokai-theme yasnippet
                                   browse-kill-ring dired+ expand-region helm-dash helm-swoop swoop helm-ag
-                                  persp-mode sublime-themes mark-multiple)
+                                  persp-mode sublime-themes mark-multiple zeal-at-point)
   "A list of packages to ensure are installed at launch.")
 
 (dolist (p my-packages)
