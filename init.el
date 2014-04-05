@@ -27,7 +27,7 @@
                                   helm-git gist helm-emmet iedit
                                   emmet-mode skewer-mode js2-mode web-mode sass-mode
                                   projectile helm-projectile helm-themes
-                                  molokai-theme yasnippet idomenu
+                                  molokai-theme yasnippet idomenu flx-ido
                                   browse-kill-ring dired+ expand-region helm-dash helm-swoop swoop helm-ag
                                   persp-mode sublime-themes multiple-cursors zeal-at-point)
   "A list of packages to ensure are installed at launch.")

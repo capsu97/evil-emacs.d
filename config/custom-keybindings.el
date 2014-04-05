@@ -1,9 +1,22 @@
 (require 'evil)
 
+;; use hippie expand instead of abbrev
+(global-set-key (kbd "M-/") 'hippie-expand)
+
+;; use regexp search by default
+(global-set-key (kbd "C-s") 'isearch-forward-regexp)
+(global-set-key (kbd "C-r") 'isearch-backward-regexp)
+(global-set-key (kbd "C-M-s") 'isearch-forward)
+(global-set-key (kbd "C-M-r") 'isearch-backward)
+
+;; using C-u for up already 
+(global-set-key (kbd "C-M-u") 'universal-argument)
+
 (global-set-key (kbd "M-x") 'smex)
 (global-set-key "\C-x\C-m" 'smex)
 (global-set-key "\C-c\C-m" 'smex-major-mode-commands)
-(global-set-key (kbd "C-x C-i") 'imenu)
+(global-set-key (kbd "C-x C-i") 'idomenu)
+(global-set-key (kbd "C-x C-b") 'ibuffer)
 
 (define-key global-map (kbd "C-+") 'text-scale-increase)
 (define-key global-map (kbd "C--") 'text-scale-decrease)
@@ -24,8 +37,6 @@
 (global-set-key (kbd "M-=") 'er/expand-region)
 
 (global-set-key (kbd "C-x o") 'ido-select-window)
-
-(defalias 'qrr 'query-replace-regexp)
 
 ;;; esc quits
 
@@ -110,9 +121,6 @@
 ;;Make evil-mode up/down operate in screen lines instead of logical lines
 (define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
 (define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
-
-;;Not sure why this isn’t the default – it is in vim – but this makes C-u to go up half a page
-(define-key evil-normal-state-map (kbd "C-u") 'evil-scroll-up)
 
 (define-key evil-normal-state-map ", " 'evil-ace-jump-line-mode)
 ;(define-key evil-normal-state-map (kbd "M-SPC") 'evil-ace-jump-line-mode)

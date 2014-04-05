@@ -38,6 +38,7 @@
 
 (setq
     inhibit-startup-message   t   ; Don't want any startup message
+    gc-cons-threshold 20000000
     make-backup-files         nil ; Don't want any backup files
     auto-save-list-file-name  nil ; Don't want any .saves files
     auto-save-default         nil ; Don't want any auto saving
@@ -48,6 +49,10 @@
     mouse-sel-retain-highlight t ; Keep mouse high-lightening
     ;next-line-add-newlines     t
     read-file-name-completion-ignore-case t
+    x-select-enable-clipboard t
+    x-select-enable-primary t
+    save-interprogram-paste-before-kill t
+    apropos-do-all t
     read-buffer-completion-ignore-case t
     completion-auto-help 'lazy
     isearch-resume-in-command-history t
@@ -108,16 +113,27 @@
 (delete-selection-mode 1)
 
 ;; ido-mode is like magic pixie dust!
-(ido-mode t)
-(ido-ubiquitous-mode)
 (setq ido-enable-prefix nil
       ido-enable-flex-matching t
       ido-auto-merge-work-directories-length nil
       ido-create-new-buffer 'always
       ido-use-filename-at-point 'guess
       ido-use-virtual-buffers t
+      ido-enable-regexp nil
+      ido-enable-last-directory-history nil
       ido-handle-duplicate-virtual-buffers 2
-      ido-max-prospects 10)
+      confirm-nonexistent-file-or-buffer nil
+      ido-file-extension-order '(".clj" ".cljs" ".el" ".org" ".txt")
+      ido-ignore-buffers '("\\` " "^\*")
+      ido-max-prospects 10
+      ido-use-faces nil ;; disable ido faces to see flx highlights
+      flx-ido-use-faces t ;; enable flx highlights
+      )
+
+(require 'flx-ido)
+(ido-mode t)
+(ido-ubiquitous-mode)
+(flx-ido-mode 1)
 
 (set-default 'indent-tabs-mode nil)
 (set-default 'imenu-auto-rescan t)
