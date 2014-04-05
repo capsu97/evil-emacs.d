@@ -15,8 +15,7 @@
   (package-refresh-contents))
 
 ;; Add in your own as you wish:
-(defvar my-packages '(starter-kit starter-kit-lisp starter-kit-bindings starter-kit-js
-                                  ido-ubiquitous undo-tree helm ag ido-vertical-mode company ido-select-window
+(defvar my-packages '(ido-ubiquitous undo-tree helm ag ido-vertical-mode company ido-select-window
                                   clojure-mode clojure-test-mode clojure-cheatsheet ace-jump-mode
                                   latest-clojure-libraries clj-refactor clojure-snippets datomic-snippets
                                   paredit paredit-menu cider company-cider
@@ -25,81 +24,37 @@
                                   linum-relative rainbow-delimiters highlight-parentheses surround smartparens
                                   color-theme org-jira
                                   magit diff-hl git-rebase-mode gitattributes-mode git-commit-mode gitconfig-mode gitignore-mode
-                                  helm-git gist
+                                  helm-git gist helm-emmet iedit
                                   emmet-mode skewer-mode js2-mode web-mode sass-mode
                                   projectile helm-projectile helm-themes
-                                  molokai-theme yasnippet
+                                  molokai-theme yasnippet idomenu
                                   browse-kill-ring dired+ expand-region helm-dash helm-swoop swoop helm-ag
-                                  persp-mode sublime-themes mark-multiple zeal-at-point)
+                                  persp-mode sublime-themes multiple-cursors zeal-at-point)
   "A list of packages to ensure are installed at launch.")
 
 (dolist (p my-packages)
   (when (not (package-installed-p p))
     (package-install p)))
 
-;(add-to-list 'default-frame-alist '(height . 50))
-;(add-to-list 'default-frame-alist '(width . 140))
-
 (add-to-list 'load-path "~/.emacs.d/config/")
 
-(add-to-list 'auto-mode-alist '("\.cljs$" . clojure-mode))
-
-(add-hook 'sgml-mode-hook 'zencoding-mode) ;; Auto-start on any markup modes
-
-;; highlight surrounding parentheses
-(add-hook 'prog-mode-hook 'highlight-parentheses-mode)
-
-(defun indent-whole-buffer ()
-  "indent whole buffer"
-  (interactive)
-  (delete-trailing-whitespace)
-  (indent-region (point-min) (point-max) nil)
-  (untabify (point-min) (point-max)))
-
-(require 'web-mode-settings)
-(require 'ui-settings)
+(require 'uniquify)
+(require 'custom-defuns)
 (require 'basic-settings)
-(require 'rainbow-delimiters-settings)
-(require 'emacs-keybindings)
-(require 'cider-settings)
+(require 'webdevelopment-settings)
+(require 'ui-settings)
+(require 'lisp-settings)
 (require 'ace-jump-settings)
-(require 'powerline-settings)
 (require 'evil-settings)
-(require 'evil-keybindings)
 (require 'projectile-settings)
 (require 'auto-complete-settings)
 (require 'yasnippet-settings)
 (require 'magit-settings)
 (require 'helm-settings)
 (require 'ag-settings)
-;(require 'nrepl-inspect-settings)
+(require 'custom-keybindings)
 ;(server-start)
 
-;; diff-hl
-(global-diff-hl-mode)
-
-;; relative linum
-;(require 'linum-relative)
-;(global-linum-mode)
-;(linum-relative-toggle)
-
-;; Emmet mode
-(add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
-(add-hook 'css-mode-hook  'emmet-mode) ;; enable Emmet's css
-;; abbreviation
-(setq emmet-move-cursor-between-quotes t) ;; default nil
-
-;; Paredit menu
-(require 'paredit-menu)
-
-;; persp-mode
-(persp-mode t)
-(setq wg-morph-on nil)
-
-(global-auto-revert-mode t)
-
-(require 'ido-vertical-mode)
-(ido-vertical-mode 1)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

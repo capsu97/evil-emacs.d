@@ -1,7 +1,22 @@
-;; Turn off hl-line-mode from starterkit
-(remove-hook 'prog-mode-hook 'esk-turn-on-hl-line-mode)
-;; Turn off highlighting words under cursor from starterkit
-;(remove-hook 'prog-mode-hook 'idle-highlight-mode)
+(add-hook 'prog-mode-hook 'esk-local-column-number-mode)
+(add-hook 'prog-mode-hook 'esk-local-comment-auto-fill)
+(add-hook 'prog-mode-hook 'esk-turn-on-save-place-mode)
+(add-hook 'prog-mode-hook 'esk-pretty-lambdas)
+(add-hook 'prog-mode-hook 'esk-add-watchwords)
+(add-hook 'prog-mode-hook 'idle-highlight-mode)
+
+;; diff-hl
+(global-diff-hl-mode)
+
+;; Emmet mode
+(add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
+(add-hook 'css-mode-hook  'emmet-mode) ;; enable Emmet's css
+;; abbreviation
+(setq emmet-move-cursor-between-quotes t) ;; default nil
+
+;; smex
+(setq smex-save-file (concat user-emacs-directory ".smex-items"))
+(smex-initialize)
 
 ; Truncate lines
 (set-default 'truncate-lines t)
@@ -17,6 +32,9 @@
 
 ; Delete selected/highlighted text
 (delete-selection-mode t)
+
+(mouse-wheel-mode t)
+(blink-cursor-mode -1)
 
 (setq
     inhibit-startup-message   t   ; Don't want any startup message
@@ -36,9 +54,24 @@
     kill-read-only-ok t
     isearch-allow-scroll t
     visible-bell nil
+    color-theme-is-global t
+    sentence-end-double-space nil
+    shift-select-mode nil
+    mouse-yank-at-point t
+    uniquify-buffer-name-style 'forward
+    whitespace-style '(face trailing lines-tail tabs)
+    whitespace-line-column 80
+    ediff-window-setup-function 'ediff-setup-windows-plain
+    save-place-file (concat user-emacs-directory "places")
+    diff-switches "-u"
     ;kill-do-not-save-duplicates t)
     ;require-final-newline t)
     frame-title-format '("%b %+%+ %f"))
+
+(add-to-list 'safe-local-variable-values '(lexical-binding . t))
+(add-to-list 'safe-local-variable-values '(whitespace-line-column . 80))
+
+(setq browse-url-browser-function 'browse-url-firefox)
 
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1)) ; turn off the toolbar
 (column-number-mode 1) ; show the column number
@@ -48,8 +81,6 @@
 (global-subword-mode 1) ; moving cursor in CamelCaseWords
 (blink-cursor-mode 0) ; blinking cursor
 (set-default 'indicate-empty-lines nil) ; don't indicate empty lines
-; (set-default 'cursor-type 'bar)
-;; (set-default 'cursor-type '(bar . 2))
 
 (fset 'yes-or-no-p 'y-or-n-p)
 
@@ -58,12 +89,12 @@
 
 (put 'set-goal-column 'disabled nil) ; handy for moving down a column (always goes to the same position when set)
 
-;; Line numbers
-;;(global-linum-mode t)
-
 ;; Recent files
 (recentf-mode 1)
 (setq recentf-max-menu-items 25)
+
+;; Highlight matching parentheses when the point is on them.
+(show-paren-mode 1)
 
 (setq show-paren-delay 0)
 ;(setq show-paren-style 'mixed)
@@ -75,5 +106,38 @@
 
 ;; Allow replacement of selected region or deletion of selected region by typing or using DEL
 (delete-selection-mode 1)
+
+;; ido-mode is like magic pixie dust!
+(ido-mode t)
+(ido-ubiquitous-mode)
+(setq ido-enable-prefix nil
+      ido-enable-flex-matching t
+      ido-auto-merge-work-directories-length nil
+      ido-create-new-buffer 'always
+      ido-use-filename-at-point 'guess
+      ido-use-virtual-buffers t
+      ido-handle-duplicate-virtual-buffers 2
+      ido-max-prospects 10)
+
+(set-default 'indent-tabs-mode nil)
+(set-default 'imenu-auto-rescan t)
+
+(add-hook 'text-mode-hook 'turn-on-auto-fill)
+
+(defalias 'auto-tail-revert-mode 'tail-mode)
+
+(random t) ;; Seed the random-number generator
+
+(require 'ido-vertical-mode)
+(ido-vertical-mode 1)
+
+(global-auto-revert-mode t)
+
+;; persp-mode
+(persp-mode t)
+(setq wg-morph-on nil)
+
+;; highlight surrounding parentheses
+(add-hook 'prog-mode-hook 'highlight-parentheses-mode)
 
 (provide 'basic-settings)

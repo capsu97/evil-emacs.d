@@ -27,13 +27,4 @@
 ;; If nil, you can slightly boost invoke speed in exchange for text color
 (setq helm-swoop-speed-or-color t)
 
-;; Navigating Clojure with Helm
-(defun helm-clojure-headlines ()
-  "Display headlines for the current Clojure file."
-  (interactive)
-  (helm-mode t)
-  (helm :sources '(((name . "Clojure Headlines")
-                    (volatile)
-                    (headline "^[(]")))))
-
 (provide 'helm-settings)

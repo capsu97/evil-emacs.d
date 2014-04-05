@@ -1,5 +1,8 @@
 (require 'web-mode)
 
+;; use zencoding
+(add-hook 'sgml-mode-hook 'zencoding-mode) ;; Auto-start on any markup modes
+
 (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.jsp\\'" . web-mode))
@@ -45,4 +48,24 @@
 (add-hook 'web-mode-hook 'web-mode-hook-settings)
 (add-hook 'web-mode-hook 'font-lock-mode)
 
-(provide 'web-mode-settings)
+;; ENHANCE JAVASCRIPT
+
+;; use js mode for json files
+(add-to-list 'auto-mode-alist '("\\.json$" . js-mode))
+
+(eval-after-load 'js
+  '(progn (define-key js-mode-map "{" 'paredit-open-curly)
+          (define-key js-mode-map "}" 'paredit-close-curly-and-newline)
+          (add-hook 'js-mode-hook 'esk-paredit-nonlisp)
+          (setq js-indent-level 2)
+          ;; fixes problem with pretty function font-lock
+          (define-key js-mode-map (kbd ",") 'self-insert-command)
+          (font-lock-add-keywords
+           'js-mode `(("\\(function *\\)("
+                       (0 (progn (compose-region (match-beginning 1)
+                                                 (match-end 1) "\u0192")
+                                 nil)))))))
+
+;;-------------------------------------------------------
+
+(provide 'webdevelopment-settings)

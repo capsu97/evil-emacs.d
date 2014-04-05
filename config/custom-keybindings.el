@@ -1,5 +1,32 @@
 (require 'evil)
 
+(global-set-key (kbd "M-x") 'smex)
+(global-set-key "\C-x\C-m" 'smex)
+(global-set-key "\C-c\C-m" 'smex-major-mode-commands)
+(global-set-key (kbd "C-x C-i") 'imenu)
+
+(define-key global-map (kbd "C-+") 'text-scale-increase)
+(define-key global-map (kbd "C--") 'text-scale-decrease)
+
+(global-set-key (kbd "C-c r") 'revert-buffer)
+
+;; Help should search more than just commands
+(define-key 'help-command "a" 'apropos)
+
+;; Lisp
+(define-key read-expression-map (kbd "TAB") 'lisp-complete-symbol)
+(define-key lisp-mode-shared-map (kbd "RET") 'reindent-then-newline-and-indent)
+
+;; Use helm for opening files
+;;(global-set-key "\C-x\C-f" 'helm-mini)
+
+(global-set-key (kbd "C-=") 'ot-mark-outside-pairs)
+(global-set-key (kbd "M-=") 'er/expand-region)
+
+(global-set-key (kbd "C-x o") 'ido-select-window)
+
+(defalias 'qrr 'query-replace-regexp)
+
 ;;; esc quits
 
 (define-key evil-normal-state-map [escape] 'keyboard-quit)
@@ -71,11 +98,14 @@
 (define-key evil-normal-state-map ",pa" 'projectile-ack)
 (define-key evil-normal-state-map ",pg" 'projectile-grep)
 (define-key evil-normal-state-map ",h" 'helm-mini)
-(define-key evil-normal-state-map ",f" 'recentf-open-files)
+(define-key evil-normal-state-map ",rf" 'recentf-open-files)
 (define-key evil-normal-state-map ",l" 'ido-switch-buffer)
-(define-key evil-normal-state-map ",r" 'cider-connect)
-(define-key evil-normal-state-map ",,r" 'cider-jack-in)
+(define-key evil-normal-state-map ",cc" 'cider-connect)
+(define-key evil-normal-state-map ",cj" 'cider-jack-in)
 (define-key evil-normal-state-map ",ut" 'undo-tree-visualize)
+(define-key evil-normal-state-map ",c" 'helm-clojure-headlines)
+(define-key evil-normal-state-map ",x" 'smex)
+(define-key evil-normal-state-map ",g" 'helm-imenu)
 
 ;;Make evil-mode up/down operate in screen lines instead of logical lines
 (define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
@@ -84,30 +114,9 @@
 ;;Not sure why this isn’t the default – it is in vim – but this makes C-u to go up half a page
 (define-key evil-normal-state-map (kbd "C-u") 'evil-scroll-up)
 
-(define-key evil-normal-state-map ",g" 'evil-ace-jump-line-mode)
+(define-key evil-normal-state-map ", " 'evil-ace-jump-line-mode)
 ;(define-key evil-normal-state-map (kbd "M-SPC") 'evil-ace-jump-line-mode)
 ;(define-key evil-normal-state-map (kbd "SPC") 'evil-ace-jump-char-mode)
-
-(defun paredit-duplicate-after-point
-  ()
-  "Duplicates the content of the line that is after the point."
-  (interactive)
-  ;; skips to the next sexp
-  (while (looking-at " ")
-    (forward-char))
-  (set-mark-command nil)
-  ;; while we find sexps we move forward on the line
-  (while (and (bounds-of-thing-at-point 'sexp)
-              (<= (point) (car (bounds-of-thing-at-point 'sexp)))
-              (not (= (point) (line-end-position))))
-    (forward-sexp)
-    (while (looking-at " ")
-      (forward-char)))
-  (kill-ring-save (mark) (point))
-  ;; go to the next line and copy the sexprs we encountered
-  (paredit-newline)
-  (yank)
-  (exchange-point-and-mark))
 
 (define-key evil-normal-state-map "\\q" '(lambda () (kill-buffer "*nREPL error*")))
 (define-key evil-normal-state-map "\\wr" 'paredit-wrap-round)
@@ -150,13 +159,7 @@
 ;(evil-declare-key 'normal org-mode-map "T" 'org-todo)
 ;(evil-declare-key 'normal org-mode-map "-" 'org-cycle-list-bullet)
 
-(defun evil-paredit-comment-dwim ()
-  (interactive)
-  (progn
-    (evil-change-state 'insert)
-    (paredit-comment-dwim)))
-
 ;; Evil window movements
 (global-set-key "\C-w" 'evil-window-map)
 
-(provide 'evil-keybindings)
+(provide 'custom-keybindings)
