@@ -53,13 +53,15 @@
 
 ;; Motion
 (define-key evil-motion-state-map "\\" nil)
-(define-key evil-motion-state-map (kbd "SPC") 'evil-ace-jump-char-mode)
-(define-key evil-motion-state-map (kbd "C-SPC") 'evil-ace-jump-char-to-mode)
+(define-key evil-motion-state-map " " nil)
+(define-key evil-motion-state-map "  " 'evil-ace-jump-char-mode)
+(define-key evil-motion-state-map " t" 'evil-ace-jump-char-to-mode)
 (define-key evil-motion-state-map (kbd "M-i") 'helm-swoop-from-evil-search)
 
 ;; Operator
-(define-key evil-operator-state-map (kbd "SPC") 'evil-ace-jump-char-mode)      ; similar to f
-;(define-key evil-operator-state-map (kbd "C-SPC") 'evil-ace-jump-char-to-mode) ; similar to t
+(define-key evil-operator-state-map " " nil)      ; similar to f
+(define-key evil-operator-state-map "  " 'evil-ace-jump-char-mode)      ; similar to f
+(define-key evil-operator-state-map " t" 'evil-ace-jump-char-to-mode) ; similar to t
 
 ;; Insert
 (define-key evil-insert-state-map "\C-e" nil)
@@ -77,12 +79,12 @@
 (define-key evil-insert-state-map (kbd "M-K") 'evil-backward-section-begin)
 (define-key evil-insert-state-map (kbd "M-L") 'evil-forward-word-begin)
 
-(define-key evil-insert-state-map (kbd "S-SPC") 'evil-ace-jump-char-mode)
-(define-key evil-insert-state-map (kbd "M-SPC") 'evil-ace-jump-line-mode)
-
 ;(define-key evil-insert-state-map (kbd "C-x") 'evil-execute-in-normal-state)
 
 ;; Normal
+(define-key evil-normal-state-map " l" 'evil-ace-jump-line-mode)
+(define-key evil-normal-state-map " m" 'evil-jump-item)
+
 (define-key evil-normal-state-map (kbd "M-H") 'evil-backward-word-begin)
 (define-key evil-normal-state-map (kbd "M-J") 'evil-forward-section-begin)
 (define-key evil-normal-state-map (kbd "M-K") 'evil-backward-section-begin)
@@ -117,14 +119,11 @@
 (define-key evil-normal-state-map ",c" 'helm-clojure-headlines)
 (define-key evil-normal-state-map ",x" 'smex)
 (define-key evil-normal-state-map ",g" 'helm-imenu)
+(define-key evil-normal-state-map ",sa" 'mark-whole-buffer)
 
 ;;Make evil-mode up/down operate in screen lines instead of logical lines
 (define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
 (define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
-
-(define-key evil-normal-state-map ", " 'evil-ace-jump-line-mode)
-;(define-key evil-normal-state-map (kbd "M-SPC") 'evil-ace-jump-line-mode)
-;(define-key evil-normal-state-map (kbd "SPC") 'evil-ace-jump-char-mode)
 
 (define-key evil-normal-state-map "\\q" '(lambda () (kill-buffer "*nREPL error*")))
 (define-key evil-normal-state-map "\\wr" 'paredit-wrap-round)
@@ -162,6 +161,7 @@
 
 ;; Visual
 (define-key evil-visual-state-map "\\W" 'paredit-wrap-round)
+(define-key evil-visual-state-map ",x" 'smex)
 
 ;; Other modes
 ;(evil-declare-key 'normal org-mode-map "T" 'org-todo)

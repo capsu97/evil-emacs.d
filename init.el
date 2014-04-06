@@ -24,7 +24,7 @@
                                   linum-relative rainbow-delimiters highlight-parentheses surround smartparens
                                   color-theme org-jira
                                   magit diff-hl git-rebase-mode gitattributes-mode git-commit-mode gitconfig-mode gitignore-mode
-                                  helm-git gist helm-emmet iedit
+                                  helm-git gist helm-emmet
                                   emmet-mode skewer-mode js2-mode web-mode sass-mode
                                   projectile helm-projectile helm-themes
                                   molokai-theme yasnippet idomenu flx-ido

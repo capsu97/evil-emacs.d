@@ -115,6 +115,7 @@
 ;; ido-mode is like magic pixie dust!
 (setq ido-enable-prefix nil
       ido-enable-flex-matching t
+      ido-case-fold  t                 ; be case-insensitive
       ido-auto-merge-work-directories-length nil
       ido-create-new-buffer 'always
       ido-use-filename-at-point 'guess
@@ -125,9 +126,10 @@
       confirm-nonexistent-file-or-buffer nil
       ido-file-extension-order '(".clj" ".cljs" ".el" ".org" ".txt")
       ido-ignore-buffers '("\\` " "^\*")
-      ido-max-prospects 10
+      ido-max-prospects 15
       ido-use-faces nil ;; disable ido faces to see flx highlights
       flx-ido-use-faces t ;; enable flx highlights
+      ido-vertical-define-keys 'C-n-C-p-up-down-left-right
       )
 
 (require 'flx-ido)
@@ -147,7 +149,12 @@
 (require 'ido-vertical-mode)
 (ido-vertical-mode 1)
 
+;; Auto refresh buffers
 (global-auto-revert-mode t)
+
+;; Also auto refresh dired, but be quiet about it
+(setq global-auto-revert-non-file-buffers t)
+(setq auto-revert-verbose nil)
 
 ;; persp-mode
 (persp-mode t)
