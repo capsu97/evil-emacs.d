@@ -8,28 +8,37 @@
 ;(add-to-list 'package-archives
 ;    '("marmalade" .
 ;      "http://marmalade-repo.org/packages/"))
-
+(setq package-enable-at-startup t)
 (package-initialize)
 
 (when (not package-archive-contents)
   (package-refresh-contents))
 
 ;; Add in your own as you wish:
-(defvar my-packages '(ido-ubiquitous undo-tree helm ag ido-vertical-mode company ido-select-window
-                                  clojure-mode clojure-test-mode clojure-cheatsheet ace-jump-mode
-                                  latest-clojure-libraries clj-refactor clojure-snippets datomic-snippets
-                                  paredit paredit-menu cider company-cider
-                                  markdown-mode markdown-mode+ 
-                                  evil evil-leader evil-numbers evil-paredit evil-matchit evil-indent-textobject
-                                  linum-relative rainbow-delimiters highlight-parentheses surround smartparens
-                                  color-theme org-jira
-                                  magit diff-hl git-rebase-mode gitattributes-mode git-commit-mode gitconfig-mode gitignore-mode
-                                  helm-git gist helm-emmet
-                                  emmet-mode skewer-mode js2-mode web-mode sass-mode
-                                  projectile helm-projectile helm-themes
-                                  molokai-theme yasnippet idomenu flx-ido
-                                  browse-kill-ring dired+ expand-region helm-dash helm-swoop swoop helm-ag
-                                  persp-mode sublime-themes multiple-cursors zeal-at-point)
+(defvar my-packages '(ido-ubiquitous ido-vertical-mode ido-select-window flx-ido idomenu helm ; mini-buffer on steroids (fuzzy completion etc)
+                                     undo-tree ; visualize undo as a tree (extremely handy)
+                                     company ; autocomplete
+                                     ag helm-swoop swoop helm-ag ; search / grep
+                                     clojure-mode clojure-test-mode clojure-cheatsheet clj-refactor ; clojure
+                                     latest-clojure-libraries cider company-cider ; clojure
+                                     ace-jump-mode ; move quickly around buffers (see vim EasyMotion as well)
+                                     markdown-mode markdown-mode+ ; markdown
+                                     evil evil-leader evil-numbers evil-paredit evil-matchit evil-indent-textobject surround ; evil vim emulation
+                                     rainbow-delimiters highlight-parentheses smartparens paredit paredit-menu ; working with parens / delimiters
+                                     color-theme sublime-themes molokai-theme helm-themes ; color themes
+                                     git-rebase-mode gitattributes-mode git-commit-mode gitconfig-mode gitignore-mode ; git file modes
+                                     helm-git gist magit diff-hl ; git integration
+                                     helm-emmet emmet-mode skewer-mode js2-mode js2-refactor web-mode sass-mode ; web development
+                                     projectile helm-projectile ; moving around in projects
+                                     yasnippet clojure-snippets datomic-snippets ; snippets
+                                     helm-dash ; search docs with Dash (MacOSX)
+                                     zeal-at-point ; search docs with Zeal (linux)
+                                     browse-kill-ring ; list / select / insert previously killed text
+                                     dired+ ; directory editor addon
+                                     expand-region ; easily select regions around point
+                                     persp-mode ; per project window config
+                                     multiple-cursors ; multiple cursors a la Sublime Text
+                                     )
   "A list of packages to ensure are installed at launch.")
 
 (dolist (p my-packages)
