@@ -2,6 +2,7 @@
   (setq url-proxy-services '(("http" . "proxy.eno.dom:8080"))))
 
 (require 'package)
+(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.milkbox.net/packages/") t)
 
@@ -15,12 +16,13 @@
   (package-refresh-contents))
 
 ;; Add in your own as you wish:
-(defvar my-packages '(ido-ubiquitous ido-vertical-mode ido-select-window flx-ido idomenu helm ; mini-buffer on steroids (fuzzy completion etc)
+(defvar my-packages '(ido-ubiquitous ido-vertical-mode ido-select-window flx-ido idomenu helm smex ; mini-buffer on steroids (fuzzy completion etc)
+                                     org-plus-contrib ; latest org-mode
                                      undo-tree ; visualize undo as a tree (extremely handy)
                                      company ; autocomplete
                                      ag helm-swoop swoop helm-ag ; search / grep
                                      clojure-mode clojure-test-mode clojure-cheatsheet clj-refactor ; clojure
-                                     latest-clojure-libraries cider company-cider ; clojure
+                                     latest-clojure-libraries cider company-cider cider-tracing ; clojure
                                      ace-jump-mode ; move quickly around buffers (see vim EasyMotion as well)
                                      markdown-mode markdown-mode+ ; markdown
                                      evil evil-leader evil-numbers evil-paredit evil-matchit evil-indent-textobject surround ; evil vim emulation
