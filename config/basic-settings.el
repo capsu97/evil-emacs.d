@@ -15,6 +15,9 @@
 ;; Treat clipboard input as UTF-8 string first; compound text next, etc.
 (setq x-select-request-type '(UTF8_STRING COMPOUND_TEXT TEXT STRING))
 
+;; Default to org-mode for txt files as well
+(add-to-list 'auto-mode-alist '("\\.\\(org\\|org_archive\\|txt\\)$" . org-mode))
+
 ;; diff-hl
 (global-diff-hl-mode)
 
