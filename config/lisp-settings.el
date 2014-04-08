@@ -18,8 +18,8 @@
   :group 'starter-kit-faces)
 
 ;; prettify fn in clojure/clojurescript
-(add-hook 'clojure-mode-hook 'esk-pretty-fn)
-(add-hook 'clojurescript-mode-hook 'esk-pretty-fn)
+(add-hook 'clojure-mode-hook 'pretty-fn)
+(add-hook 'clojurescript-mode-hook 'pretty-fn)
 
 (dolist (mode '(scheme emacs-lisp lisp clojure clojurescript))
     (when (> (display-color-cells) 8)

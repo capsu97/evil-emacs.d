@@ -1,11 +1,51 @@
-(add-hook 'prog-mode-hook 'esk-local-column-number-mode)
-(add-hook 'prog-mode-hook 'esk-local-comment-auto-fill)
-(add-hook 'prog-mode-hook 'esk-turn-on-save-place-mode)
-(add-hook 'prog-mode-hook 'esk-pretty-lambdas)
+;;;; BACKUPS AND AUTO-SAVE
+(setq make-backup-files t               ; backup of a file the first time it is saved.
+      backup-by-copying t               ; don't clobber symlinks
+      version-control t                 ; version numbers for backup files
+      delete-old-versions t             ; delete excess backup files silently
+      delete-by-moving-to-trash t
+      kept-old-versions 6               ; oldest versions to keep when a new numbered backup is made (default: 2)
+      kept-new-versions 9               ; newest versions to keep when a new numbered backup is made (default: 2)
+      auto-save-default t               ; auto-save every buffer that visits a file
+      auto-save-timeout 20              ; number of seconds idle time before auto-save (default: 30)
+      auto-save-interval 200            ; number of keystrokes between auto-saves (default: 300)
+      vc-make-backup-files t            ; also make backups of files you have in version control
+      )
+
+;; Save auto-save files to tmp dir
+(setq auto-save-file-name-transforms
+      `((".*" ,temporary-file-directory t)))
+
+;; Default and per-save backups go here:
+(setq backup-directory-alist '(("" . "~/.emacs.d/backups/per-save")))
+
+(defun force-backup-of-buffer ()
+  ;; Make a special "per session" backup at the first save of each
+  ;; emacs session.
+  (when (not buffer-backed-up)
+    ;; Override the default parameters for per-session backups.
+    (let ((backup-directory-alist '(("" . "~/.emacs.d/backups/per-session")))
+          (kept-new-versions 3))
+      (backup-buffer)))
+  ;; Make a "per save" backup on each save.  The first save results in
+  ;; both a per-session and a per-save backup, to keep the numbering
+  ;; of per-save backups consistent.
+  (let ((buffer-backed-up nil))
+    (backup-buffer)))
+
+(add-hook 'before-save-hook  'force-backup-of-buffer)
+
+;; General programming hooks
+(add-hook 'prog-mode-hook 'pretty-lambdas)
 (add-hook 'prog-mode-hook 'esk-add-watchwords)
 (add-hook 'prog-mode-hook 'idle-highlight-mode)
 
-; default to utf8
+;; Turn off auto-fill
+(auto-fill-mode -1)
+(remove-hook 'text-mode-hook 'turn-on-auto-fill)
+(remove-hook 'org-mode-hook 'turn-on-auto-fill)
+
+;; default to utf8
 (prefer-coding-system 'utf-8)
 (set-default-coding-systems 'utf-8)
 (setq-default buffer-file-coding-system 'utf-8)
@@ -14,6 +54,9 @@
 
 ;; Treat clipboard input as UTF-8 string first; compound text next, etc.
 (setq x-select-request-type '(UTF8_STRING COMPOUND_TEXT TEXT STRING))
+
+;; Turn on column numbering in modeline
+(setq column-number-mode t)
 
 ;; Default to org-mode for txt files as well
 (add-to-list 'auto-mode-alist '("\\.\\(org\\|org_archive\\|txt\\)$" . org-mode))
@@ -31,60 +74,61 @@
 (setq smex-save-file (concat user-emacs-directory ".smex-items"))
 (smex-initialize)
 
-; Truncate lines
+;; Truncate lines
 (set-default 'truncate-lines t)
 
-; Smooth scrolling
+;; Smooth scrolling
 (setq scroll-step 1)
 (setq scroll-conservatively 10000)
 (setq auto-window-vscroll nil)
 (setq scroll-margin 2)
 
-; Highlight selected text - Ctrl-Space
+;; Highlight selected text - Ctrl-Space
 (transient-mark-mode t)
 
-; Delete selected/highlighted text
+;; Column numbering in modeline
+(setq column-number-mode t)
+
+;; Delete selected/highlighted text
 (delete-selection-mode t)
 
+;; Go back to the cursor location where you were the last time you opened the file
+(setq
+ save-place-file (concat user-emacs-directory "places")
+ save-place-mode t)
+
 (mouse-wheel-mode t)
-(blink-cursor-mode -1)
+(blink-cursor-mode -1) ; no blinking cursor
 
 (setq
-    inhibit-startup-message   t   ; Don't want any startup message
-    gc-cons-threshold 20000000
-    make-backup-files         nil ; Don't want any backup files
-    auto-save-list-file-name  nil ; Don't want any .saves files
-    auto-save-default         nil ; Don't want any auto saving
-    redisplay-dont-pause t
-    ns-pop-up-frames nil         ; don't open a new frame when using Open with... for instance
-    search-highlight           t ; Highlight search object
-    query-replace-highlight    t ; Highlight query object
-    mouse-sel-retain-highlight t ; Keep mouse high-lightening
-    ;next-line-add-newlines     t
-    read-file-name-completion-ignore-case t
-    x-select-enable-clipboard t
-    x-select-enable-primary t
-    save-interprogram-paste-before-kill t
-    apropos-do-all t
-    read-buffer-completion-ignore-case t
-    completion-auto-help 'lazy
-    isearch-resume-in-command-history t
-    kill-read-only-ok t
-    isearch-allow-scroll t
-    visible-bell nil
-    color-theme-is-global t
-    sentence-end-double-space nil
-    shift-select-mode nil
-    mouse-yank-at-point t
-    uniquify-buffer-name-style 'forward
-    whitespace-style '(face trailing lines-tail tabs)
-    whitespace-line-column 80
-    ediff-window-setup-function 'ediff-setup-windows-plain
-    save-place-file (concat user-emacs-directory "places")
-    diff-switches "-u"
-    ;kill-do-not-save-duplicates t)
-    ;require-final-newline t)
-    frame-title-format '("%b %+%+ %f"))
+ inhibit-startup-message   t   ; Don't want any startup message
+ gc-cons-threshold 20000000
+ redisplay-dont-pause t
+ ns-pop-up-frames nil         ; don't open a new frame when using Open with... for instance
+ search-highlight           t ; Highlight search object
+ query-replace-highlight    t ; Highlight query object
+ mouse-sel-retain-highlight t ; Keep mouse high-lightening
+ read-file-name-completion-ignore-case t
+ x-select-enable-clipboard t
+ x-select-enable-primary t
+ save-interprogram-paste-before-kill t
+ apropos-do-all t
+ read-buffer-completion-ignore-case t
+ completion-auto-help 'lazy
+ isearch-resume-in-command-history t
+ kill-read-only-ok t
+ isearch-allow-scroll t
+ visible-bell nil
+ color-theme-is-global t
+ sentence-end-double-space nil
+ shift-select-mode nil
+ mouse-yank-at-point t
+ uniquify-buffer-name-style 'forward
+ whitespace-style '(face trailing lines-tail tabs)
+ whitespace-line-column 80
+ ediff-window-setup-function 'ediff-setup-windows-plain
+ diff-switches "-u"
+ frame-title-format '("%b %+%+ %f"))
 
 (add-to-list 'safe-local-variable-values '(lexical-binding . t))
 (add-to-list 'safe-local-variable-values '(whitespace-line-column . 80))
@@ -92,12 +136,8 @@
 (setq browse-url-browser-function 'browse-url-firefox)
 
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1)) ; turn off the toolbar
-(column-number-mode 1) ; show the column number
 (size-indication-mode 1) ; show the size of the buffer
-(auto-fill-mode 1)
-;;(global-hl-line-mode t) ; highlighting the whole line
 (global-subword-mode 1) ; moving cursor in CamelCaseWords
-(blink-cursor-mode 0) ; blinking cursor
 (set-default 'indicate-empty-lines nil) ; don't indicate empty lines
 
 (fset 'yes-or-no-p 'y-or-n-p)
@@ -115,12 +155,12 @@
 (show-paren-mode 1)
 
 (setq show-paren-delay 0)
-;(setq show-paren-style 'mixed)
+                                        ;(setq show-paren-style 'mixed)
 
 ;; Macbook, make fn function as meta
 (setq-default mac-function-modifier 'meta)
 
-;(setq show-paren-style 'expression) ; highlight all code inbetween
+;;(setq show-paren-style 'expression) ; highlight all code inbetween
 
 ;; Allow replacement of selected region or deletion of selected region by typing or using DEL
 (delete-selection-mode 1)
@@ -139,33 +179,33 @@
       confirm-nonexistent-file-or-buffer nil
       ido-file-extension-order '(".clj" ".cljs" ".el" ".org" ".txt")
       ido-ignore-buffers '("\\` " "^\*")
-      ido-max-prospects 15
+      ido-max-prospects 10
       ido-use-faces nil ;; disable ido faces to see flx highlights
       flx-ido-use-faces t ;; enable flx highlights
       ido-vertical-define-keys 'C-n-C-p-up-down-left-right
       )
 
+;;;; ido customization
 (require 'flx-ido)
 (ido-mode t)
 (ido-ubiquitous-mode)
 (flx-ido-mode 1)
 
-(set-default 'indent-tabs-mode nil)
-(set-default 'imenu-auto-rescan t)
+(require 'ido-vertical-mode)
+(ido-vertical-mode 1)
 
-(add-hook 'text-mode-hook 'turn-on-auto-fill)
+(set-default 'indent-tabs-mode nil) ; use spaces for indenting, not tabs
+
+(set-default 'imenu-auto-rescan t) ; automatically rescan for changes for imenu
 
 (defalias 'auto-tail-revert-mode 'tail-mode)
 
 (random t) ;; Seed the random-number generator
 
-(require 'ido-vertical-mode)
-(ido-vertical-mode 1)
-
 ;; Auto refresh buffers
 (global-auto-revert-mode t)
 
-;; Also auto refresh dired, but be quiet about it
+;; Also auto refresh dired (the directory editor), but be quiet about it
 (setq global-auto-revert-non-file-buffers t)
 (setq auto-revert-verbose nil)
 

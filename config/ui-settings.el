@@ -85,7 +85,7 @@
                      (powerline-recursive-left face1)
                      (powerline-major-mode face1)
                      (powerline-process face1)
-                     ;(powerline-minor-modes face1 'l)
+                     (powerline-minor-modes face1 'l)
                      (powerline-narrow face1 'l)
                      (powerline-recursive-right face1)
                      (powerline-raw " " face1)
