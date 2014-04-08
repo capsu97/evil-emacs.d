@@ -7,7 +7,7 @@
       kept-old-versions 6               ; oldest versions to keep when a new numbered backup is made (default: 2)
       kept-new-versions 9               ; newest versions to keep when a new numbered backup is made (default: 2)
       auto-save-default t               ; auto-save every buffer that visits a file
-      auto-save-timeout 20              ; number of seconds idle time before auto-save (default: 30)
+      auto-save-timeout 60              ; number of seconds idle time before auto-save (default: 30)
       auto-save-interval 200            ; number of keystrokes between auto-saves (default: 300)
       vc-make-backup-files t            ; also make backups of files you have in version control
       )
@@ -155,12 +155,9 @@
 (show-paren-mode 1)
 
 (setq show-paren-delay 0)
-                                        ;(setq show-paren-style 'mixed)
 
 ;; Macbook, make fn function as meta
 (setq-default mac-function-modifier 'meta)
-
-;;(setq show-paren-style 'expression) ; highlight all code inbetween
 
 ;; Allow replacement of selected region or deletion of selected region by typing or using DEL
 (delete-selection-mode 1)
@@ -215,5 +212,8 @@
 
 ;; highlight surrounding parentheses
 (add-hook 'prog-mode-hook 'highlight-parentheses-mode)
+
+;; disable highlighting the current line
+(global-hl-line-mode 0)
 
 (provide 'basic-settings)
