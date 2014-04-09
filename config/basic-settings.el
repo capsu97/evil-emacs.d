@@ -133,7 +133,7 @@
 (setq browse-url-browser-function 'browse-url-firefox)
 
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1)) ; turn off the toolbar
-(if (fboundp 'menu-bar-mode) (menu-bar-mode -1)) ; turn off the toolbar
+(if (fboundp 'menu-bar-mode) (menu-bar-mode -1)) ; turn off the menubar
 (size-indication-mode 1) ; show the size of the buffer
 (global-subword-mode 1) ; moving cursor in CamelCaseWords
 (set-default 'indicate-empty-lines nil) ; don't indicate empty lines
