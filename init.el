@@ -20,6 +20,8 @@
                                      org-plus-contrib ; latest org-mode
                                      undo-tree ; visualize undo as a tree (extremely handy)
                                      company ; autocomplete
+                                     idle-highlight-mode ; highlight all occurences of current symbol after a little while
+                                     elisp-slime-nav ; extensions for elisp
                                      diminish ; don't clutter the modeline with minor mode names
                                      ag helm-swoop swoop helm-ag ; search / grep
                                      clojure-mode clojure-test-mode clojure-cheatsheet clj-refactor ; clojure
