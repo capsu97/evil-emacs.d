@@ -20,6 +20,7 @@
                                      org-plus-contrib ; latest org-mode
                                      undo-tree ; visualize undo as a tree (extremely handy)
                                      company ; autocomplete
+                                     diminish ; don't clutter the modeline with minor mode names
                                      ag helm-swoop swoop helm-ag ; search / grep
                                      clojure-mode clojure-test-mode clojure-cheatsheet clj-refactor ; clojure
                                      latest-clojure-libraries cider company-cider cider-tracing ; clojure
@@ -65,6 +66,18 @@
 (require 'ag-settings)
 (require 'custom-keybindings)
 ;(server-start)
+
+;; Diminish modes so they don't show up in the modeline
+(require 'diminish)
+(when (require 'diminish nil 'noerror)
+  (eval-after-load "company"
+      '(diminish 'company-mode))
+  (eval-after-load "highlight-parentheses"
+    '(diminish 'highlight-parentheses-mode))
+  (eval-after-load "undo-tree"
+    '(diminish 'undo-tree-mode))
+  (eval-after-load "yasnippet"
+    '(diminish 'yas-minor-mode)))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.

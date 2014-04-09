@@ -32,7 +32,6 @@
      (set-face-foreground 'magit-diff-add "green4")
      (set-face-foreground 'magit-diff-del "red3")))
 
-
 ;; POWERLINE
 
 (add-to-list 'load-path "~/.emacs.d/vendor/powerline")
