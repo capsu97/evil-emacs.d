@@ -15,6 +15,8 @@
 ;; Emacs 24
 ;(load-theme 'birds-of-paradise-plus t)
 (load-theme 'molokai t)
+;(load-theme 'monokai t)
+;(load-theme 'soothe t)
 
 (set-face-foreground 'show-paren-match-face "white")
 (set-face-background 'show-paren-match-face "gray22")
@@ -112,5 +114,11 @@
                 (powerline-render rhs)))))))
 
 (custom-evil-theme)
+
+;; disable bold and underline faces
+(mapc
+  (lambda (face)
+    (set-face-attribute face nil :weight 'normal :underline nil))
+  (face-list))
 
 (provide 'ui-settings)
