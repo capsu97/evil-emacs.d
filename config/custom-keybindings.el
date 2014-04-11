@@ -1,4 +1,6 @@
 (require 'evil)
+;; org-mode keybindings
+(global-set-key (kbd "C-c a") 'org-agenda)
 
 ;; use hippie expand instead of abbrev
 (global-set-key (kbd "M-/") 'hippie-expand)

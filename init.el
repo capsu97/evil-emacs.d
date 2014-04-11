@@ -28,7 +28,7 @@
                                      latest-clojure-libraries cider company-cider cider-tracing ; clojure
                                      ace-jump-mode ; move quickly around buffers (see vim EasyMotion as well)
                                      markdown-mode markdown-mode+ ; markdown
-                                     evil evil-leader evil-numbers evil-paredit evil-matchit evil-indent-textobject surround ; evil vim emulation
+                                     evil evil-leader evil-numbers evil-paredit evil-matchit evil-indent-textobject surround evil-visualstar ; evil vim emulation
                                      rainbow-delimiters highlight-parentheses smartparens paredit paredit-menu ; working with parens / delimiters
                                      noctilux-theme soothe-theme gruber-darker-theme sublime-themes monokai-theme molokai-theme helm-themes ; color themes
                                      git-rebase-mode gitattributes-mode git-commit-mode gitconfig-mode gitignore-mode ; git file modes
@@ -43,6 +43,7 @@
                                      expand-region ; easily select regions around point
                                      persp-mode ; per project window config
                                      multiple-cursors ; multiple cursors a la Sublime Text
+                                     visual-regexp visual-regexp-steroids ; visualize your typed regexp
                                      )
   "A list of packages to ensure are installed at launch.")
 
@@ -66,6 +67,7 @@
 (require 'magit-settings)
 (require 'helm-settings)
 (require 'ag-settings)
+(require 'org-mode-settings)
 (require 'custom-keybindings)
 ;(server-start)
 

@@ -99,6 +99,8 @@
 
 (setq
  inhibit-startup-message   t   ; Don't want any startup message
+ echo-keystrokes 0.1
+ use-dialog-box nil           ; use no dialog boxes, just use the echo area / mini-buffer
  gc-cons-threshold 20000000
  redisplay-dont-pause t
  ns-pop-up-frames nil         ; don't open a new frame when using Open with... for instance
