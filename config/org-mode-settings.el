@@ -15,7 +15,6 @@
 (setq org-confirm-babel-evaluate nil ; stop asking if you are sure you want to evaluate a src block
       org-src-fontify-natively t ; inside src block use the colors like the major mode of the src type
       org-src-tab-acts-natively t ; inside a src block let tab act like it was in major mode of the src type
-      org-use-speed-commands t ; enable single-letter commands at beginning of headline or code block, press ? at beginning of headline to see all the commands
       )
 
 (require 'ob)
