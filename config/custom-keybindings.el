@@ -32,9 +32,6 @@
 (define-key read-expression-map (kbd "TAB") 'lisp-complete-symbol)
 (define-key lisp-mode-shared-map (kbd "RET") 'reindent-then-newline-and-indent)
 
-;; Use helm for opening files
-;;(global-set-key "\C-x\C-f" 'helm-mini)
-
 (global-set-key (kbd "C-=") 'ot-mark-outside-pairs)
 (global-set-key (kbd "M-=") 'er/expand-region)
 
@@ -58,7 +55,6 @@
 (define-key evil-motion-state-map " " nil)
 (define-key evil-motion-state-map "  " 'evil-ace-jump-char-mode)
 (define-key evil-motion-state-map " t" 'evil-ace-jump-char-to-mode)
-(define-key evil-motion-state-map (kbd "M-i") 'helm-swoop-from-evil-search)
 
 ;; Operator
 (define-key evil-operator-state-map " " nil)      ; similar to f
@@ -112,7 +108,6 @@
 (define-key evil-normal-state-map ",po" 'projectile-multi-occur)
 (define-key evil-normal-state-map ",pa" 'projectile-ack)
 (define-key evil-normal-state-map ",pg" 'projectile-grep)
-(define-key evil-normal-state-map ",h" 'helm-mini)
 (define-key evil-normal-state-map ",rf" 'recentf-open-files)
 (define-key evil-normal-state-map ",l" 'ido-switch-buffer)
 (define-key evil-normal-state-map ",cc" 'cider-connect)

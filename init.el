@@ -16,28 +16,26 @@
   (package-refresh-contents))
 
 ;; Add in your own as you wish:
-(defvar my-packages '(ido-ubiquitous ido-vertical-mode ido-select-window flx-ido idomenu helm smex ; mini-buffer on steroids (fuzzy completion etc)
+(defvar my-packages '(ido-ubiquitous ido-vertical-mode ido-select-window flx-ido idomenu smex helm ; mini-buffer on steroids (fuzzy completion etc)
                                      org-plus-contrib ; latest org-mode
                                      undo-tree ; visualize undo as a tree (extremely handy)
                                      company ; autocomplete
                                      idle-highlight-mode ; highlight all occurences of current symbol after a little while
                                      elisp-slime-nav ; extensions for elisp
                                      diminish ; don't clutter the modeline with minor mode names
-                                     ag helm-swoop swoop helm-ag ; search / grep
+                                     ag swoop ; search / grep
                                      clojure-mode clojure-test-mode clojure-cheatsheet clj-refactor ; clojure
                                      latest-clojure-libraries cider company-cider cider-tracing ; clojure
                                      ace-jump-mode ; move quickly around buffers (see vim EasyMotion as well)
                                      markdown-mode markdown-mode+ ; markdown
                                      evil evil-leader evil-numbers evil-paredit evil-matchit evil-indent-textobject surround evil-visualstar ; evil vim emulation
                                      rainbow-delimiters highlight-parentheses smartparens paredit paredit-menu ; working with parens / delimiters
-                                     noctilux-theme soothe-theme gruber-darker-theme sublime-themes monokai-theme molokai-theme helm-themes ; color themes
+                                     noctilux-theme soothe-theme gruber-darker-theme sublime-themes monokai-theme molokai-theme ; color themes
                                      git-rebase-mode gitattributes-mode git-commit-mode gitconfig-mode gitignore-mode ; git file modes
-                                     helm-git gist magit diff-hl ; git integration
-                                     helm-emmet emmet-mode skewer-mode js2-mode js2-refactor web-mode sass-mode ; web development
-                                     projectile helm-projectile ; moving around in projects
+                                     gist magit diff-hl ; git integration
+                                     emmet-mode skewer-mode js2-mode js2-refactor web-mode sass-mode ; web development
+                                     projectile ; moving around in projects
                                      yasnippet clojure-snippets datomic-snippets ; snippets
-                                     helm-dash ; search docs with Dash (MacOSX)
-                                     zeal-at-point ; search docs with Zeal (linux)
                                      browse-kill-ring ; list / select / insert previously killed text
                                      dired+ ; directory editor addon
                                      expand-region ; easily select regions around point
@@ -65,7 +63,6 @@
 (require 'auto-complete-settings)
 (require 'yasnippet-settings)
 (require 'magit-settings)
-(require 'helm-settings)
 (require 'ag-settings)
 (require 'org-mode-settings)
 (require 'custom-keybindings)
