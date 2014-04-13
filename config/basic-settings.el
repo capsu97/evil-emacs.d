@@ -176,6 +176,7 @@
       confirm-nonexistent-file-or-buffer nil
       ido-file-extension-order '(".clj" ".cljs" ".el" ".org" ".txt")
       ido-ignore-buffers '("\\` " "^\*")
+      ido-ignore-extensions t
       ido-max-prospects 10
       ido-use-faces nil ;; disable ido faces to see flx highlights
       flx-ido-use-faces t ;; enable flx highlights
