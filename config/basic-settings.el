@@ -183,6 +183,11 @@
       ido-vertical-define-keys 'C-n-C-p-up-down-left-right
       )
 
+;; Always allow narrowing, don't ask questions
+(put 'narrow-to-defun  'disabled nil)
+(put 'narrow-to-page   'disabled nil)
+(put 'narrow-to-region 'disabled nil)
+
 ;;;; ido customization
 (require 'flx-ido)
 (ido-mode t)
