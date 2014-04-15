@@ -6,23 +6,23 @@
 
 (if (string= (symbol-name system-type) "windows-nt")
     (setq default-frame-alist '((font . "Consolas-11")))
-    (modify-frame-parameters nil '((wait-for-wm . nil))))
+  (modify-frame-parameters nil '((wait-for-wm . nil))))
 
 (if (string= (symbol-name system-type) "darwin")
     (setq default-frame-alist '((font . "Menlo-14")))
-    (modify-frame-parameters nil '((wait-for-wm . nil))))
+  (modify-frame-parameters nil '((wait-for-wm . nil))))
 
 ;; Emacs 24
-;(load-theme 'birds-of-paradise-plus t)
+                                        ;(load-theme 'birds-of-paradise-plus t)
 (load-theme 'molokai t)
-;(load-theme 'monokai t)
-;(load-theme 'soothe t)
+                                        ;(load-theme 'monokai t)
+                                        ;(load-theme 'soothe t)
 
 (set-face-foreground 'show-paren-match-face "white")
 (set-face-background 'show-paren-match-face "gray22")
-; (set-face-background 'show-paren-match-face "dark slate gray")
+                                        ; (set-face-background 'show-paren-match-face "dark slate gray")
 (set-face-attribute 'show-paren-match-face nil
-        :weight 'bold :underline nil :overline nil :slant 'normal)
+                    :weight 'bold :underline nil :overline nil :slant 'normal)
 
 (eval-after-load 'diff-mode
   '(progn
@@ -39,7 +39,7 @@
 (add-to-list 'load-path "~/.emacs.d/vendor/powerline")
 (require 'powerline)
 
-;(powerline-evil-theme)
+                                        ;(powerline-evil-theme)
 (defun custom-evil-theme ()
   "Setup the default mode-line."
   (interactive)
@@ -61,7 +61,7 @@
              (lhs
               (append
                (let ((evil-face (powerline-evil-face active)))
-                 (list 
+                 (list
                   (powerline-raw (powerline-evil-tag) evil-face)
                   (funcall separator-left evil-face face3)))
                (list (powerline-raw " " face3)
@@ -116,9 +116,16 @@
 (custom-evil-theme)
 
 ;; disable bold and underline faces
-(mapc
-  (lambda (face)
-    (set-face-attribute face nil :weight 'normal :underline nil))
-  (face-list))
+;; (mapc
+;;  (lambda (face)
+;;    (set-face-attribute face nil :weight 'normal :underline nil))
+;;  (face-list))
 
-(provide 'ui-settings)
+(custom-set-faces
+ '(ido-subdir ((t (:foreground "#66ff00")))) ;; Face used by ido for highlighting subdirs in the alternatives.
+ '(ido-first-match ((t (:foreground "#ccff66")))) ;; Face used by ido for highlighting first match.
+ '(ido-only-match ((t (:foreground "#ffcc33")))) ;; Face used by ido for highlighting only match.
+ '(ido-indicator ((t (:foreground "#ffffff")))) ;; Face used by ido for highlighting its indicators (don't actually use this)
+ '(ido-incomplete-regexp ((t (:foreground "#ffffff"))))) ;; Ido face for indicating incomplete regexps. (don't use this either)
+
+ (provide 'ui-settings)
