@@ -1,3 +1,6 @@
+(eval-after-load "org"
+	'(require 'ox-md nil t))
+
 (setq org-log-done t) ; log completed items. adds timestamp and lets org-agenda mark it
 (setq org-todo-keywords
       '((sequence "TODO" "INPROGRESS" "DONE")))
