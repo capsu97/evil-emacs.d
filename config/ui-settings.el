@@ -13,10 +13,11 @@
   (modify-frame-parameters nil '((wait-for-wm . nil))))
 
 ;; Emacs 24
-                                        ;(load-theme 'birds-of-paradise-plus t)
-(load-theme 'molokai t)
-                                        ;(load-theme 'monokai t)
-                                        ;(load-theme 'soothe t)
+;;(load-theme 'birds-of-paradise-plus t)
+;;(load-theme 'molokai t)
+(load-theme 'sanityinc-tomorrow-day t)
+;;(load-theme 'monokai t)
+;;(load-theme 'soothe t)
 
 (set-face-foreground 'show-paren-match-face "white")
 (set-face-background 'show-paren-match-face "gray22")
@@ -39,7 +40,7 @@
 (add-to-list 'load-path "~/.emacs.d/vendor/powerline")
 (require 'powerline)
 
-                                        ;(powerline-evil-theme)
+;;(powerline-evil-theme)
 (defun custom-evil-theme ()
   "Setup the default mode-line."
   (interactive)
