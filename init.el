@@ -25,7 +25,7 @@
                                      diminish ; don't clutter the modeline with minor mode names
                                      ag swoop ; search / grep
                                      clojure-mode clojure-test-mode clojure-cheatsheet clj-refactor ; clojure
-                                     latest-clojure-libraries cider company-cider cider-tracing ; clojure
+                                     latest-clojure-libraries cider cider-tracing ; clojure
                                      ace-jump-mode ; move quickly around buffers (see vim EasyMotion as well)
                                      markdown-mode markdown-mode+ ; markdown
                                      evil evil-leader evil-numbers evil-paredit evil-matchit evil-indent-textobject surround evil-visualstar ; evil vim emulation
@@ -87,25 +87,3 @@
     '(diminish 'elisp-slime-nav-mode))
   (eval-after-load "yasnippet"
     '(diminish 'yas-minor-mode)))
-
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(company-scrollbar-bg ((t (:background "#333638"))))
- '(company-scrollbar-fg ((t (:background "#333638"))))
- '(company-tooltip ((t (:inherit default :background "#333638"))))
- '(company-tooltip-common ((t (:inherit font-lock-constant-face))))
- '(company-tooltip-selection ((t (:inherit font-lock-function-name-face :background "#27292b"))))
- '(ido-first-match ((t (:foreground "#ccff66"))))
- '(ido-incomplete-regexp ((t (:foreground "#ffffff"))))
- '(ido-indicator ((t (:foreground "#ffffff"))))
- '(ido-only-match ((t (:foreground "#ffcc33"))))
- '(ido-subdir ((t (:foreground "#66ff00"))))
- '(rainbow-delimiters-depth-1-face ((t (:foreground "Grey55"))))
- '(rainbow-delimiters-depth-2-face ((t (:foreground "Green"))))
- '(rainbow-delimiters-depth-3-face ((t (:foreground "Magenta"))))
- '(rainbow-delimiters-depth-4-face ((t (:foreground "Cyan"))))
- '(rainbow-delimiters-depth-5-face ((t (:foreground "Red"))))
- '(rainbow-delimiters-depth-6-face ((t (:foreground "Blue")))))
