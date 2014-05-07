@@ -110,7 +110,7 @@
  read-file-name-completion-ignore-case t
  x-select-enable-clipboard t
  x-select-enable-primary t
- save-interprogram-paste-before-kill t
+ ;save-interprogram-paste-before-kill t ; has problems with evil-mode!!
  apropos-do-all t
  read-buffer-completion-ignore-case t
  completion-auto-help 'lazy
