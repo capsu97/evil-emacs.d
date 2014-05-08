@@ -110,7 +110,8 @@
  read-file-name-completion-ignore-case t
  x-select-enable-clipboard t
  x-select-enable-primary t
- ;save-interprogram-paste-before-kill t ; has problems with evil-mode!!
+ ;;save-interprogram-paste-before-kill t ; has problems with evil-mode in osx!!
+ next-line-add-newlines t
  apropos-do-all t
  read-buffer-completion-ignore-case t
  completion-auto-help 'lazy
