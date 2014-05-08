@@ -158,6 +158,8 @@
 
 ;; Macbook, make fn function as meta
 (setq-default mac-function-modifier 'meta)
+(setq-default mac-command-modifier 'meta)
+(setq-default mac-option-modifier 'meta)
 
 ;; Allow replacement of selected region or deletion of selected region by typing or using DEL
 (delete-selection-mode 1)
