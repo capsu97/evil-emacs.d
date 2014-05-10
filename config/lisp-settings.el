@@ -52,6 +52,7 @@
 (eval-after-load "cider"
   '(progn
         (setq cider-popup-stacktraces nil) ;Stop the error buffer from popping up while working in the REPL buffer
+        (setq cider-repl-use-clojure-font-lock t)
         (add-to-list 'same-window-buffer-names "*cider*") ;Make C-c C-z switch to the *nrepl* buffer in the current window
      ))
 
