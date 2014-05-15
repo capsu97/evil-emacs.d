@@ -3,6 +3,14 @@
 ;; use emmet
 (add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
 (add-hook 'css-mode-hook  'emmet-mode) ;; enable Emmet's css
+(add-hook 'web-mode-hook  'emmet-mode) ;; enable Emmet's css
+
+(defun emmet-mode-hook-settings ()
+  "Hook for Emmet"
+  (setq emmet-preview-default nil)
+  (setq emmet-indentation 2))
+
+(add-hook 'emmet-mode-hook 'emmet-mode-hook-settings) ;; indent 2 spaces.
 
 (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
@@ -22,11 +30,12 @@
     (setq web-mode-indent-style 2)
     (setq web-mode-enable-current-element-highlight t)
     (idle-highlight-mode 0)
-    (font-lock-mode 0))
+;;    (font-lock-mode 0)
+    )
 
-(set-face-foreground 'web-mode-html-tag-face "snow1")
+;(set-face-foreground 'web-mode-html-tag-face "snow1")
 ;(set-face-foreground 'web-mode-doctype-face "pink3")
-(set-face-foreground 'web-mode-html-attr-name-face "medium purple")
+;(set-face-foreground 'web-mode-html-attr-name-face "medium purple")
 ;(set-face-foreground 'web-mode-html-attr-value-face "pink3")
 ;(set-face-foreground 'web-mode-css-rule-face "pink3")
 ;(set-face-foreground 'web-mode-css-prop-face "pink3")
