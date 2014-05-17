@@ -1,39 +1,17 @@
-;;;; BACKUPS AND AUTO-SAVE
-(setq make-backup-files t               ; backup of a file the first time it is saved.
-      backup-by-copying t               ; don't clobber symlinks
-      version-control t                 ; version numbers for backup files
-      delete-old-versions t             ; delete excess backup files silently
-      delete-by-moving-to-trash t
-      kept-old-versions 6               ; oldest versions to keep when a new numbered backup is made (default: 2)
-      kept-new-versions 9               ; newest versions to keep when a new numbered backup is made (default: 2)
-      auto-save-default t               ; auto-save every buffer that visits a file
-      auto-save-timeout 60              ; number of seconds idle time before auto-save (default: 30)
-      auto-save-interval 200            ; number of keystrokes between auto-saves (default: 300)
-      vc-make-backup-files t            ; also make backups of files you have in version control
-      )
+;; Remove all backup files
+(setq make-backup-files nil)
+(setq backup-inhibited t)
+(setq auto-save-default nil)
 
-;; Save auto-save files to tmp dir
-(setq auto-save-file-name-transforms
-      `((".*" ,temporary-file-directory t)))
+;; warn when opening files bigger than 100MB
+(setq large-file-warning-threshold 100000000)
 
-;; Default and per-save backups go here:
-(setq backup-directory-alist '(("" . "~/.emacs.d/backups/per-save")))
+;; allow undo/redo of window layout
+(winner-mode 1)
 
-(defun force-backup-of-buffer ()
-  ;; Make a special "per session" backup at the first save of each
-  ;; emacs session.
-  (when (not buffer-backed-up)
-    ;; Override the default parameters for per-session backups.
-    (let ((backup-directory-alist '(("" . "~/.emacs.d/backups/per-session")))
-          (kept-new-versions 3))
-      (backup-buffer)))
-  ;; Make a "per save" backup on each save.  The first save results in
-  ;; both a per-session and a per-save backup, to keep the numbering
-  ;; of per-save backups consistent.
-  (let ((buffer-backed-up nil))
-    (backup-buffer)))
-
-(add-hook 'before-save-hook  'force-backup-of-buffer)
+;; Remove useless whitespaces before saving a file
+(add-hook 'before-save-hook 'whitespace-cleanup)
+(add-hook 'before-save-hook (lambda() (delete-trailing-whitespace)))
 
 ;; General programming hooks
 (add-hook 'prog-mode-hook 'pretty-lambdas)
@@ -46,9 +24,12 @@
 (remove-hook 'org-mode-hook 'turn-on-auto-fill)
 
 ;; default to utf8
+(set-language-environment 'utf-8)
+(setq locale-coding-system 'utf-8)
 (prefer-coding-system 'utf-8)
 (set-default-coding-systems 'utf-8)
 (setq-default buffer-file-coding-system 'utf-8)
+(set-selection-coding-system 'utf-8)
 (set-terminal-coding-system 'utf-8)
 (set-keyboard-coding-system 'utf-8)
 
