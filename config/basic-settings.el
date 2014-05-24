@@ -1,3 +1,6 @@
+;; go to beginning of match after search, not the end (not needed with evil)
+;;(add-hook 'isearch-mode-end-hook 'my-goto-match-beginning)
+
 ;; Remove all backup files
 (setq make-backup-files nil)
 (setq backup-inhibited t)
@@ -16,7 +19,10 @@
 ;; General programming hooks
 (add-hook 'prog-mode-hook 'pretty-lambdas)
 (add-hook 'prog-mode-hook 'esk-add-watchwords)
-(add-hook 'prog-mode-hook 'idle-highlight-mode)
+;;(add-hook 'prog-mode-hook 'idle-highlight-mode)
+
+;; make colon part of word (for example :keyword)
+(add-hook 'clojure-mode-hook (lambda () (modify-syntax-entry ?: "w")))
 
 ;; Turn off auto-fill
 (auto-fill-mode -1)
@@ -94,6 +100,7 @@
  ;;save-interprogram-paste-before-kill t ; has problems with evil-mode in osx!!
  next-line-add-newlines t
  apropos-do-all t
+ scroll-error-top-bottom t ; move to farthest point when not able to move up or down enough lines
  read-buffer-completion-ignore-case t
  completion-auto-help 'lazy
  isearch-resume-in-command-history t
@@ -135,7 +142,6 @@
 
 ;; Highlight matching parentheses when the point is on them.
 (show-paren-mode 1)
-
 (setq show-paren-delay 0)
 
 ;; Macbook, make fn function as meta
@@ -196,9 +202,9 @@
 (setq global-auto-revert-non-file-buffers t)
 (setq auto-revert-verbose nil)
 
-;; persp-mode
-(persp-mode t)
-(setq wg-morph-on nil)
+;; persp-mode, turned off because of bad startup performance
+;;(persp-mode t)
+;;(setq wg-morph-on nil)
 
 ;; highlight surrounding parentheses
 (add-hook 'prog-mode-hook 'highlight-parentheses-mode)

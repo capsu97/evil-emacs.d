@@ -1,3 +1,39 @@
+(defun my-goto-match-beginning ()
+  (when (and isearch-forward isearch-other-end (not isearch-mode-end-hook-quit))
+    (goto-char isearch-other-end)))
+
+(defun point-in-comment ()
+  "Determine if the point is inside a comment"
+  (interactive)
+  (let ((syn (syntax-ppss)))
+    (and (nth 8 syn)
+         (not (nth 3 syn)))))
+
+(defun end-of-code-or-line+ (arg)
+  "Move to the end of code. If already there, move to the end of line,
+  that is after the possible comment. If at the end of line, move
+  to the end of code. Comments are recognized in any mode that
+  sets syntax-ppss properly."
+  (interactive "P")
+  (let ((eoc (save-excursion
+               (move-end-of-line arg)
+               (while (point-in-comment)
+                 (backward-char))
+               (skip-chars-backward " \t")
+               (point))))
+    (cond ((= (point) eoc)
+           (move-end-of-line arg))
+          (t
+           (move-end-of-line arg)
+           (while (point-in-comment)
+             (backward-char))
+           (skip-chars-backward " \t")))))
+
+(defun back-to-indentation-or-beginning ()
+  (interactive)
+  (if (= (point) (progn (back-to-indentation) (point)))
+      (beginning-of-line)))
+
 (defun next-user-buffer ()
   "Switch to the next user buffer.
 User buffers are those whose name does not start with *."
@@ -26,8 +62,8 @@ Emacs buffers are those whose name starts with *."
       (setq i (1+ i)) (next-buffer) )))
 
 (defun previous-emacs-buffer ()
-  "Switch to the previous emacs buffer.
-Emacs buffers are those whose name starts with *."
+  "switch to the previous emacs buffer.
+emacs buffers are those whose name starts with *."
   (interactive)
   (previous-buffer)
   (let ((i 0))
@@ -39,8 +75,39 @@ Emacs buffers are those whose name starts with *."
   (er/expand-region 1)
   (er/mark-outside-pairs))
 
+(defun sp-previous-toplevel-defun ()
+  "Go to previous toplevel defun"
+  (interactive)
+  (beginning-of-defun))
+
+(defun sp-next-toplevel-defun ()
+  "Go to next toplevel defun"
+  (interactive)
+  (beginning-of-defun -1))
+
+(defun sp-duplicate-after-point
+    ()
+  "Duplicates the content of the line that is after the point."
+  (interactive)
+  ;; skips to the next sexp
+  (while (looking-at " ")
+    (forward-char))
+  (set-mark-command nil)
+  ;; while we find sexps we move forward on the line
+  (while (and (bounds-of-thing-at-point 'sexp)
+              (<= (point) (car (bounds-of-thing-at-point 'sexp)))
+              (not (= (point) (line-end-position))))
+    (forward-sexp)
+    (while (looking-at " ")
+      (forward-char)))
+  (kill-ring-save (mark) (point))
+  ;; go to the next line and copy the sexprs we encountered
+  (sp-newline)
+  (yank)
+  (exchange-point-and-mark))
+
 (defun paredit-duplicate-after-point
-  ()
+    ()
   "Duplicates the content of the line that is after the point."
   (interactive)
   ;; skips to the next sexp
@@ -145,7 +212,6 @@ Emacs buffers are those whose name starts with *."
   (interactive)
   (forward-sexp -1)
   (paredit-wrap-round)
-  (insert " ")
   (forward-char -1))
 
 (defun rotate-windows ()
