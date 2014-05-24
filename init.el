@@ -31,7 +31,7 @@
                                      markdown-mode markdown-mode+ ; markdown
                                      evil evil-leader evil-numbers evil-paredit evil-matchit evil-indent-textobject surround evil-visualstar ; evil vim emulation
                                      rainbow-delimiters highlight-parentheses smartparens paredit paredit-menu ; working with parens / delimiters
-                                     molokai-theme color-theme-sanityinc-tomorrow ; color themes
+                                     sublime-themes monokai-theme molokai-theme color-theme-sanityinc-tomorrow ; color themes
                                      git-rebase-mode gitattributes-mode git-commit-mode gitconfig-mode gitignore-mode ; git file modes
                                      gist magit diff-hl ; git integration
                                      emmet-mode skewer-mode js2-mode js2-refactor web-mode sass-mode rainbow-mode ; web development
@@ -96,24 +96,20 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(initial-frame-alist (quote ((fullscreen . maximized))))
- '(ansi-color-faces-vector [default bold shadow italic underline bold bold-italic bold])
- '(ansi-color-names-vector (vector "#4d4d4c" "#c82829" "#718c00" "#eab700" "#4271ae" "#8959a8" "#3e999f" "#ffffff"))
- '(custom-safe-themes (quote ("bb08c73af94ee74453c90422485b29e5643b73b05e8de029a6909af6a3fb3f58" "0e121ff9bef6937edad8dfcff7d88ac9219b5b4f1570fd1702e546a80dba0832" default)))
  '(fci-rule-color "#efefef")
+ '(initial-frame-alist (quote ((fullscreen . maximized))))
  '(vc-annotate-background nil)
- '(vc-annotate-color-map (quote ((20 . "#c82829") (40 . "#f5871f") (60 . "#eab700") (80 . "#718c00") (100 . "#3e999f") (120 . "#4271ae") (140 . "#8959a8") (160 . "#c82829") (180 . "#f5871f") (200 . "#eab700") (220 . "#718c00") (240 . "#3e999f") (260 . "#4271ae") (280 . "#8959a8") (300 . "#c82829") (320 . "#f5871f") (340 . "#eab700") (360 . "#718c00"))))
  '(vc-annotate-very-old-color nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(company-scrollbar-bg ((t (:background "#ffffff"))))
- '(company-scrollbar-fg ((t (:background "#ffffff"))))
- '(company-tooltip ((t (:inherit default :background "#f9f9f9"))))
- '(company-tooltip-common ((t (:inherit font-lock-constant-face))))
- '(company-tooltip-selection ((t (:inherit font-lock-function-name-face :background "#ffffff"))))
+;; '(company-scrollbar-bg ((t (:background "#ffffff"))))
+;; '(company-scrollbar-fg ((t (:background "#ffffff"))))
+;; '(company-tooltip ((t (:inherit default :background "#f9f9f9"))))
+;; '(company-tooltip-common ((t (:inherit font-lock-constant-face))))
+;; '(company-tooltip-selection ((t (:inherit font-lock-function-name-face :background "#ffffff"))))
  '(ido-first-match ((t (:foreground "#ccff66"))))
  '(ido-incomplete-regexp ((t (:foreground "#ffffff"))))
  '(ido-indicator ((t (:foreground "#ffffff"))))

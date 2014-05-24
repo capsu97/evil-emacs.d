@@ -11,7 +11,7 @@
 (global-set-key (kbd "C-M-s") 'isearch-forward)
 (global-set-key (kbd "C-M-r") 'isearch-backward)
 
-;; using C-u for up already 
+;; using C-u for up already
 (global-set-key (kbd "C-M-u") 'universal-argument)
 
 (global-set-key (kbd "M-x") 'smex)
@@ -81,6 +81,7 @@
 
 ;; Normal
 (define-key evil-normal-state-map " l" 'evil-ace-jump-line-mode)
+(define-key evil-normal-state-map " w" 'evil-ace-jump-word-mode)
 (define-key evil-normal-state-map " m" 'evil-jump-item)
 
 (define-key evil-normal-state-map (kbd "M-H") 'evil-backward-word-begin)

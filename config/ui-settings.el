@@ -15,9 +15,9 @@
 ;; Emacs 24
 ;;(load-theme 'birds-of-paradise-plus t)
 ;;(load-theme 'molokai t)
-(load-theme 'sanityinc-tomorrow-day t)
+;;(load-theme 'sanityinc-tomorrow-day t)
 ;;(load-theme 'monokai t)
-;;(load-theme 'soothe t)
+(load-theme 'odersky t)
 
 (set-face-foreground 'show-paren-match-face "white")
 (set-face-background 'show-paren-match-face "gray22")
