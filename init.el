@@ -96,6 +96,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("9bcb8ee9ea34ec21272bb6a2044016902ad18646bd09fdd65abae1264d258d89" "0e121ff9bef6937edad8dfcff7d88ac9219b5b4f1570fd1702e546a80dba0832" "60f04e478dedc16397353fb9f33f0d895ea3dab4f581307fbf0aa2f07e658a40" default)))
  '(fci-rule-color "#efefef")
  '(initial-frame-alist (quote ((fullscreen . maximized))))
  '(vc-annotate-background nil)
@@ -105,19 +108,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
-;; '(company-scrollbar-bg ((t (:background "#ffffff"))))
-;; '(company-scrollbar-fg ((t (:background "#ffffff"))))
-;; '(company-tooltip ((t (:inherit default :background "#f9f9f9"))))
-;; '(company-tooltip-common ((t (:inherit font-lock-constant-face))))
-;; '(company-tooltip-selection ((t (:inherit font-lock-function-name-face :background "#ffffff"))))
+ '(flx-highlight-face ((t (:inherit font-lock-variable-name-face :foreground "#69D2E7"))))
  '(ido-first-match ((t (:foreground "#ccff66"))))
  '(ido-incomplete-regexp ((t (:foreground "#ffffff"))))
  '(ido-indicator ((t (:foreground "#ffffff"))))
  '(ido-only-match ((t (:foreground "#ffcc33"))))
- '(ido-subdir ((t (:foreground "#66ff00"))))
- '(rainbow-delimiters-depth-1-face ((t (:foreground "Grey55"))))
- '(rainbow-delimiters-depth-2-face ((t (:foreground "Green"))))
- '(rainbow-delimiters-depth-3-face ((t (:foreground "Magenta"))))
- '(rainbow-delimiters-depth-4-face ((t (:foreground "Cyan"))))
- '(rainbow-delimiters-depth-5-face ((t (:foreground "Red"))))
- '(rainbow-delimiters-depth-6-face ((t (:foreground "Blue")))))
+ '(ido-subdir ((t (:foreground "#66ff00")))))

@@ -21,7 +21,7 @@
 
 (set-face-foreground 'show-paren-match-face "white")
 (set-face-background 'show-paren-match-face "gray22")
-                                        ; (set-face-background 'show-paren-match-face "dark slate gray")
+;; (set-face-background 'show-paren-match-face "dark slate gray")
 (set-face-attribute 'show-paren-match-face nil
                     :weight 'bold :underline nil :overline nil :slant 'normal)
 
@@ -122,4 +122,4 @@
 ;;    (set-face-attribute face nil :weight 'normal :underline nil))
 ;;  (face-list))
 
- (provide 'ui-settings)
+(provide 'ui-settings)

@@ -8,25 +8,9 @@
 (add-hook 'emacs-lisp-mode-hook 'esk-prog-mode-hook)
 (add-hook 'emacs-lisp-mode-hook 'elisp-slime-nav-mode)
 
-;; TODO: look into parenface package
-(defface esk-paren-face
-  '((((class color) (background dark))
-     (:foreground "grey50"))
-    (((class color) (background light))
-     (:foreground "grey55")))
-  "Face used to dim parentheses."
-  :group 'starter-kit-faces)
-
 ;; prettify fn in clojure/clojurescript
 (add-hook 'clojure-mode-hook 'pretty-fn)
 (add-hook 'clojurescript-mode-hook 'pretty-fn)
-
-(dolist (mode '(scheme emacs-lisp lisp clojure clojurescript))
-    (when (> (display-color-cells) 8)
-      (font-lock-add-keywords (intern (concat (symbol-name mode) "-mode"))
-                              '(("(\\|)" . 'esk-paren-face))))
-    (add-hook (intern (concat (symbol-name mode) "-mode-hook"))
-              'paredit-mode))
 
 ;;---------------------------------------------------------
 
@@ -71,9 +55,8 @@
 
 
 ;;; RAINBOW DELIMITERS
-(require 'rainbow-delimiters)
-;(add-hook 'clojure-mode-hook 'rainbow-delimiters-mode) ; only for Clojure
-(add-hook 'prog-mode-hook 'rainbow-delimiters-mode) ; all programming modes
-; (global-rainbow-delimiters-mode) ; globally
+;;(require 'rainbow-delimiters)
+;;(add-hook 'prog-mode-hook 'rainbow-delimiters-mode) ; all programming modes
+;;(global-rainbow-delimiters-mode) ; globally
 
 (provide 'lisp-settings)
