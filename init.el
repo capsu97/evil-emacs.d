@@ -29,7 +29,7 @@
                                      latest-clojure-libraries cider cider-tracing ; clojure
                                      ace-jump-mode ; move quickly around buffers (see vim EasyMotion as well)
                                      markdown-mode markdown-mode+ ; markdown
-                                     evil evil-leader evil-numbers evil-paredit evil-matchit evil-indent-textobject surround evil-visualstar ; evil vim emulation
+                                     evil evil-exchange evil-leader evil-numbers evil-paredit evil-indent-textobject surround evil-visualstar ; evil vim emulation
                                      rainbow-delimiters highlight-parentheses smartparens paredit paredit-menu ; working with parens / delimiters
                                      sublime-themes monokai-theme molokai-theme color-theme-sanityinc-tomorrow ; color themes
                                      git-rebase-mode gitattributes-mode git-commit-mode gitconfig-mode gitignore-mode ; git file modes

@@ -21,8 +21,13 @@
 (add-hook 'prog-mode-hook 'esk-add-watchwords)
 ;;(add-hook 'prog-mode-hook 'idle-highlight-mode)
 
+;; SmartParens
+;;(require 'smartparens-config)
+;;(add-hook 'prog-mode-hook 'smartparens-strict-mode)
+
 ;; make colon part of word (for example :keyword)
 (add-hook 'clojure-mode-hook (lambda () (modify-syntax-entry ?: "w")))
+(add-hook 'prog-mode-hook (lambda () (modify-syntax-entry ?- "w")))
 
 ;; Turn off auto-fill
 (auto-fill-mode -1)
@@ -126,7 +131,7 @@
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1)) ; turn off the toolbar
 (if (fboundp 'menu-bar-mode) (menu-bar-mode -1)) ; turn off the menubar
 (size-indication-mode 1) ; show the size of the buffer
-(global-subword-mode 1) ; moving cursor in CamelCaseWords
+(global-superword-mode 1)
 (set-default 'indicate-empty-lines nil) ; don't indicate empty lines
 
 (fset 'yes-or-no-p 'y-or-n-p)
@@ -141,8 +146,9 @@
 (setq recentf-max-menu-items 25)
 
 ;; Highlight matching parentheses when the point is on them.
-(show-paren-mode 1)
+(show-paren-mode)
 (setq show-paren-delay 0)
+;;(show-smartparens-global-mode t)
 
 ;; Macbook, make fn function as meta
 (setq-default mac-function-modifier 'meta)

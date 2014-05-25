@@ -15,8 +15,6 @@
 (global-set-key (kbd "C-M-u") 'universal-argument)
 
 (global-set-key (kbd "M-x") 'smex)
-(global-set-key "\C-x\C-m" 'smex)
-(global-set-key "\C-c\C-m" 'smex-major-mode-commands)
 (global-set-key (kbd "C-x C-i") 'idomenu)
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
@@ -53,8 +51,11 @@
 ;; Motion
 (define-key evil-motion-state-map "\\" nil)
 (define-key evil-motion-state-map " " nil)
-(define-key evil-motion-state-map "  " 'evil-ace-jump-char-mode)
+(define-key evil-motion-state-map "  " 'evil-ace-jump-word-mode)
+(define-key evil-motion-state-map " c" 'evil-ace-jump-char-mode)
 (define-key evil-motion-state-map " t" 'evil-ace-jump-char-to-mode)
+(define-key evil-motion-state-map " l" 'evil-ace-jump-line-mode)
+(define-key evil-motion-state-map " w" 'evil-ace-jump-word-mode)
 
 ;; Operator
 (define-key evil-operator-state-map " " nil)      ; similar to f
@@ -64,8 +65,6 @@
 ;; Insert
 (define-key evil-insert-state-map "\C-e" nil)
 (define-key evil-insert-state-map "\C-y" nil)
-
-(define-key evil-insert-state-map (kbd "C-k") nil)
 
 (define-key evil-insert-state-map (kbd "M-h") 'evil-backward-char)
 (define-key evil-insert-state-map (kbd "M-j") 'evil-next-line)
@@ -77,11 +76,10 @@
 (define-key evil-insert-state-map (kbd "M-K") 'evil-backward-section-begin)
 (define-key evil-insert-state-map (kbd "M-L") 'evil-forward-word-begin)
 
+(define-key evil-insert-state-map (kbd "C-SPC") 'evil-ace-jump-word-mode)
 ;(define-key evil-insert-state-map (kbd "C-x") 'evil-execute-in-normal-state)
 
 ;; Normal
-(define-key evil-normal-state-map " l" 'evil-ace-jump-line-mode)
-(define-key evil-normal-state-map " w" 'evil-ace-jump-word-mode)
 (define-key evil-normal-state-map " m" 'evil-jump-item)
 
 (define-key evil-normal-state-map (kbd "M-H") 'evil-backward-word-begin)
@@ -123,17 +121,19 @@
 (define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
 (define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
 
-(define-key evil-normal-state-map "\\q" '(lambda () (kill-buffer "*nREPL error*")))
-(define-key evil-normal-state-map "\\wr" 'paredit-wrap-round)
-(define-key evil-normal-state-map "\\ws" 'paredit-wrap-square)
-(define-key evil-normal-state-map "\\wc" 'paredit-wrap-curly)
-(define-key evil-normal-state-map "\\d" 'paredit-duplicate-after-point)
-(define-key evil-normal-state-map "\\S" 'paredit-split-sexp)
-(define-key evil-normal-state-map "\\s" 'paredit-splice-sexp)
-(define-key evil-normal-state-map "\\fs" 'paredit-splice-sexp-killing-forward)
-(define-key evil-normal-state-map "\\bs" 'paredit-splice-sexp-killing-backward)
-(define-key evil-normal-state-map "\\j" 'paredit-join-sexps)
-(define-key evil-normal-state-map "\\rf" 'paredit-reindent-defun)
+(evil-define-key 'normal paredit-mode-map "\\q" '(lambda () (kill-buffer "*nREPL error*")))
+(evil-define-key 'normal paredit-mode-map "\\wr" 'paredit-wrap-round)
+(evil-define-key 'normal paredit-mode-map "\(" 'paredit-wrap-round)
+(evil-define-key 'normal paredit-mode-map "\\ws" 'paredit-wrap-square)
+(evil-define-key 'normal paredit-mode-map "\\wc" 'paredit-wrap-curly)
+(evil-define-key 'normal paredit-mode-map "\\R" 'paredit-raise-sexp)
+(evil-define-key 'normal paredit-mode-map "\\d" 'paredit-duplicate-after-point)
+(evil-define-key 'normal paredit-mode-map "\\S" 'paredit-split-sexp)
+(evil-define-key 'normal paredit-mode-map "\\s" 'paredit-splice-sexp)
+(evil-define-key 'normal paredit-mode-map "\\fs" 'paredit-splice-sexp-killing-forward)
+(evil-define-key 'normal paredit-mode-map "\\bs" 'paredit-splice-sexp-killing-backward)
+(evil-define-key 'normal paredit-mode-map "\\j" 'paredit-join-sexps)
+(evil-define-key 'normal paredit-mode-map "\\rf" 'paredit-reindent-defun)
 (define-key evil-normal-state-map "\\rb" 'indent-whole-buffer)
 (define-key evil-normal-state-map "\\ef" 'cider-eval-expression-at-point)
 (evil-define-key 'normal clojure-mode-map (kbd "<C-return>") 'cider-eval-defun-at-point)
@@ -145,10 +145,10 @@
 
 (define-key evil-normal-state-map "\\ew" 'delete-other-windows) ; expand window
 
-(define-key evil-normal-state-map (kbd "M->") 'paredit-forward-slurp-sexp)
-(define-key evil-normal-state-map (kbd "M-<") 'paredit-forward-barf-sexp)
-(define-key evil-normal-state-map (kbd "C-<") 'paredit-backward-slurp-sexp)
-(define-key evil-normal-state-map (kbd "C->") 'paredit-backward-barf-sexp)
+(evil-define-key 'normal paredit-mode-map (kbd "M->") 'paredit-forward-slurp-sexp)
+(evil-define-key 'normal paredit-mode-map (kbd "M-<") 'paredit-forward-barf-sexp)
+(evil-define-key 'normal paredit-mode-map (kbd "C-<") 'paredit-backward-slurp-sexp)
+(evil-define-key 'normal paredit-mode-map (kbd "C->") 'paredit-backward-barf-sexp)
 
 (define-key evil-insert-state-map (kbd "M->") 'paredit-forward-slurp-sexp)
 (define-key evil-insert-state-map (kbd "M-<") 'paredit-forward-barf-sexp)

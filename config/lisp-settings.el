@@ -7,15 +7,14 @@
 (add-hook 'emacs-lisp-mode-hook 'esk-remove-elc-on-save)
 (add-hook 'emacs-lisp-mode-hook 'esk-prog-mode-hook)
 (add-hook 'emacs-lisp-mode-hook 'elisp-slime-nav-mode)
+(add-hook 'emacs-lisp-mode-hook 'paredit-mode)
+(add-hook 'clojure-mode-hook 'paredit-mode)
 
 ;; prettify fn in clojure/clojurescript
 (add-hook 'clojure-mode-hook 'pretty-fn)
 (add-hook 'clojurescript-mode-hook 'pretty-fn)
 
 ;;---------------------------------------------------------
-
-;; Paredit menu
-(require 'paredit-menu)
 
 ;;; CIDER CONFIG
 (require 'cider)
@@ -42,6 +41,7 @@
 
 (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode) ; Enable eldoc in clojure buffers
 (add-hook 'cider-repl-mode-hook 'subword-mode) ;Enabling CamelCase support for editing commands(like forward-word, backward-word, etc) in nREPL
+;;(add-hook 'cider-repl-mode-hook 'smartparens-strict-mode) ;Enable smartparens strict mode in nRepl buffer
 (add-hook 'cider-repl-mode-hook 'paredit-mode) ;Enable paredit in nRepl buffer
 (add-hook 'cider-repl-mode-hook 'rainbow-delimiters-mode) ; rainbow delimiters
 (add-hook 'cider-repl-mode-hook '(lambda () (linum-mode 0)))

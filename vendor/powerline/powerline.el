@@ -100,6 +100,11 @@ This is needed to make sure that text is properly aligned."
   :group 'powerline
   :type 'boolean)
 
+(defcustom powerline-use-hud t
+  "Whether to show hud in the rightmost"
+  :group 'powerline
+  :type 'boolean)
+
 (defun pl/create-or-get-cache ()
   "Return a frame-local hash table that acts as a memoization cache for powerline. Create one if the frame doesn't have one yet."
   (or (frame-parameter nil 'powerline-cache)
@@ -319,7 +324,6 @@ static char * %s[] = {
                         (when (and (> (length rendered-str) 0) (eq pad 'l)) " ")
                         (if (listp str) rendered-str str)
                         (when (and (> (length rendered-str) 0) (eq pad 'r)) " "))))
-
       (if face
           (pl/add-text-property padded-str 'face face)
         padded-str))))
@@ -493,6 +497,11 @@ mouse-2: toggle rest visibility\nmouse-3: go to end"
 
 ;;;###autoload
 (defpowerline powerline-position
+  (if (eq major-mode 'paradox-menu-mode)
+      (concat
+       " (%l / "
+       (int-to-string (line-number-at-pos (point-max)))
+       ")")
   (concat
    (if (and column-number-mode line-number-mode)
        (propertize
@@ -529,7 +538,7 @@ mouse-1: Display Line and Column Mode Menu")
         'mouse-face 'mode-line-highlight
         'help-echo "Size indication mode\n\
 mouse-1: Display Line and Column Mode Menu")
-     "")))
+     ""))))
 
 (eval-after-load 'wc-mode
   '(defpowerline powerline-wc-mode
@@ -543,6 +552,18 @@ mouse-1: Display Line and Column Mode Menu")
                (point-max)
                (count-words-region (point-min) (point-max))
                (line-number-at-pos (point-max))))))
+
+(eval-after-load 'paradox
+  '(defpowerline powerline-paradox
+     (concat
+      (if paradox--current-filter ("[" paradox--current-filter "]"))
+      (if paradox--upgradeable-packages-any?
+          (concat "  Upgrade:" (int-to-string paradox--upgradeable-packages-number)))
+      (if package-menu--new-package-list
+          (concat "  New:" (int-to-string (paradox--cas "new"))))
+      " Installed:" (int-to-string (+ (paradox--cas "installed") (paradox--cas "unsigned")))
+      (if paradox--current-filter
+          "" (concat "  Total:" (int-to-string (length package-archive-contents)))))))
 
 (eval-after-load 'evil
   '(progn

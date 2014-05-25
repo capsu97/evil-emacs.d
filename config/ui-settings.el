@@ -19,12 +19,6 @@
 ;;(load-theme 'monokai t)
 (load-theme 'odersky t)
 
-(set-face-foreground 'show-paren-match-face "white")
-(set-face-background 'show-paren-match-face "gray22")
-;; (set-face-background 'show-paren-match-face "dark slate gray")
-(set-face-attribute 'show-paren-match-face nil
-                    :weight 'bold :underline nil :overline nil :slant 'normal)
-
 (eval-after-load 'diff-mode
   '(progn
      (set-face-foreground 'diff-added "green4")
