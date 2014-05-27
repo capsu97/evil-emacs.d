@@ -6,9 +6,9 @@
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.milkbox.net/packages/") t)
 
-                                        ;(add-to-list 'package-archives
-                                        ;    '("marmalade" .
-                                        ;      "http://marmalade-repo.org/packages/"))
+;;(add-to-list 'package-archives
+;;    '("marmalade" .
+;;      "http://marmalade-repo.org/packages/"))
 (setq package-enable-at-startup t)
 (package-initialize)
 
@@ -20,18 +20,22 @@
                                      org-plus-contrib ; latest org-mode
                                      undo-tree ; visualize undo as a tree (extremely handy)
                                      company ; autocomplete
+                                     drag-stuff ; moving lines/regions up/down
                                      idle-highlight-mode ; highlight all occurences of current symbol after a little while
                                      elisp-slime-nav ; extensions for elisp
                                      diminish ; don't clutter the modeline with minor mode names
-                                     ag swoop ; search / grep
+                                     ag ; search / grep
                                      buffer-move ; manage buffers
                                      clojure-mode clojure-test-mode clojure-cheatsheet clj-refactor ; clojure
                                      latest-clojure-libraries cider cider-tracing ; clojure
-                                     ace-jump-mode ; move quickly around buffers (see vim EasyMotion as well)
+                                     ace-jump-mode ace-window ; move quickly around buffers (see vim EasyMotion as well)
                                      markdown-mode markdown-mode+ ; markdown
-                                     evil evil-exchange evil-leader evil-numbers evil-paredit evil-indent-textobject surround evil-visualstar ; evil vim emulation
+                                     evil evil-exchange evil-leader evil-numbers evil-indent-textobject ; evil vim emulation
+                                     surround evil-visualstar evil-nerd-commenter; evil vim emulation
                                      rainbow-delimiters highlight-parentheses smartparens paredit paredit-menu ; working with parens / delimiters
                                      sublime-themes monokai-theme molokai-theme color-theme-sanityinc-tomorrow ; color themes
+                                     birds-of-paradise-plus-theme afternoon-theme noctilux-theme soft-morning-theme ; color themes
+                                     subatomic256-theme tango-plus-theme zenburn-theme zonokai-theme ; color themes
                                      git-rebase-mode gitattributes-mode git-commit-mode gitconfig-mode gitignore-mode ; git file modes
                                      gist magit diff-hl ; git integration
                                      emmet-mode skewer-mode js2-mode js2-refactor web-mode sass-mode rainbow-mode ; web development
@@ -98,7 +102,7 @@
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
    (quote
-    ("9bcb8ee9ea34ec21272bb6a2044016902ad18646bd09fdd65abae1264d258d89" "0e121ff9bef6937edad8dfcff7d88ac9219b5b4f1570fd1702e546a80dba0832" "60f04e478dedc16397353fb9f33f0d895ea3dab4f581307fbf0aa2f07e658a40" default)))
+    ("f5e9f66da69f504cb61aacedeb8284d8f38f2e6f835fd658cac5f0ad5d924549" "bf648fd77561aae6722f3d53965a9eb29b08658ed045207fe32ffed90433eb52" "a99e7c91236b2aba4cd374080c73f390c55173c5a1b4ac662eeb3172b60a9814" "c3fb7a13857e799bba450bb81b9101ef4960281c4d5908e05ecac9204c526c8a" "0c311fb22e6197daba9123f43da98f273d2bfaeeaeb653007ad1ee77f0003037" "7dd515d883520286fc8936ce32381fb01b978d0d7cfb6fe56f7f55d8accbf63a" "57072d797dc09fcf563051a85a29d6a51d6f2b1a602e029c35b05c30df319b2a" "f0ea6118d1414b24c2e4babdc8e252707727e7b4ff2e791129f240a2b3093e32" "c4e6fe8f5728a5d5fd0e92538f68c3b4e8b218bcfb5e07d8afff8731cc5f3df0" "9bcb8ee9ea34ec21272bb6a2044016902ad18646bd09fdd65abae1264d258d89" "0e121ff9bef6937edad8dfcff7d88ac9219b5b4f1570fd1702e546a80dba0832" "60f04e478dedc16397353fb9f33f0d895ea3dab4f581307fbf0aa2f07e658a40" default)))
  '(fci-rule-color "#efefef")
  '(initial-frame-alist (quote ((fullscreen . maximized))))
  '(vc-annotate-background nil)

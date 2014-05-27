@@ -35,6 +35,10 @@
 
 (global-set-key (kbd "C-x o") 'ido-select-window)
 
+;; Surround mode
+(evil-define-key 'normal surround-mode-map "s" 'surround-region)
+(evil-define-key 'normal surround-mode-map "S" 'Surround-region)
+
 ;;; esc quits
 
 (define-key evil-normal-state-map [escape] 'keyboard-quit)
@@ -55,7 +59,6 @@
 (define-key evil-motion-state-map " c" 'evil-ace-jump-char-mode)
 (define-key evil-motion-state-map " t" 'evil-ace-jump-char-to-mode)
 (define-key evil-motion-state-map " l" 'evil-ace-jump-line-mode)
-(define-key evil-motion-state-map " w" 'evil-ace-jump-word-mode)
 
 ;; Operator
 (define-key evil-operator-state-map " " nil)      ; similar to f
@@ -80,7 +83,7 @@
 ;(define-key evil-insert-state-map (kbd "C-x") 'evil-execute-in-normal-state)
 
 ;; Normal
-(define-key evil-normal-state-map " m" 'evil-jump-item)
+;;(define-key evil-normal-state-map " m" 'evil-jump-item)
 
 (define-key evil-normal-state-map (kbd "M-H") 'evil-backward-word-begin)
 (define-key evil-normal-state-map (kbd "M-J") 'evil-forward-section-begin)
@@ -125,7 +128,9 @@
 (evil-define-key 'normal paredit-mode-map "\\wr" 'paredit-wrap-round)
 (evil-define-key 'normal paredit-mode-map "\(" 'paredit-wrap-round)
 (evil-define-key 'normal paredit-mode-map "\\ws" 'paredit-wrap-square)
+(evil-define-key 'normal paredit-mode-map "\\w[" 'paredit-wrap-square)
 (evil-define-key 'normal paredit-mode-map "\\wc" 'paredit-wrap-curly)
+(evil-define-key 'normal paredit-mode-map "\\w{" 'paredit-wrap-curly)
 (evil-define-key 'normal paredit-mode-map "\\R" 'paredit-raise-sexp)
 (evil-define-key 'normal paredit-mode-map "\\d" 'paredit-duplicate-after-point)
 (evil-define-key 'normal paredit-mode-map "\\S" 'paredit-split-sexp)
@@ -134,6 +139,11 @@
 (evil-define-key 'normal paredit-mode-map "\\bs" 'paredit-splice-sexp-killing-backward)
 (evil-define-key 'normal paredit-mode-map "\\j" 'paredit-join-sexps)
 (evil-define-key 'normal paredit-mode-map "\\rf" 'paredit-reindent-defun)
+
+;;(evil-define-key 'normal paredit-mode-map "x" 'paredit-forward-delete)
+(evil-define-key 'normal paredit-mode-map "X" 'paredit-backward-delete)
+(evil-define-key 'normal paredit-mode-map "D" 'paredit-kill)
+
 (define-key evil-normal-state-map "\\rb" 'indent-whole-buffer)
 (define-key evil-normal-state-map "\\ef" 'cider-eval-expression-at-point)
 (evil-define-key 'normal clojure-mode-map (kbd "<C-return>") 'cider-eval-defun-at-point)

@@ -5,22 +5,23 @@
       evil-want-C-w-in-emacs-state nil
       evil-want-C-w-delete t)
 
+;; Evil leader
+(require 'evil-leader)
+;;(setq evil-leader/in-all-states t)
+(evil-leader/set-leader "<SPC>")
+(global-evil-leader-mode)
+
 ;; Evil VIM mode
 (require 'evil)
 (evil-mode 1)
 
-;; Evil paredit
-; (require 'evil-paredit)
-;(add-hook 'emacs-lisp-mode-hook 'evil-paredit-mode)
-
-;; Evil leader
-;;(require 'evil-leader)
-;;(setq evil-leader/leader "\\"
-;;      evil-leader/in-all-states t)
-
 ;; Evil surround
 (require 'surround)
 (global-surround-mode 1)
+(add-to-list 'surround-operator-alist
+             '(evil-paredit-change . change))
+(add-to-list 'surround-operator-alist
+             '(evil-paredit-delete . delete))
 
 ;; Initial states
 (evil-set-initial-state 'nrepl-mode 'insert)
