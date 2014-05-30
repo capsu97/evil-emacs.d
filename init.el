@@ -38,7 +38,7 @@
                                      subatomic256-theme tango-plus-theme zenburn-theme zonokai-theme ; color themes
                                      git-rebase-mode gitattributes-mode git-commit-mode gitconfig-mode gitignore-mode ; git file modes
                                      gist magit diff-hl ; git integration
-                                     emmet-mode skewer-mode js2-mode js2-refactor web-mode sass-mode rainbow-mode ; web development
+                                     emmet-mode skewer-mode js2-mode js2-refactor web-beautify web-mode sass-mode rainbow-mode ; web development
                                      projectile ; moving around in projects
                                      yasnippet clojure-snippets datomic-snippets ; snippets
                                      browse-kill-ring ; list / select / insert previously killed text
