@@ -1,4 +1,10 @@
 (require 'evil)
+
+(define-key evil-insert-state-map "\C-e" nil)
+(define-key evil-insert-state-map "\C-y" nil)
+
+(global-set-key (kbd "<M-return>") 'open-line-below)
+
 ;; org-mode keybindings
 (global-set-key (kbd "C-c a") 'org-agenda)
 
@@ -17,11 +23,22 @@
 (global-set-key (kbd "M-x") 'smex)
 (global-set-key (kbd "C-x C-i") 'idomenu)
 (global-set-key (kbd "C-x C-b") 'ibuffer)
+(define-key evil-visual-state-map ",x" 'smex)
+(define-key evil-normal-state-map ",l" 'ido-switch-buffer)
+(define-key evil-normal-state-map ",ut" 'undo-tree-visualize)
+(define-key evil-normal-state-map ",x" 'smex)
+(define-key evil-normal-state-map ",g" 'helm-imenu)
+(define-key evil-normal-state-map ",sa" 'mark-whole-buffer)
+(define-key evil-normal-state-map "\\rb" 'indent-whole-buffer)
+
+(define-key evil-normal-state-map ",rf" 'recentf-open-files)
 
 (define-key global-map (kbd "C-+") 'text-scale-increase)
 (define-key global-map (kbd "C--") 'text-scale-decrease)
 
 (global-set-key (kbd "C-c r") 'revert-buffer)
+
+(define-key evil-normal-state-map "\\ew" 'delete-other-windows) ; expand window
 
 ;; Help should search more than just commands
 (define-key 'help-command "a" 'apropos)
@@ -66,9 +83,6 @@
 (define-key evil-operator-state-map " t" 'evil-ace-jump-char-to-mode) ; similar to t
 
 ;; Insert
-(define-key evil-insert-state-map "\C-e" nil)
-(define-key evil-insert-state-map "\C-y" nil)
-
 (define-key evil-insert-state-map (kbd "M-h") 'evil-backward-char)
 (define-key evil-insert-state-map (kbd "M-j") 'evil-next-line)
 (define-key evil-insert-state-map (kbd "M-k") 'evil-previous-line)
@@ -80,7 +94,7 @@
 (define-key evil-insert-state-map (kbd "M-L") 'evil-forward-word-begin)
 
 (define-key evil-insert-state-map (kbd "C-SPC") 'evil-ace-jump-word-mode)
-;(define-key evil-insert-state-map (kbd "C-x") 'evil-execute-in-normal-state)
+                                        ;(define-key evil-insert-state-map (kbd "C-x") 'evil-execute-in-normal-state)
 
 ;; Normal
 ;;(define-key evil-normal-state-map " m" 'evil-jump-item)
@@ -90,16 +104,14 @@
 (define-key evil-normal-state-map (kbd "M-K") 'evil-backward-section-begin)
 (define-key evil-normal-state-map (kbd "M-L") 'evil-forward-word-begin)
 
-(define-key evil-normal-state-map (kbd "M-.") 'cider-jump)
-(define-key evil-normal-state-map (kbd "M-,") 'cider-jump-back)
-
+;; Projectile
 (define-key evil-normal-state-map ",t" 'projectile-find-file)
 (define-key evil-normal-state-map ",pff" 'projectile-find-file)
 (define-key evil-normal-state-map ",pft" 'projectile-find-test-file)
 (define-key evil-normal-state-map ",ptt" 'projectile-toggle-between-implementation-and-test)
 (define-key evil-normal-state-map ",prt" 'projectile-regenerate-tags)
 (define-key evil-normal-state-map ",ptp" 'projectile-test-project)
-(define-key evil-normal-state-map ",psp" 'projectile-switch-project)
+(define-key evil-normal-state-map ",ps" 'projectile-switch-project)
 (define-key evil-normal-state-map ",prs" 'projectile-replace)
 (define-key evil-normal-state-map ",pkb" 'projectile-kill-buffers)
 (define-key evil-normal-state-map ",pd" 'projectile-dired)
@@ -110,20 +122,12 @@
 (define-key evil-normal-state-map ",po" 'projectile-multi-occur)
 (define-key evil-normal-state-map ",pa" 'projectile-ack)
 (define-key evil-normal-state-map ",pg" 'projectile-grep)
-(define-key evil-normal-state-map ",rf" 'recentf-open-files)
-(define-key evil-normal-state-map ",l" 'ido-switch-buffer)
-(define-key evil-normal-state-map ",cc" 'cider-connect)
-(define-key evil-normal-state-map ",cj" 'cider-jack-in)
-(define-key evil-normal-state-map ",ut" 'undo-tree-visualize)
-(define-key evil-normal-state-map ",ch" 'helm-clojure-headlines)
-(define-key evil-normal-state-map ",x" 'smex)
-(define-key evil-normal-state-map ",g" 'helm-imenu)
-(define-key evil-normal-state-map ",sa" 'mark-whole-buffer)
 
 ;;Make evil-mode up/down operate in screen lines instead of logical lines
 (define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
 (define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
 
+;; Paredit
 (evil-define-key 'normal paredit-mode-map "\\q" '(lambda () (kill-buffer "*nREPL error*")))
 (evil-define-key 'normal paredit-mode-map "\\wr" 'paredit-wrap-round)
 (evil-define-key 'normal paredit-mode-map "\(" 'paredit-wrap-round)
@@ -144,36 +148,37 @@
 (evil-define-key 'normal paredit-mode-map "X" 'paredit-backward-delete)
 (evil-define-key 'normal paredit-mode-map "D" 'paredit-kill)
 
-(define-key evil-normal-state-map "\\rb" 'indent-whole-buffer)
-(define-key evil-normal-state-map "\\ef" 'cider-eval-expression-at-point)
-(evil-define-key 'normal clojure-mode-map (kbd "<C-return>") 'cider-eval-defun-at-point)
-(evil-define-key 'insert clojure-mode-map (kbd "<C-return>") 'cider-eval-defun-at-point)
-(evil-define-key 'visual clojure-mode-map (kbd "<C-return>") 'cider-eval-region)
-(define-key evil-normal-state-map "\\es" 'cider-eval-last-sexp)
-(define-key evil-normal-state-map "\\en" 'cider-eval-ns-form)
-(define-key evil-normal-state-map "\\eb" 'cider-load-current-buffer)
-
-(define-key evil-normal-state-map "\\ew" 'delete-other-windows) ; expand window
-
 (evil-define-key 'normal paredit-mode-map (kbd "M->") 'paredit-forward-slurp-sexp)
 (evil-define-key 'normal paredit-mode-map (kbd "M-<") 'paredit-forward-barf-sexp)
 (evil-define-key 'normal paredit-mode-map (kbd "C-<") 'paredit-backward-slurp-sexp)
 (evil-define-key 'normal paredit-mode-map (kbd "C->") 'paredit-backward-barf-sexp)
 
-(define-key evil-insert-state-map (kbd "M->") 'paredit-forward-slurp-sexp)
-(define-key evil-insert-state-map (kbd "M-<") 'paredit-forward-barf-sexp)
-(define-key evil-insert-state-map (kbd "C-<") 'paredit-backward-slurp-sexp)
-(define-key evil-insert-state-map (kbd "C->") 'paredit-backward-barf-sexp)
+(evil-define-key 'insert paredit-mode-map (kbd "M->") 'paredit-forward-slurp-sexp)
+(evil-define-key 'insert paredit-mode-map (kbd "M-<") 'paredit-forward-barf-sexp)
+(evil-define-key 'insert paredit-mode-map (kbd "C-<") 'paredit-backward-slurp-sexp)
+(evil-define-key 'insert paredit-mode-map (kbd "C->") 'paredit-backward-barf-sexp)
 
-(define-key evil-normal-state-map (kbd "M-;") 'evil-paredit-comment-dwim)
+(evil-define-key 'normal paredit-mode-map (kbd "M-;") 'evil-paredit-comment-dwim)
 
-;; Visual
-(define-key evil-visual-state-map "\\W" 'paredit-wrap-round)
-(define-key evil-visual-state-map ",x" 'smex)
+(evil-define-key 'visual paredit-mode-map "\\W" 'paredit-wrap-round)
+
+;; Clojure / Cider
+(evil-define-key 'normal clojure-mode-map ",ch" 'helm-clojure-headlines)
+(evil-define-key 'normal clojure-mode-map (kbd "<C-return>") 'cider-eval-defun-at-point)
+(evil-define-key 'insert clojure-mode-map (kbd "<C-return>") 'cider-eval-defun-at-point)
+(evil-define-key 'visual clojure-mode-map (kbd "<C-return>") 'cider-eval-region)
+(evil-define-key 'normal clojure-mode-map "\\es" 'cider-eval-last-sexp)
+(evil-define-key 'normal clojure-mode-map "\\en" 'cider-eval-ns-form)
+(evil-define-key 'normal clojure-mode-map "\\eb" 'cider-load-current-buffer)
+(evil-define-key 'normal clojure-mode-map ",cb" 'cider-repl-clear-buffer)
+(evil-define-key 'normal clojure-mode-map ",cc" 'cider-connect)
+(evil-define-key 'normal clojure-mode-map ",cj" 'cider-jack-in)
+(evil-define-key 'normal clojure-mode-map (kbd "M-.") 'cider-jump)
+(evil-define-key 'normal clojure-mode-map (kbd "M-,") 'cider-jump-back)
 
 ;; Other modes
-;(evil-declare-key 'normal org-mode-map "T" 'org-todo)
-;(evil-declare-key 'normal org-mode-map "-" 'org-cycle-list-bullet)
+                                        ;(evil-declare-key 'normal org-mode-map "T" 'org-todo)
+                                        ;(evil-declare-key 'normal org-mode-map "-" 'org-cycle-list-bullet)
 
 ;; Evil window movements
 (global-set-key "\C-w" 'evil-window-map)

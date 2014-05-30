@@ -1,6 +1,7 @@
 ;; lot of the variables need to be set BEFORE evil loads
 (setq evil-move-cursor-back t
       evil-cross-lines t
+      evil-want-fine-undo t
       evil-want-C-u-scroll t
       evil-want-C-w-in-emacs-state nil
       evil-want-C-w-delete t)

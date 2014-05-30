@@ -31,6 +31,7 @@
 (setq nrepl-hide-special-buffers t)
 
 (setq cider-repl-pop-to-buffer-on-connect nil) ; Prevent the auto-display of the REPL buffer in a separate window after connection is established
+(setq cider-repl-print-length 100) ; Limit the number of items of each collection the printer will print to 100
 
 (eval-after-load "cider"
   '(progn

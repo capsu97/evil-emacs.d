@@ -1,18 +1,37 @@
-(defun evil-sp-wrap-with-round ()
+(defun my-cider-eval-count-defun-at-point ()
+  (interactive)
+  (cider-interactive-eval
+   (format "(count %s)"
+           (cider-eval-defun-at-point))))
+
+(defun my-cider-nth-from-defun-at-point (n)
+  (interactive "p")
+  (cider-interactive-eval
+   (format "(count %s %s)"
+           (cider-eval-defun-at-point) n)))
+
+(defun my-cider-benchmark-defun-at-point ()
+  (interactive)
+  (cider-interactive-eval
+   (format "(require 'criterium.core)
+	    (criterium.core/quick-benchmark %s)"
+           (cider-eval-defun-at-point))))
+
+(defun my-evil-sp-wrap-with-round ()
   (interactive)
   (sp-wrap-with-pair "(")
   (evil-change-state 'insert)
   (insert " ")
   (backward-char 1))
 
-(defun evil-sp-wrap-with-curly ()
+(defun my-evil-sp-wrap-with-curly ()
   (interactive)
   (sp-wrap-with-pair "{")
   (evil-change-state 'insert)
   (insert " ")
   (backward-char 1))
 
-(defun evil-sp-wrap-with-square ()
+(defun my-evil-sp-wrap-with-square ()
   (interactive)
   (sp-wrap-with-pair "[")
   (evil-change-state 'insert)
