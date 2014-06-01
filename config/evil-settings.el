@@ -10,7 +10,9 @@
 (require 'evil)
 (evil-mode 1)
 
-;(require 'evil-nerd-commenter)
+;; Evil nerd commenter
+(setq evilnc-hotkey-comment-operator ",,")
+(require 'evil-nerd-commenter)
 
 ;; Evil surround
 (require 'surround)

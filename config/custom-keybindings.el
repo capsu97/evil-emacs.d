@@ -31,8 +31,6 @@
 (define-key evil-normal-state-map ",sa" 'mark-whole-buffer)
 (define-key evil-normal-state-map "\\rb" 'indent-whole-buffer)
 
-(define-key evil-normal-state-map ",rf" 'recentf-open-files)
-
 (define-key global-map (kbd "C-+") 'text-scale-increase)
 (define-key global-map (kbd "C--") 'text-scale-decrease)
 
@@ -42,6 +40,14 @@
 
 ;; Help should search more than just commands
 (define-key 'help-command "a" 'apropos)
+
+;; Comments
+(define-key evil-normal-state-map ",;" 'evilnc-comment-or-uncomment-lines)
+(define-key evil-normal-state-map ",cc" 'evilnc-copy-and-comment-lines)
+(define-key evil-visual-state-map ",cc" 'evilnc-copy-and-comment-lines)
+(define-key evil-normal-state-map ",cp" 'evilnc-comment-or-uncomment-paragraphs)
+(define-key evil-normal-state-map ",cr" 'comment-or-uncomment-region)
+(define-key evil-visual-state-map ",cr" 'comment-or-uncomment-region)
 
 ;; Lisp
 (define-key read-expression-map (kbd "TAB") 'lisp-complete-symbol)
