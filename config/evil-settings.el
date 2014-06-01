@@ -6,15 +6,11 @@
       evil-want-C-w-in-emacs-state nil
       evil-want-C-w-delete t)
 
-;; Evil leader
-(require 'evil-leader)
-;;(setq evil-leader/in-all-states t)
-(evil-leader/set-leader "<SPC>")
-(global-evil-leader-mode)
-
 ;; Evil VIM mode
 (require 'evil)
 (evil-mode 1)
+
+;(require 'evil-nerd-commenter)
 
 ;; Evil surround
 (require 'surround)
