@@ -1,0 +1,5 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: footer
+# key: footer
+# --
+<footer>$0</footer>

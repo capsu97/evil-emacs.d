@@ -1,3 +1,18 @@
+(defun yas/popup-isearch-prompt (prompt choices &optional display-fn)
+  (when (featurep 'popup)
+    (popup-menu*
+     (mapcar
+      (lambda (choice)
+        (popup-make-item
+         (or (and display-fn (funcall display-fn choice))
+             choice)
+         :value choice))
+      choices)
+     :prompt prompt
+     ;; start isearch mode immediately
+     :isearch t
+     )))
+
 (defun my-cider-eval-count-defun-at-point ()
   (interactive)
   (cider-interactive-eval
@@ -14,7 +29,7 @@
   (interactive)
   (cider-interactive-eval
    (format "(require 'criterium.core)
-	    (criterium.core/quick-benchmark %s)"
+            (criterium.core/quick-benchmark %s)"
            (cider-eval-defun-at-point))))
 
 (defun my-evil-sp-wrap-with-round ()

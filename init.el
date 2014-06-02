@@ -40,7 +40,7 @@
                                      gist magit diff-hl ; git integration
                                      emmet-mode skewer-mode js2-mode js2-refactor web-beautify web-mode sass-mode rainbow-mode ; web development
                                      projectile ; moving around in projects
-                                     yasnippet clojure-snippets datomic-snippets ; snippets
+                                     yasnippet popup clojure-snippets datomic-snippets ; snippets
                                      browse-kill-ring ; list / select / insert previously killed text
                                      dired+ ; directory editor addon
                                      expand-region ; easily select regions around point
@@ -117,4 +117,8 @@
  '(ido-incomplete-regexp ((t (:foreground "#ffffff"))))
  '(ido-indicator ((t (:foreground "#ffffff"))))
  '(ido-only-match ((t (:foreground "#ffcc33"))))
- '(ido-subdir ((t (:foreground "#66ff00")))))
+ '(ido-subdir ((t (:foreground "#66ff00"))))
+ '(web-mode-current-element-highlight-face ((t (:background "black"))))
+ '(web-mode-html-attr-name-face ((t (:foreground "royal blue"))))
+ '(web-mode-html-tag-bracket-face ((t (:foreground "dim gray"))))
+ '(web-mode-html-tag-face ((t (:foreground "DarkOrange1")))))

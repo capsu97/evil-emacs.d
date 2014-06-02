@@ -1,5 +1,5 @@
 ;; lot of the variables need to be set BEFORE evil loads
-(setq evil-move-cursor-back t
+(setq evil-move-cursor-back nil
       evil-cross-lines t
       evil-want-fine-undo t
       evil-want-C-u-scroll t
@@ -21,6 +21,11 @@
              '(evil-paredit-change . change))
 (add-to-list 'surround-operator-alist
              '(evil-paredit-delete . delete))
+
+;; Abort company-mode when exiting insert mode
+(defun abort-company-on-insert-state-exit ()
+  (company-abort))
+(add-hook 'evil-insert-state-exit-hook 'abort-company-on-insert-state-exit)
 
 ;; Initial states
 (evil-set-initial-state 'nrepl-mode 'insert)

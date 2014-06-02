@@ -12,7 +12,7 @@
 ;;(setq company-backends '(company-dabbrev (company-keywords company-dabbrev-code) company-files))
 ;;(setq company-begin-commands '(self-insert-command org-self-insert-command c-electric-lt-gt c-electric-colon))
 
-(setq company-idle-delay 0.3)
+(setq company-idle-delay 0.5)
 (setq company-tooltip-limit 20)
 (setq company-minimum-prefix-length 2)
 (setq company-echo-delay 0)

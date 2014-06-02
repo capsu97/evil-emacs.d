@@ -8,14 +8,39 @@
 ;; org-mode keybindings
 (global-set-key (kbd "C-c a") 'org-agenda)
 
-;; use hippie expand instead of abbrev
-(global-set-key (kbd "M-/") 'hippie-expand)
+;; use company-mode instead of abbrev
+(global-set-key (kbd "M-/") 'company-complete)
 
 ;; use regexp search by default
 (global-set-key (kbd "C-s") 'isearch-forward-regexp)
 (global-set-key (kbd "C-r") 'isearch-backward-regexp)
 (global-set-key (kbd "C-M-s") 'isearch-forward)
 (global-set-key (kbd "C-M-r") 'isearch-backward)
+
+;; popup for yasnippet
+(define-key popup-menu-keymap (kbd "M-n") 'popup-next)
+(define-key popup-menu-keymap (kbd "TAB") 'popup-next)
+(define-key popup-menu-keymap (kbd "<tab>") 'popup-next)
+(define-key popup-menu-keymap (kbd "<backtab>") 'popup-previous)
+(define-key popup-menu-keymap (kbd "M-p") 'popup-previous)
+
+;; Web mode
+(evil-define-key 'normal web-mode-map (kbd "M-l") 'web-mode-element-end)
+(evil-define-key 'insert web-mode-map (kbd "M-l") 'web-mode-element-end)
+(evil-define-key 'normal web-mode-map (kbd "M-h") 'web-mode-element-beginning)
+(evil-define-key 'insert web-mode-map (kbd "M-h") 'web-mode-element-beginning)
+(evil-define-key 'normal web-mode-map (kbd "M-k") 'web-mode-element-previous)
+(evil-define-key 'insert web-mode-map (kbd "M-k") 'web-mode-element-previous)
+(evil-define-key 'normal web-mode-map (kbd "M-j") 'web-mode-element-next)
+(evil-define-key 'insert web-mode-map (kbd "M-j") 'web-mode-element-next)
+(evil-define-key 'normal web-mode-map (kbd "C-k") 'web-mode-element-kill)
+(evil-define-key 'insert web-mode-map (kbd "C-k") 'web-mode-element-kill)
+(evil-define-key 'normal web-mode-map "\\w" 'web-mode-element-wrap)
+(evil-define-key 'normal web-mode-map "\\c" 'web-mode-element-clone)
+(evil-define-key 'normal web-mode-map "\\re" 'web-mode-element-rename)
+(evil-define-key 'normal web-mode-map "\\se" 'web-mode-element-select)
+(evil-define-key 'insert web-mode-map (kbd "C-M-d") 'web-mode-element-clone)
+(evil-define-key 'normal web-mode-map (kbd "C-M-d") 'web-mode-element-clone)
 
 ;; using C-u for up already
 (global-set-key (kbd "C-M-u") 'universal-argument)
@@ -40,6 +65,9 @@
 
 ;; Help should search more than just commands
 (define-key 'help-command "a" 'apropos)
+
+;; Web beautify
+(evil-define-key 'normal web-mode-map "\\b" 'web-beautify-html)
 
 ;; Comments
 (define-key evil-normal-state-map ",;" 'evilnc-comment-or-uncomment-lines)
