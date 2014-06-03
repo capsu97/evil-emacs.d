@@ -1,3 +1,14 @@
+(defun my-web-mode-element-inside-previous ()
+  (interactive)
+  (web-mode-element-parent)
+  (web-mode-element-previous)
+  (web-mode-tag-end))
+
+(defun my-web-mode-element-inside-next ()
+  (interactive)
+  (web-mode-element-next)
+  (web-mode-tag-end))
+
 (defun yas/popup-isearch-prompt (prompt choices &optional display-fn)
   (when (featurep 'popup)
     (popup-menu*

@@ -1,5 +1,7 @@
 # -*- mode: snippet; require-final-newline: nil -*-
-# name: p
-# key: p
+# name: ul
+# key: ul
 # --
-<p>$0</p>
+<ul>
+  $0
+</ul>
