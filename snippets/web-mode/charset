@@ -1,0 +1,5 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: charset
+# key: charset
+# --
+<meta charset="utf-8"/>
