@@ -163,6 +163,7 @@
 
 ;; Paredit
 (evil-define-key 'normal paredit-mode-map "\\q" '(lambda () (kill-buffer "*nREPL error*")))
+(evil-define-key 'normal paredit-mode-map "\\fd" 'paredit-focus-on-defun)
 (evil-define-key 'normal paredit-mode-map "\\wr" 'paredit-wrap-round)
 (evil-define-key 'normal paredit-mode-map "\(" 'paredit-wrap-round)
 (evil-define-key 'normal paredit-mode-map "\\ws" 'paredit-wrap-square)

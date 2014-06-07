@@ -27,6 +27,7 @@
 
 ;; make colon part of word (for example :keyword)
 (add-hook 'clojure-mode-hook (lambda () (modify-syntax-entry ?: "w")))
+(add-hook 'clojure-mode-hook (lambda () (modify-syntax-entry ?_ "w")))
 (add-hook 'prog-mode-hook (lambda () (modify-syntax-entry ?- "w")))
 
 ;; Turn off auto-fill

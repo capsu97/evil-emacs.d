@@ -10,9 +10,12 @@
 (eval-after-load 'company '(add-to-list 'company-transformers 'company-sort-by-occurrence))
 
 ;;(setq company-backends '(company-dabbrev (company-keywords company-dabbrev-code) company-files))
+(defun clojure-company-backends ()
+  (setq company-backends '((company-capf company-dabbrev))))
+(add-hook 'clojure-mode-hook 'clojure-company-backends)
 ;;(setq company-begin-commands '(self-insert-command org-self-insert-command c-electric-lt-gt c-electric-colon))
 
-(setq company-idle-delay 0.5)
+(setq company-idle-delay 0.2)
 (setq company-tooltip-limit 20)
 (setq company-minimum-prefix-length 2)
 (setq company-echo-delay 0)
@@ -20,6 +23,8 @@
 (setq company-selection-wrap-around t)
 (setq company-show-numbers t)
 (setq company-dabbrev-other-buffers t)
+(setq company-dabbrev-downcase nil)
+(setq company-dabbrev-ignore-case nil)
 (setq company-tooltip-align-annotations t)
 (setq completion-styles '(basic initials partial-completion emacs22)) ; default is (basic partial-completion emacs22)
 ;;(setq company-auto-complete-chars nil)
