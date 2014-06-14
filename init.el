@@ -17,6 +17,7 @@
 
 ;; Add in your own as you wish:
 (defvar my-packages '(ido-ubiquitous ido-vertical-mode ido-select-window flx-ido idomenu smex helm ; mini-buffer on steroids (fuzzy completion etc)
+                                     cypher-mode ; neo4j cypher
                                      org-plus-contrib ; latest org-mode
                                      undo-tree ; visualize undo as a tree (extremely handy)
                                      company ; autocomplete
