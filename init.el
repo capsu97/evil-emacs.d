@@ -27,8 +27,8 @@
                                      diminish ; don't clutter the modeline with minor mode names
                                      ag ; search / grep
                                      buffer-move ; manage buffers
-                                     clojure-mode clojure-test-mode clojure-cheatsheet clj-refactor ; clojure
-                                     latest-clojure-libraries cider cider-tracing ; clojure
+                                     clojure-mode clojure-cheatsheet clj-refactor ; clojure
+                                     latest-clojure-libraries cider ; clojure
                                      ace-jump-mode ace-window ; move quickly around buffers (see vim EasyMotion as well)
                                      markdown-mode markdown-mode+ ; markdown
                                      evil evil-exchange evil-numbers evil-indent-textobject ; evil vim emulation
