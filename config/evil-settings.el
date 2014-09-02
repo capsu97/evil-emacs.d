@@ -15,11 +15,11 @@
 (require 'evil-nerd-commenter)
 
 ;; Evil surround
-(require 'surround)
-(global-surround-mode 1)
-(add-to-list 'surround-operator-alist
+(require 'evil-surround)
+(global-evil-surround-mode 1)
+(add-to-list 'evil-surround-operator-alist
              '(evil-paredit-change . change))
-(add-to-list 'surround-operator-alist
+(add-to-list 'evil-surround-operator-alist
              '(evil-paredit-delete . delete))
 
 ;; Abort company-mode when exiting insert mode
