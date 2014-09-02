@@ -32,7 +32,7 @@
                                      ace-jump-mode ace-window ; move quickly around buffers (see vim EasyMotion as well)
                                      markdown-mode markdown-mode+ ; markdown
                                      evil evil-exchange evil-numbers evil-indent-textobject ; evil vim emulation
-                                     surround evil-visualstar evil-nerd-commenter; evil vim emulation
+                                     evil-surround evil-visualstar evil-nerd-commenter; evil vim emulation
                                      rainbow-delimiters highlight-parentheses smartparens paredit paredit-menu ; working with parens / delimiters
                                      sublime-themes monokai-theme molokai-theme color-theme-sanityinc-tomorrow ; color themes
                                      birds-of-paradise-plus-theme afternoon-theme noctilux-theme soft-morning-theme ; color themes
