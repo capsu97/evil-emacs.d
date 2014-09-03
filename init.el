@@ -19,6 +19,7 @@
 (defvar my-packages '(ido-ubiquitous ido-vertical-mode ido-select-window flx-ido idomenu smex helm ; mini-buffer on steroids (fuzzy completion etc)
                                      cypher-mode ; neo4j cypher
                                      org-plus-contrib ; latest org-mode
+                                     neotree ; like NERDtree from vim
                                      undo-tree ; visualize undo as a tree (extremely handy)
                                      company ; autocomplete
                                      drag-stuff ; moving lines/regions up/down
@@ -27,7 +28,7 @@
                                      diminish ; don't clutter the modeline with minor mode names
                                      ag ; search / grep
                                      buffer-move ; manage buffers
-                                     clojure-mode clojure-cheatsheet clj-refactor ; clojure
+                                     clojure-mode clojure-mode-extra-font-locking clojure-cheatsheet clj-refactor ; clojure
                                      latest-clojure-libraries cider ; clojure
                                      ace-jump-mode ace-window ; move quickly around buffers (see vim EasyMotion as well)
                                      markdown-mode markdown-mode+ ; markdown

@@ -52,6 +52,8 @@
 (define-key evil-normal-state-map ",l" 'ido-switch-buffer)
 (define-key evil-normal-state-map ",ut" 'undo-tree-visualize)
 (define-key evil-normal-state-map ",x" 'smex)
+(define-key evil-normal-state-map ",n" 'neotree-toggle)
+(define-key evil-normal-state-map ",m" 'magit-status)
 (define-key evil-normal-state-map ",g" 'helm-imenu)
 (define-key evil-normal-state-map ",sa" 'mark-whole-buffer)
 (define-key evil-normal-state-map "\\rb" 'indent-whole-buffer)
@@ -208,14 +210,22 @@
 (evil-define-key 'normal clojure-mode-map ",cb" 'cider-repl-clear-buffer)
 (evil-define-key 'normal clojure-mode-map ",cc" 'cider-connect)
 (evil-define-key 'normal clojure-mode-map ",cj" 'cider-jack-in)
-(evil-define-key 'normal clojure-mode-map (kbd "M-.") 'cider-jump)
+(evil-define-key 'normal clojure-mode-map (kbd "M-.") 'cider-jump-to-var)
 (evil-define-key 'normal clojure-mode-map (kbd "M-,") 'cider-jump-back)
 
 ;; Other modes
-                                        ;(evil-declare-key 'normal org-mode-map "T" 'org-todo)
-                                        ;(evil-declare-key 'normal org-mode-map "-" 'org-cycle-list-bullet)
+;;(evil-declare-key 'normal org-mode-map "T" 'org-todo)
+;;(evil-declare-key 'normal org-mode-map "-" 'org-cycle-list-bullet)
 
 ;; Evil window movements
 (global-set-key "\C-w" 'evil-window-map)
+
+;; neotree
+(add-hook 'neotree-mode-hook
+          (lambda ()
+            (define-key evil-normal-state-local-map (kbd "TAB") 'neotree-enter)
+            (define-key evil-normal-state-local-map (kbd "SPC") 'neotree-enter)
+            (define-key evil-normal-state-local-map (kbd "q") 'neotree-hide)
+            (define-key evil-normal-state-local-map (kbd "RET") 'neotree-enter)))
 
 (provide 'custom-keybindings)
