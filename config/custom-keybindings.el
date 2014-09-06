@@ -141,15 +141,11 @@
 (define-key evil-normal-state-map (kbd "M-L") 'evil-forward-word-begin)
 
 ;; Projectile
-(define-key evil-normal-state-map ",t" 'projectile-find-file)
-(define-key evil-normal-state-map ",pff" 'projectile-find-file)
-(define-key evil-normal-state-map ",pft" 'projectile-find-test-file)
-(define-key evil-normal-state-map ",ptt" 'projectile-toggle-between-implementation-and-test)
-(define-key evil-normal-state-map ",prt" 'projectile-regenerate-tags)
-(define-key evil-normal-state-map ",ptp" 'projectile-test-project)
+(define-key evil-normal-state-map ",t" 'projectile-find-file-in-known-projects)
+(define-key evil-normal-state-map ",pf" 'projectile-find-file)
 (define-key evil-normal-state-map ",ps" 'projectile-switch-project)
 (define-key evil-normal-state-map ",prs" 'projectile-replace)
-(define-key evil-normal-state-map ",pkb" 'projectile-kill-buffers)
+(define-key evil-normal-state-map ",pk" 'projectile-kill-buffers)
 (define-key evil-normal-state-map ",pd" 'projectile-dired)
 (define-key evil-normal-state-map ",prf" 'projectile-recentf)
 (define-key evil-normal-state-map ",pi" 'projectile-invalidate-cache)

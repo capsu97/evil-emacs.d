@@ -145,6 +145,7 @@
 ;; Recent files
 (recentf-mode 1)
 (setq recentf-max-menu-items 25)
+(add-to-list 'recentf-exclude "/elpa")
 
 ;; Highlight matching parentheses when the point is on them.
 (show-paren-mode)
