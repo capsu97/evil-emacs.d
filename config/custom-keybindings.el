@@ -23,6 +23,7 @@
 (define-key popup-menu-keymap (kbd "<tab>") 'popup-next)
 (define-key popup-menu-keymap (kbd "<backtab>") 'popup-previous)
 (define-key popup-menu-keymap (kbd "M-p") 'popup-previous)
+(define-key yas-minor-mode-map (kbd "C-'") 'yas-expand)
 
 ;; Web mode
 (evil-define-key 'normal web-mode-map (kbd "M-l") 'web-mode-element-end)
