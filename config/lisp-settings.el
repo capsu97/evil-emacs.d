@@ -30,14 +30,15 @@
 (add-hook 'cider-popup-buffer-mode-hook 'hide-eol)
 
 (setq nrepl-hide-special-buffers t)
+(setq cider-prompt-save-file-on-load nil)
 
 (setq cider-repl-pop-to-buffer-on-connect nil) ; Prevent the auto-display of the REPL buffer in a separate window after connection is established
 (setq cider-repl-print-length 100) ; Limit the number of items of each collection the printer will print to 100
 
 (eval-after-load "cider"
   '(progn
-        (setq cider-popup-stacktraces nil) ;Stop the error buffer from popping up while working in the REPL buffer
         (setq cider-repl-use-clojure-font-lock t)
+        (setq cider-show-error-buffer nil)
         (add-to-list 'same-window-buffer-names "*cider*") ;Make C-c C-z switch to the *nrepl* buffer in the current window
      ))
 
