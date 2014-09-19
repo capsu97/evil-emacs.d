@@ -41,6 +41,7 @@
                                      git-rebase-mode gitattributes-mode git-commit-mode gitconfig-mode gitignore-mode ; git file modes
                                      gist magit diff-hl ; git integration
                                      emmet-mode skewer-mode js2-mode js2-refactor web-beautify web-mode sass-mode rainbow-mode ; web development
+                                     react-snippets jsx-mode ; web development
                                      projectile ; moving around in projects
                                      yasnippet popup clojure-snippets datomic-snippets ; snippets
                                      browse-kill-ring ; list / select / insert previously killed text

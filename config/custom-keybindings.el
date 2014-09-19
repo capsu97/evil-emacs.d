@@ -5,6 +5,8 @@
 
 (global-set-key (kbd "<M-return>") 'open-line-below)
 
+(evil-global-set-key 'normal "\\d" 'duplicate-current-line-or-region)
+
 ;; org-mode keybindings
 (global-set-key (kbd "C-c a") 'org-agenda)
 
@@ -36,12 +38,21 @@
 (evil-define-key 'insert web-mode-map (kbd "M-j") 'my-web-mode-element-inside-next)
 (evil-define-key 'normal web-mode-map (kbd "C-k") 'web-mode-element-kill)
 (evil-define-key 'insert web-mode-map (kbd "C-k") 'web-mode-element-kill)
+(evil-define-key 'normal web-mode-map (kbd "C-c /") 'web-mode-element-close)
+(evil-define-key 'insert web-mode-map (kbd "C-c /") 'web-mode-element-close)
+(evil-define-key 'normal web-mode-map "\\p" 'web-mode-element-parent)
 (evil-define-key 'normal web-mode-map "\\w" 'web-mode-element-wrap)
-(evil-define-key 'normal web-mode-map "\\c" 'web-mode-element-clone)
+(evil-define-key 'normal web-mode-map "\\d" 'web-mode-element-clone)
+(evil-define-key 'visual web-mode-map "\\d" 'duplicate-current-line-or-region)
 (evil-define-key 'normal web-mode-map "\\re" 'web-mode-element-rename)
 (evil-define-key 'normal web-mode-map "\\se" 'web-mode-element-select)
 (evil-define-key 'insert web-mode-map (kbd "C-M-d") 'web-mode-element-clone)
 (evil-define-key 'normal web-mode-map (kbd "C-M-d") 'web-mode-element-clone)
+(evil-define-key 'normal web-mode-map (kbd "C-=") 'er/mark-outer-tag)
+(evil-define-key 'normal web-mode-map (kbd "M-<right>") 'my-web-mode-element-inside-next)
+(evil-define-key 'insert web-mode-map (kbd "M-<right>") 'my-web-mode-element-inside-next)
+(evil-define-key 'normal web-mode-map (kbd "M-<left>") 'my-web-mode-element-inside-previous)
+(evil-define-key 'insert web-mode-map (kbd "M-<left>") 'my-web-mode-element-inside-previous)
 
 ;; using C-u for up already
 (global-set-key (kbd "C-M-u") 'universal-argument)
@@ -86,12 +97,9 @@
 
 (global-set-key (kbd "C-=") 'ot-mark-outside-pairs)
 (global-set-key (kbd "M-=") 'er/expand-region)
+(global-set-key (kbd "M--") 'er/contract-region)
 
 (global-set-key (kbd "C-x o") 'ido-select-window)
-
-;; Surround mode
-(evil-define-key 'normal surround-mode-map "s" 'surround-region)
-(evil-define-key 'normal surround-mode-map "S" 'Surround-region)
 
 ;;; esc quits
 
@@ -107,9 +115,16 @@
 (evil-define-key 'motion help-mode-map (read-kbd-macro "TAB") 'forward-button)
 
 ;; Motion
+(define-key evil-normal-state-map "s" nil) ; remove default binding so I can override it
+(define-key evil-operator-state-map "s" nil)
+(define-key evil-normal-state-map "S" nil) ; remove default binding so I can override it
+(define-key evil-operator-state-map "S" nil)
+
 (define-key evil-motion-state-map "\\" nil)
 (define-key evil-motion-state-map " " nil)
 (define-key evil-motion-state-map "  " 'evil-ace-jump-word-mode)
+(define-key evil-motion-state-map "S" 'evil-ace-jump-word-mode)
+(define-key evil-motion-state-map "s" 'evil-ace-jump-char-mode)
 (define-key evil-motion-state-map " c" 'evil-ace-jump-char-mode)
 (define-key evil-motion-state-map " t" 'evil-ace-jump-char-to-mode)
 (define-key evil-motion-state-map " l" 'evil-ace-jump-line-mode)
