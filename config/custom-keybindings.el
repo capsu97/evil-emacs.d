@@ -169,6 +169,7 @@
 (define-key evil-normal-state-map ",pb" 'projectile-switch-to-buffer)
 (define-key evil-normal-state-map ",po" 'projectile-multi-occur)
 (define-key evil-normal-state-map ",pa" 'projectile-ack)
+(define-key evil-normal-state-map ",pt" 'projectile-regenerate-tags)
 (define-key evil-normal-state-map ",pg" 'projectile-grep)
 
 ;;Make evil-mode up/down operate in screen lines instead of logical lines
