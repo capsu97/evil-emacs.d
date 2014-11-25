@@ -17,6 +17,7 @@
 
 ;; Add in your own as you wish:
 (defvar my-packages '(ido-ubiquitous ido-vertical-mode ido-select-window flx-ido idomenu smex helm ; mini-buffer on steroids (fuzzy completion etc)
+                                     esup ; emacs startup profiler
                                      cypher-mode ; neo4j cypher
                                      org-plus-contrib ; latest org-mode
                                      neotree ; like NERDtree from vim
@@ -34,7 +35,7 @@
                                      markdown-mode markdown-mode+ ; markdown
                                      evil evil-exchange evil-numbers evil-indent-textobject ; evil vim emulation
                                      evil-surround evil-visualstar evil-nerd-commenter; evil vim emulation
-                                     rainbow-delimiters highlight-parentheses smartparens paredit paredit-menu ; working with parens / delimiters
+                                     rainbow-delimiters highlight-parentheses smartparens paredit paredit-menu paxedit ; working with parens / delimiters
                                      lush-theme sublime-themes monokai-theme molokai-theme color-theme-sanityinc-tomorrow ; color themes
                                      birds-of-paradise-plus-theme afternoon-theme noctilux-theme soft-morning-theme ; color themes
                                      subatomic256-theme tango-plus-theme zenburn-theme zonokai-theme ; color themes

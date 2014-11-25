@@ -1,0 +1,42 @@
+;;; Compiled snippets and support files for `web-mode'
+;;; Snippet definitions:
+;;;
+(yas-define-snippets 'web-mode
+                     '(("a" "<a href=\"$1\">$0</a>" "a" nil nil nil nil nil nil)
+                       ("article" "<article>$0</article>" "article" nil nil nil nil nil nil)
+                       ("aside" "<aside>\n  $0\n</aside>" "aside" nil nil nil nil nil nil)
+                       ("cc" "React.createClass({\n$0\n});\n" "React.createClass" nil nil nil nil nil nil)
+                       ("cdm" "componentDidMount: function(${1:rootNode}) {\n$0\n}\n" "React#componentDidMount" nil nil nil nil nil nil)
+                       ("cdu" "componentDidUpdate: function(${1:prevProps}, ${2:prevState}, ${3:rootNode}) {\n$0\n}\n" "React#componentDidUpdate" nil nil nil nil nil nil)
+                       ("charset" "<meta charset=\"utf-8\"/>" "charset" nil nil nil nil nil nil)
+                       ("cwm" "componentWillMount: function() {\n$0\n}\n" "React#componentWillMount" nil nil nil nil nil nil)
+                       ("cwrp" "componentWillReceiveProps: function(${1:nextProps}) {\n$0\n}\n" "React#componentWillReceiveProps" nil nil nil nil nil nil)
+                       ("cwu" "componentWillUpdate: function(${1:nextProps}, ${2:nextState}) {\n$0\n}\n" "React#componentWillUpdate" nil nil nil nil nil nil)
+                       ("cwum" "componentWillUnmount: function() {\n$0\n}\n" "React#componentWillUnmount" nil nil nil nil nil nil)
+                       ("div" "<div$1>$0</div>" "div" nil nil nil nil nil nil)
+                       ("!" "<!DOCTYPE html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"UTF-8\"/>\n    <title>$1</title>\n  </head>\n  <body>\n    $0\n  </body>\n</html>" "HTML5 document" nil nil nil nil nil nil)
+                       ("footer" "<footer>$0</footer>" "footer" nil nil nil nil nil nil)
+                       ("gdp" "getDefaultProps: function() {\n$0\n}\n" "React#getDefaultProps" nil nil nil nil nil nil)
+                       ("gis" "getInitialState: function() {\n$0\n}\n" "React#getInitialState" nil nil nil nil nil nil)
+                       ("h1" "<h1>$0</h1>" "h1" nil nil nil nil nil nil)
+                       ("h2" "<h2>$0</h2>" "h2" nil nil nil nil nil nil)
+                       ("h3" "<h3>$0</h3>" "h3" nil nil nil nil nil nil)
+                       ("h4" "<h4>$0</h4>" "h4" nil nil nil nil nil nil)
+                       ("h5" "<h5>$0</h5>" "h5" nil nil nil nil nil nil)
+                       ("header" "<header>$0</header>" "header" nil nil nil nil nil nil)
+                       ("li" "<li>$0</li>" "li" nil nil nil nil nil nil)
+                       ("link" "<link rel=\"$1\" href=\"$2\" type=\"$3\"/>$0" "link" nil nil nil nil nil nil)
+                       ("meta" "<meta name=\"$1\" content=\"$2\"/>$0\n" "meta" nil nil nil nil nil nil)
+                       ("nav" "<nav>$0</nav>" "nav" nil nil nil nil nil nil)
+                       ("ol" "<ol>\n  $0\n</ol>" "ol" nil nil nil nil nil nil)
+                       ("p" "<p>$0</p>\n" "p" nil nil nil nil nil nil)
+                       ("r" "render: function() {\n$0\n}\n" "React#render" nil nil nil nil nil nil)
+                       ("rc" "React.renderComponent(\n$1,\n$0\n);\n" "React.renderComponent" nil nil nil nil nil nil)
+                       ("scu" "shouldComponentUpdate: function(${1:nextProps}, ${2:nextState}) {\n$0\n}\n" "React#shouldComponentUpdate" nil nil nil nil nil nil)
+                       ("section" "<section>$0</section>" "section" nil nil nil nil nil nil)
+                       ("sp" "this.setProps({$0});\n" "React#setProps" nil nil nil nil nil nil)
+                       ("ss" "this.setState({$0});\n" "React#setState" nil nil nil nil nil nil)
+                       ("ul" "<ul>\n  $0\n</ul>" "ul" nil nil nil nil nil nil)))
+
+
+;;; Do not edit! File generated at Mon Nov 17 19:05:31 2014
