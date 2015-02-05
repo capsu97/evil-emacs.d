@@ -22,7 +22,7 @@
                                      org-plus-contrib ; latest org-mode
                                      neotree ; like NERDtree from vim
                                      undo-tree ; visualize undo as a tree (extremely handy)
-                                     company ; autocomplete
+                                     company company-quickhelp ; autocomplete
                                      drag-stuff ; moving lines/regions up/down
                                      idle-highlight-mode ; highlight all occurences of current symbol after a little while
                                      elisp-slime-nav ; extensions for elisp

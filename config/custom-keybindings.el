@@ -67,7 +67,7 @@
 (define-key evil-normal-state-map ",n" 'neotree-toggle)
 (define-key evil-normal-state-map ",m" 'magit-status)
 (define-key evil-normal-state-map ",g" 'helm-imenu)
-(define-key evil-normal-state-map ",sa" 'mark-whole-buffer)
+(define-key evil-normal-state-map ",bs" 'mark-whole-buffer)
 (define-key evil-normal-state-map "\\rb" 'indent-whole-buffer)
 
 (define-key global-map (kbd "C-+") 'text-scale-increase)
@@ -122,7 +122,7 @@
 
 (define-key evil-motion-state-map "\\" nil)
 (define-key evil-motion-state-map " " nil)
-(define-key evil-motion-state-map "  " 'evil-ace-jump-word-mode)
+(define-key evil-motion-state-map "  " 'evil-ace-jump-char-mode)
 (define-key evil-motion-state-map "S" 'evil-ace-jump-word-mode)
 (define-key evil-motion-state-map "s" 'evil-ace-jump-char-mode)
 (define-key evil-motion-state-map " c" 'evil-ace-jump-char-mode)
@@ -146,7 +146,7 @@
 (define-key evil-insert-state-map (kbd "M-L") 'evil-forward-word-begin)
 
 (define-key evil-insert-state-map (kbd "C-SPC") 'evil-ace-jump-word-mode)
-                                        ;(define-key evil-insert-state-map (kbd "C-x") 'evil-execute-in-normal-state)
+;;(define-key evil-insert-state-map (kbd "C-x") 'evil-execute-in-normal-state)
 
 ;; Normal
 ;;(define-key evil-normal-state-map " m" 'evil-jump-item)
@@ -159,7 +159,9 @@
 ;; Projectile
 (define-key evil-normal-state-map ",t" 'projectile-find-file-in-known-projects)
 (define-key evil-normal-state-map ",pf" 'projectile-find-file)
+(define-key evil-normal-state-map ",f" 'projectile-find-file)
 (define-key evil-normal-state-map ",ps" 'projectile-switch-project)
+(define-key evil-normal-state-map ",s" 'projectile-switch-project)
 (define-key evil-normal-state-map ",prs" 'projectile-replace)
 (define-key evil-normal-state-map ",pk" 'projectile-kill-buffers)
 (define-key evil-normal-state-map ",pd" 'projectile-dired)
@@ -167,6 +169,7 @@
 (define-key evil-normal-state-map ",pi" 'projectile-invalidate-cache)
 (define-key evil-normal-state-map ",pc" 'projectile-cache-current-file)
 (define-key evil-normal-state-map ",pb" 'projectile-switch-to-buffer)
+(define-key evil-normal-state-map ",b" 'projectile-switch-to-buffer)
 (define-key evil-normal-state-map ",po" 'projectile-multi-occur)
 (define-key evil-normal-state-map ",pa" 'projectile-ack)
 (define-key evil-normal-state-map ",pt" 'projectile-regenerate-tags)
@@ -176,16 +179,20 @@
 (define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
 (define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
 
-;; Paredit
+;; Paredit / Paxedit
 (evil-define-key 'normal paredit-mode-map "\\q" '(lambda () (kill-buffer "*nREPL error*")))
 (evil-define-key 'normal paredit-mode-map "\\fd" 'paredit-focus-on-defun)
 (evil-define-key 'normal paredit-mode-map "\\wr" 'paredit-wrap-round)
 (evil-define-key 'normal paredit-mode-map "\(" 'paredit-wrap-round)
 (evil-define-key 'normal paredit-mode-map "\\ws" 'paredit-wrap-square)
+(evil-define-key 'normal paredit-mode-map "\\W" 'paredit-wrap-square)
 (evil-define-key 'normal paredit-mode-map "\\w[" 'paredit-wrap-square)
+(evil-define-key 'normal paredit-mode-map "\\[" 'paredit-wrap-square)
+(evil-define-key 'normal paredit-mode-map "\\]" 'paredit-wrap-square)
 (evil-define-key 'normal paredit-mode-map "\\wc" 'paredit-wrap-curly)
 (evil-define-key 'normal paredit-mode-map "\\w{" 'paredit-wrap-curly)
-(evil-define-key 'normal paredit-mode-map "\\R" 'paredit-raise-sexp)
+(evil-define-key 'normal paredit-mode-map "\\{" 'paredit-wrap-curly)
+(evil-define-key 'normal paredit-mode-map "\\}" 'paredit-wrap-curly)
 (evil-define-key 'normal paredit-mode-map "\\d" 'paredit-duplicate-after-point)
 (evil-define-key 'normal paredit-mode-map "\\S" 'paredit-split-sexp)
 (evil-define-key 'normal paredit-mode-map "\\s" 'paredit-splice-sexp)
@@ -194,9 +201,21 @@
 (evil-define-key 'normal paredit-mode-map "\\j" 'paredit-join-sexps)
 (evil-define-key 'normal paredit-mode-map "\\rf" 'paredit-reindent-defun)
 
+(evil-define-key 'normal paredit-mode-map "\\R" 'paxedit-raise-sexp)
+(evil-define-key 'normal paredit-mode-map "\\c" 'paxedit-copy)
+(evil-define-key 'normal paredit-mode-map "\\tb" 'paxedit-transpose-backward)
+(evil-define-key 'normal paredit-mode-map "\\tf" 'paxedit-transpose-forward)
+(evil-define-key 'normal paredit-mode-map (kbd "M-<right>") 'paxedit-transpose-forward)
+(evil-define-key 'normal paredit-mode-map (kbd "M-<right>") 'paxedit-transpose-forward)
+(evil-define-key 'insert paredit-mode-map (kbd "M-<left>") 'paxedit-transpose-backward)
+(evil-define-key 'insert paredit-mode-map (kbd "M-<left>") 'paxedit-transpose-backward)
+
 ;;(evil-define-key 'normal paredit-mode-map "x" 'paredit-forward-delete)
 (evil-define-key 'normal paredit-mode-map "X" 'paredit-backward-delete)
 (evil-define-key 'normal paredit-mode-map "D" 'paredit-kill)
+
+(evil-define-key 'normal paredit-mode-map (kbd "C-S-k") 'paxedit-kill)
+(evil-define-key 'insert paredit-mode-map (kbd "C-S-k") 'paxedit-kill)
 
 (evil-define-key 'normal paredit-mode-map (kbd "M->") 'paredit-forward-slurp-sexp)
 (evil-define-key 'normal paredit-mode-map (kbd "M-<") 'paredit-forward-barf-sexp)
@@ -210,7 +229,12 @@
 
 (evil-define-key 'normal paredit-mode-map (kbd "M-;") 'evil-paredit-comment-dwim)
 
-(evil-define-key 'visual paredit-mode-map "\\W" 'paredit-wrap-round)
+(evil-define-key 'visual paredit-mode-map "[" 'paredit-wrap-square)
+(evil-define-key 'visual paredit-mode-map "]" 'paredit-wrap-square)
+(evil-define-key 'visual paredit-mode-map "{" 'paredit-wrap-curly)
+(evil-define-key 'visual paredit-mode-map "}" 'paredit-wrap-curly)
+(evil-define-key 'visual paredit-mode-map "(" 'paredit-wrap-round)
+(evil-define-key 'visual paredit-mode-map ")" 'paredit-wrap-round)
 
 ;; Clojure / Cider
 (evil-define-key 'normal clojure-mode-map ",ch" 'helm-clojure-headlines)
@@ -219,7 +243,7 @@
 (evil-define-key 'visual clojure-mode-map (kbd "<C-return>") 'cider-eval-region)
 (evil-define-key 'normal clojure-mode-map "\\es" 'cider-eval-last-sexp)
 (evil-define-key 'normal clojure-mode-map "\\en" 'cider-eval-ns-form)
-(evil-define-key 'normal clojure-mode-map "\\eb" 'cider-load-current-buffer)
+(evil-define-key 'normal clojure-mode-map "\\eb" 'cider-load-buffer)
 (evil-define-key 'normal clojure-mode-map ",cb" 'cider-repl-clear-buffer)
 (evil-define-key 'normal clojure-mode-map ",cc" 'cider-connect)
 (evil-define-key 'normal clojure-mode-map ",cj" 'cider-jack-in)

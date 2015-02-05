@@ -15,6 +15,10 @@
 (add-hook 'clojure-mode-hook 'clojure-company-backends)
 ;;(setq company-begin-commands '(self-insert-command org-self-insert-command c-electric-lt-gt c-electric-colon))
 
+(defun css-company-backends ()
+  (setq company-backends '((company-css company-capf company-dabbrev))))
+(add-hook 'css-mode-hook 'css-company-backends)
+
 (setq company-idle-delay 0.2)
 (setq company-tooltip-limit 20)
 (setq company-minimum-prefix-length 1)
@@ -33,5 +37,8 @@
 (defun my-pcomplete-capf ()
   (add-hook 'completion-at-point-functions 'pcomplete-completions-at-point nil t))
 (add-hook 'org-mode-hook #'my-pcomplete-capf)
+
+;; Quickhelp
+(company-quickhelp-mode 1)
 
 (provide 'auto-complete-settings)
