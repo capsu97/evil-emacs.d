@@ -6,6 +6,7 @@
 (global-set-key (kbd "<M-return>") 'open-line-below)
 
 (evil-global-set-key 'normal "\\d" 'duplicate-current-line-or-region)
+(evil-global-set-key 'normal "\\c" 'delete-window)
 
 ;; org-mode keybindings
 (global-set-key (kbd "C-c a") 'org-agenda)
@@ -172,7 +173,8 @@
 (define-key evil-normal-state-map ",b" 'projectile-switch-to-buffer)
 (define-key evil-normal-state-map ",po" 'projectile-multi-occur)
 (define-key evil-normal-state-map ",pa" 'projectile-ack)
-(define-key evil-normal-state-map ",pt" 'projectile-regenerate-tags)
+(define-key evil-normal-state-map ",prt" 'projectile-regenerate-tags)
+(define-key evil-normal-state-map ",pt" 'projectile-find-tag)
 (define-key evil-normal-state-map ",pg" 'projectile-grep)
 
 ;;Make evil-mode up/down operate in screen lines instead of logical lines
@@ -249,6 +251,11 @@
 (evil-define-key 'normal clojure-mode-map ",cj" 'cider-jack-in)
 (evil-define-key 'normal clojure-mode-map (kbd "M-.") 'cider-jump-to-var)
 (evil-define-key 'normal clojure-mode-map (kbd "M-,") 'cider-jump-back)
+(evil-define-key 'normal clojure-mode-map "\\i" 'cider-inspect)
+(evil-define-key 'normal clojure-mode-map "\\t" 'cider-toggle-trace)
+(evil-define-key 'normal clojure-mode-map "\\D" 'cider-doc)
+(evil-define-key 'normal clojure-mode-map "\\a" 'cider-apropos)
+(evil-define-key 'normal clojure-mode-map "\\A" 'cider-apropos-documentation)
 
 ;; Other modes
 ;;(evil-declare-key 'normal org-mode-map "T" 'org-todo)
