@@ -59,6 +59,10 @@
 ;; Clojure mode
 (add-hook 'clojure-mode-hook 'cider-mode)
 
+;; clj-refactor
+(require 'clj-refactor)
+(add-hook 'clojure-mode-hook (lambda ()
+                               (clj-refactor-mode 1)))
 
 ;;; RAINBOW DELIMITERS
 ;;(require 'rainbow-delimiters)

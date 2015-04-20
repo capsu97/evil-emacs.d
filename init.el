@@ -17,6 +17,7 @@
 
 ;; Add in your own as you wish:
 (defvar my-packages '(ido-ubiquitous ido-vertical-mode ido-select-window flx-ido idomenu smex helm ; mini-buffer on steroids (fuzzy completion etc)
+                                     command-log-mode ; log all used keystrokes/commands to buffer
                                      esup ; emacs startup profiler
                                      cypher-mode ; neo4j cypher
                                      org-plus-contrib ; latest org-mode
@@ -31,7 +32,7 @@
                                      buffer-move ; manage buffers
                                      clojure-mode clojure-mode-extra-font-locking clojure-cheatsheet clj-refactor ; clojure
                                      latest-clojure-libraries cider ; clojure
-                                     ace-jump-mode ace-window ; move quickly around buffers (see vim EasyMotion as well)
+                                     evil-easymotion ace-jump-mode ace-window ; move quickly around buffers (see vim EasyMotion as well)
                                      markdown-mode markdown-mode+ ; markdown
                                      evil evil-exchange evil-numbers evil-indent-textobject ; evil vim emulation
                                      evil-surround evil-visualstar evil-nerd-commenter; evil vim emulation

@@ -278,6 +278,7 @@ emacs buffers are those whose name starts with *."
   (interactive)
   (forward-sexp -1)
   (paredit-wrap-round)
+  (insert " ")
   (forward-char -1))
 
 (defun rotate-windows ()

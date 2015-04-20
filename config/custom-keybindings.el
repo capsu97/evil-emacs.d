@@ -146,7 +146,7 @@
 (define-key evil-insert-state-map (kbd "M-K") 'evil-backward-section-begin)
 (define-key evil-insert-state-map (kbd "M-L") 'evil-forward-word-begin)
 
-(define-key evil-insert-state-map (kbd "C-SPC") 'evil-ace-jump-word-mode)
+(define-key evil-insert-state-map (kbd "C-SPC") 'evil-ace-jump-char-mode)
 ;;(define-key evil-insert-state-map (kbd "C-x") 'evil-execute-in-normal-state)
 
 ;; Normal
@@ -200,6 +200,8 @@
 (evil-define-key 'normal paredit-mode-map "\\s" 'paredit-splice-sexp)
 (evil-define-key 'normal paredit-mode-map "\\fs" 'paredit-splice-sexp-killing-forward)
 (evil-define-key 'normal paredit-mode-map "\\bs" 'paredit-splice-sexp-killing-backward)
+(evil-define-key 'normal paredit-mode-map (kbd "<backspace>") 'paredit-splice-sexp-killing-backward)
+(evil-define-key 'insert paredit-mode-map (kbd "<C-backspace>") 'paredit-splice-sexp-killing-backward)
 (evil-define-key 'normal paredit-mode-map "\\j" 'paredit-join-sexps)
 (evil-define-key 'normal paredit-mode-map "\\rf" 'paredit-reindent-defun)
 
@@ -208,8 +210,8 @@
 (evil-define-key 'normal paredit-mode-map "\\tb" 'paxedit-transpose-backward)
 (evil-define-key 'normal paredit-mode-map "\\tf" 'paxedit-transpose-forward)
 (evil-define-key 'normal paredit-mode-map (kbd "M-<right>") 'paxedit-transpose-forward)
-(evil-define-key 'normal paredit-mode-map (kbd "M-<right>") 'paxedit-transpose-forward)
-(evil-define-key 'insert paredit-mode-map (kbd "M-<left>") 'paxedit-transpose-backward)
+(evil-define-key 'insert paredit-mode-map (kbd "M-<right>") 'paxedit-transpose-forward)
+(evil-define-key 'normal paredit-mode-map (kbd "M-<left>") 'paxedit-transpose-backward)
 (evil-define-key 'insert paredit-mode-map (kbd "M-<left>") 'paxedit-transpose-backward)
 
 ;;(evil-define-key 'normal paredit-mode-map "x" 'paredit-forward-delete)
