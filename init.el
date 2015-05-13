@@ -39,7 +39,7 @@
                                      idle-highlight-mode ; highlight all occurences of current symbol after a little while
                                      elisp-slime-nav ; extensions for elisp
                                      diminish ; don't clutter the modeline with minor mode names
-                                     ag swiper swiper-helm ; search / grep
+                                     ag swiper swiper-helm anzu ; search / grep
                                      buffer-move ; manage buffers
                                      clojure-mode clojure-mode-extra-font-locking clojure-cheatsheet ; clojure
                                      clj-refactor discover-clj-refactor align-cljlet ; clojure
@@ -48,7 +48,7 @@
                                      markdown-mode markdown-mode+ markdown-toc ; markdown
                                      evil evil-mark-replace evil-anzu evil-args evil-exchange evil-numbers evil-indent-textobject ; evil vim emulation
                                      evil-surround evil-visualstar evil-nerd-commenter evil-jumper vim-empty-lines-mode ; evil vim emulation
-                                     evil-cleverparens evil-lisp-state evil-iedit-state evil-matchit evil-easymotion evil-org; evil vim emulation
+                                     evil-visual-mark-mode evil-cleverparens evil-lisp-state evil-iedit-state evil-matchit evil-easymotion evil-org; evil vim emulation
                                      rainbow-delimiters highlight-parentheses smartparens paredit paredit-menu paxedit ; working with parens / delimiters
                                      lush-theme sublime-themes monokai-theme molokai-theme color-theme-sanityinc-tomorrow ; color themes
                                      birds-of-paradise-plus-theme afternoon-theme noctilux-theme soft-morning-theme ; color themes
@@ -104,6 +104,10 @@
     '(diminish 'undo-tree-mode))
   (eval-after-load "cider"
     '(diminish 'cider-mode "C"))
+  (eval-after-load "clj-refactor"
+    '(diminish 'clj-refactor-mode "R"))
+  (eval-after-load "anzu"
+    '(diminish 'anzu-mode nil))
   (eval-after-load "eldoc"
     '(diminish 'eldoc-mode))
   (eval-after-load "paredit"
@@ -131,6 +135,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(anzu-mode-line ((t (:foreground "dark orange" :weight bold))))
  '(flx-highlight-face ((t (:inherit font-lock-variable-name-face :foreground "#69D2E7"))))
  '(ido-first-match ((t (:foreground "#ccff66"))))
  '(ido-incomplete-regexp ((t (:foreground "#ffffff"))))

@@ -39,28 +39,6 @@
   ;;    (font-lock-mode 0)
   )
 
-;;(set-face-foreground 'web-mode-html-tag-face "snow1")
-;;(set-face-foreground 'web-mode-doctype-face "pink3")
-;;(set-face-foreground 'web-mode-html-attr-name-face "medium purple")
-;;(set-face-foreground 'web-mode-html-attr-value-face "pink3")
-;;(set-face-foreground 'web-mode-css-rule-face "pink3")
-;;(set-face-foreground 'web-mode-css-prop-face "pink3")
-;;(set-face-foreground 'web-mode-css-pseudo-class-face "pink3")
-;;(set-face-foreground 'web-mode-css-at-rule-face "pink3")
-;;(set-face-foreground 'web-mode-preprocessor-face "pink3")
-;;(set-face-foreground 'web-mode-string-face "pink3")
-;;(set-face-foreground 'web-mode-comment-face "pink3")
-;;(set-face-foreground 'web-mode-variable-name-face "pink3")
-;;(set-face-foreground 'web-mode-function-name-face "pink3")
-;;(set-face-foreground 'web-mode-constant-face "pink3")
-;;(set-face-foreground 'web-mode-type-face "pink3")
-;;(set-face-foreground 'web-mode-keyword-face "pink3")
-;;(set-face-foreground 'web-mode-folded-face "pink3")
-;;(set-face-foreground 'web-mode-server-face "pink3")
-;;(set-face-foreground 'web-mode-css-face "pink3")
-;;(set-face-foreground 'web-mode-javascript-face "pink3")
-
-
 (add-hook 'web-mode-hook 'web-mode-hook-settings)
 (add-hook 'web-mode-hook 'font-lock-mode)
 

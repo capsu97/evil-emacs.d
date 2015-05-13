@@ -10,6 +10,10 @@
 (require 'evil)
 (evil-mode 1)
 
+;; Emacs 24.4 or higher
+(with-eval-after-load 'evil
+  (require 'evil-anzu))
+
 (require 'evil-exchange)
 ;; change default key bindings (if you want) HERE
 ;; (setq evil-exchange-key (kbd "zx"))

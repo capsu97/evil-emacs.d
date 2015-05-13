@@ -5,6 +5,7 @@
 (setq ag-reuse-buffers 't)
 
 (setq anzu-search-threshold 1000
-    anzu-cons-mode-line-p nil)
+    anzu-cons-mode-line-p t)
+(global-anzu-mode +1)
 
 (provide 'search-settings)
