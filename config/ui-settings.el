@@ -31,10 +31,15 @@
 
 ;; POWERLINE
 
-(add-to-list 'load-path "~/.emacs.d/vendor/powerline")
+;;(add-to-list 'load-path "~/.emacs.d/vendor/powerline")
 (require 'powerline)
+(require 'powerline-evil)
 
-;;(powerline-evil-theme)
+(setq powerline-default-separator 'bar)
+(setq powerline-evil-tag-style 'verbose)
+
+(powerline-evil-center-color-theme)
+
 (defun custom-evil-theme ()
   "Setup the default mode-line."
   (interactive)
@@ -108,7 +113,7 @@
                 (powerline-fill face2 (powerline-width rhs))
                 (powerline-render rhs)))))))
 
-(custom-evil-theme)
+;;(custom-evil-theme)
 
 ;; disable bold and underline faces
 ;; (mapc

@@ -4,4 +4,7 @@
 (setq ag-reuse-window 't)
 (setq ag-reuse-buffers 't)
 
-(provide 'ag-settings)
+(setq anzu-search-threshold 1000
+    anzu-cons-mode-line-p nil)
+
+(provide 'search-settings)

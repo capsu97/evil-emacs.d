@@ -16,6 +16,9 @@
 (add-hook 'before-save-hook 'whitespace-cleanup)
 (add-hook 'before-save-hook (lambda() (delete-trailing-whitespace)))
 
+;; don't show trailing whitespace, is already fixed on save
+(setq-default show-trailing-whitespace nil)
+
 ;; General programming hooks
 (add-hook 'prog-mode-hook 'pretty-lambdas)
 (add-hook 'prog-mode-hook 'esk-add-watchwords)
@@ -83,9 +86,27 @@
 (delete-selection-mode t)
 
 ;; Go back to the cursor location where you were the last time you opened the file
-(setq
+(require 'saveplace)
+(setq-default
  save-place-file (concat user-emacs-directory "places")
- save-place-mode t)
+ save-place t)
+
+;; minibuffer history
+(require 'savehist)
+(setq savehist-file (concat user-emacs-directory "savehist")
+      enable-recursive-minibuffers t ; Allow commands in minibuffers
+      history-length 1000
+      savehist-additional-variables '(kill-ring mark-ring global-mark-ring search-ring regexp-search-ring extended-command-history)
+      savehist-autosave-interval 60)
+(savehist-mode +1)
+
+;; bookmarks
+(setq bookmark-default-file (concat user-emacs-directory "bookmarks")
+      ;; save after every change
+      bookmark-save-flag 1
+      url-configuration-directory (concat user-emacs-directory "url")
+      eshell-directory-name (concat user-emacs-directory "eshell" )
+      tramp-persistency-file-name (concat user-emacs-directory "tramp"))
 
 (mouse-wheel-mode t)
 (blink-cursor-mode -1) ; no blinking cursor
@@ -117,7 +138,8 @@
  sentence-end-double-space nil
  shift-select-mode nil
  mouse-yank-at-point t
- uniquify-buffer-name-style 'forward
+ uniquify-buffer-name-style 'post-forward
+ uniquify-ignore-buffers-re "^\\*"
  whitespace-style '(face trailing lines-tail tabs)
  whitespace-line-column 80
  ediff-window-setup-function 'ediff-setup-windows-plain
@@ -137,8 +159,12 @@
 
 (fset 'yes-or-no-p 'y-or-n-p)
 
+;; seems pointless to warn. There's always undo.
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
+(put 'erase-buffer 'disabled nil)
+(put 'scroll-left 'disabled nil)
+(put 'dired-find-alternate-file 'disabled nil)
 
 (put 'set-goal-column 'disabled nil) ; handy for moving down a column (always goes to the same position when set)
 
@@ -163,7 +189,7 @@
 ;; ido-mode is like magic pixie dust!
 (setq ido-enable-prefix nil
       ido-enable-flex-matching t
-      ido-case-fold  t                 ; be case-insensitive
+      ido-case-fold  nil                 ; be case-sensitive
       ido-auto-merge-work-directories-length nil
       ido-create-new-buffer 'always
       ido-use-filename-at-point 'guess
@@ -219,5 +245,33 @@
 
 ;; disable highlighting the current line
 (global-hl-line-mode 0)
+
+;; automatically reload changed TAGS file
+(setq tags-revert-without-query 1)
+
+;; don't let the cursor go into minibuffer prompt
+;; Tip taken from Xah Lee: http://ergoemacs.org/emacs/emacs_stop_cursor_enter_prompt.html
+(setq minibuffer-prompt-properties
+      '(read-only t point-entered minibuffer-avoid-prompt face minibuffer-prompt))
+
+;; draw underline lower
+(setq x-underline-at-descent-line t)
+
+;; scratch buffer empty
+(setq initial-scratch-message nil)
+
+;; remove annoying ellipsis when printing sexp in message buffer
+(setq eval-expression-print-length nil
+      eval-expression-print-level nil)
+
+;; Text
+(setq longlines-show-hard-newlines t)
+
+;; use only spaces and no tabs
+(setq-default indent-tabs-mode nil
+              default-tab-width 2)
+
+;; Save clipboard contents into kill-ring before replace them
+(setq save-interprogram-paste-before-kill t)
 
 (provide 'basic-settings)

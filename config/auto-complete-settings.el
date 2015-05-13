@@ -39,6 +39,7 @@
 (add-hook 'org-mode-hook #'my-pcomplete-capf)
 
 ;; Quickhelp
-(company-quickhelp-mode 1)
+(add-hook 'company-mode-hook 'company-quickhelp-mode)
+;;(company-quickhelp-mode 1)
 
 (provide 'auto-complete-settings)

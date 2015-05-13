@@ -8,4 +8,6 @@
         (setq ace-jump-mode-case-fold nil)
      ))
 
-(provide 'ace-jump-settings)
+(setq avy-style 'at-full)
+
+(provide 'navigation-settings)

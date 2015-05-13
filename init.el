@@ -18,14 +18,16 @@
 ;; Add in your own as you wish:
 (defvar my-packages '(ido-ubiquitous ido-vertical-mode ido-select-window flx-ido idomenu smex ; mini-buffer on steroids (fuzzy completion etc)
                                      helm helm-flyspell helm-projectile helm-ag helm-swoop cljr-helm ; helm
-                                     helm-descbinds helm-flycheck helm-emmet helm-css-scss ; helm
+                                     helm-descbinds helm-emmet helm-css-scss ; helm
                                      helm-c-moccur ; helm
                                      dash-at-point helm-dash ; dash
-                                     powerline ; better modeline
+                                     powerline powerline-evil ; better modeline
                                      volatile-highlights ; highlighting
                                      flyspell ; spell checking
+                                     flycheck flycheck-pos-tip helm-flycheck ; syntax checking
                                      guide-key guide-key-tip ; keystroke help
                                      command-log-mode ; log all used keystrokes/commands to buffer
+                                     popup popwin ; popups
                                      esup ; emacs startup profiler
                                      cypher-mode ; neo4j cypher
                                      org-plus-contrib org-bullets org-pomodoro org-repo-todo ; latest org-mode
@@ -37,25 +39,26 @@
                                      idle-highlight-mode ; highlight all occurences of current symbol after a little while
                                      elisp-slime-nav ; extensions for elisp
                                      diminish ; don't clutter the modeline with minor mode names
-                                     ag ; search / grep
+                                     ag swiper swiper-helm ; search / grep
                                      buffer-move ; manage buffers
-                                     clojure-mode clojure-mode-extra-font-locking clojure-cheatsheet clj-refactor align-cljlet ; clojure
+                                     clojure-mode clojure-mode-extra-font-locking clojure-cheatsheet ; clojure
+                                     clj-refactor discover-clj-refactor align-cljlet ; clojure
                                      latest-clojure-libraries cider cider-eval-sexp-fu ; clojure
                                      ace-jump-mode ace-window avy ; move quickly around buffers (see vim EasyMotion as well)
                                      markdown-mode markdown-mode+ markdown-toc ; markdown
-                                     evil evil-anzu evil-args evil-exchange evil-numbers evil-indent-textobject ; evil vim emulation
-                                     evil-surround evil-visualstar evil-nerd-commenter evil-jumper ; evil vim emulation
-                                     evil-lisp-state evil-iedit-state evil-matchit evil-easymotion evil-org; evil vim emulation
+                                     evil evil-mark-replace evil-anzu evil-args evil-exchange evil-numbers evil-indent-textobject ; evil vim emulation
+                                     evil-surround evil-visualstar evil-nerd-commenter evil-jumper vim-empty-lines-mode ; evil vim emulation
+                                     evil-cleverparens evil-lisp-state evil-iedit-state evil-matchit evil-easymotion evil-org; evil vim emulation
                                      rainbow-delimiters highlight-parentheses smartparens paredit paredit-menu paxedit ; working with parens / delimiters
                                      lush-theme sublime-themes monokai-theme molokai-theme color-theme-sanityinc-tomorrow ; color themes
                                      birds-of-paradise-plus-theme afternoon-theme noctilux-theme soft-morning-theme ; color themes
-                                     subatomic256-theme tango-plus-theme zenburn-theme zonokai-theme ; color themes
+                                     subatomic256-theme tango-plus-theme zenburn-theme zonokai-theme atom-dark-theme ; color themes
                                      git-rebase-mode gitattributes-mode git-commit-mode gitconfig-mode gitignore-mode ; git file modes
                                      gist magit diff-hl ; git integration
-                                     emmet-mode tagedit js2-mode js2-refactor json-mode web-mode ; web development
+                                     emmet-mode tagedit js2-mode js2-refactor json-mode json-reformat web-mode ; web development
                                      scss-mode sass-mode rainbow-mode tern company-tern ; web development
                                      projectile ; moving around in projects
-                                     yasnippet popup clojure-snippets datomic-snippets helm-c-yasnippet ; snippets
+                                     yasnippet clojure-snippets datomic-snippets helm-c-yasnippet ; snippets
                                      browse-kill-ring ; list / select / insert previously killed text
                                      dired+ ; directory editor addon
                                      expand-region ; easily select regions around point
@@ -79,13 +82,13 @@
 (require 'webdevelopment-settings)
 (require 'ui-settings)
 (require 'lisp-settings)
-(require 'ace-jump-settings)
+(require 'navigation-settings)
 (require 'evil-settings)
 (require 'projectile-settings)
 (require 'auto-complete-settings)
 (require 'yasnippet-settings)
 (require 'magit-settings)
-(require 'ag-settings)
+(require 'search-settings)
 (require 'org-mode-settings)
 (require 'custom-keybindings)
 ;;(server-start)
@@ -105,6 +108,8 @@
     '(diminish 'eldoc-mode))
   (eval-after-load "paredit"
     '(diminish 'paredit-mode "PE"))
+  (eval-after-load "paxedit"
+    '(diminish 'paxedit-mode "PX"))
   (eval-after-load "elisp-slime-nav"
     '(diminish 'elisp-slime-nav-mode))
   (eval-after-load "yasnippet"
@@ -117,7 +122,7 @@
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
    (quote
-    ("d809ca3cef02087b48f3f94279b86feca896f544ae4a82b523fba823206b6040" "1ba463f6ac329a56b38ae6ac8ca67c8684c060e9a6ba05584c90c4bffc8046c3" "f5e9f66da69f504cb61aacedeb8284d8f38f2e6f835fd658cac5f0ad5d924549" "bf648fd77561aae6722f3d53965a9eb29b08658ed045207fe32ffed90433eb52" "a99e7c91236b2aba4cd374080c73f390c55173c5a1b4ac662eeb3172b60a9814" "c3fb7a13857e799bba450bb81b9101ef4960281c4d5908e05ecac9204c526c8a" "0c311fb22e6197daba9123f43da98f273d2bfaeeaeb653007ad1ee77f0003037" "7dd515d883520286fc8936ce32381fb01b978d0d7cfb6fe56f7f55d8accbf63a" "57072d797dc09fcf563051a85a29d6a51d6f2b1a602e029c35b05c30df319b2a" "f0ea6118d1414b24c2e4babdc8e252707727e7b4ff2e791129f240a2b3093e32" "c4e6fe8f5728a5d5fd0e92538f68c3b4e8b218bcfb5e07d8afff8731cc5f3df0" "9bcb8ee9ea34ec21272bb6a2044016902ad18646bd09fdd65abae1264d258d89" "0e121ff9bef6937edad8dfcff7d88ac9219b5b4f1570fd1702e546a80dba0832" "60f04e478dedc16397353fb9f33f0d895ea3dab4f581307fbf0aa2f07e658a40" default)))
+    ("0251780e8e79d2a5e75eec7ee3b6c646b882495cb884d9dd32f30c60f9d65db6" "d809ca3cef02087b48f3f94279b86feca896f544ae4a82b523fba823206b6040" "1ba463f6ac329a56b38ae6ac8ca67c8684c060e9a6ba05584c90c4bffc8046c3" "f5e9f66da69f504cb61aacedeb8284d8f38f2e6f835fd658cac5f0ad5d924549" "bf648fd77561aae6722f3d53965a9eb29b08658ed045207fe32ffed90433eb52" "a99e7c91236b2aba4cd374080c73f390c55173c5a1b4ac662eeb3172b60a9814" "c3fb7a13857e799bba450bb81b9101ef4960281c4d5908e05ecac9204c526c8a" "0c311fb22e6197daba9123f43da98f273d2bfaeeaeb653007ad1ee77f0003037" "7dd515d883520286fc8936ce32381fb01b978d0d7cfb6fe56f7f55d8accbf63a" "57072d797dc09fcf563051a85a29d6a51d6f2b1a602e029c35b05c30df319b2a" "f0ea6118d1414b24c2e4babdc8e252707727e7b4ff2e791129f240a2b3093e32" "c4e6fe8f5728a5d5fd0e92538f68c3b4e8b218bcfb5e07d8afff8731cc5f3df0" "9bcb8ee9ea34ec21272bb6a2044016902ad18646bd09fdd65abae1264d258d89" "0e121ff9bef6937edad8dfcff7d88ac9219b5b4f1570fd1702e546a80dba0832" "60f04e478dedc16397353fb9f33f0d895ea3dab4f581307fbf0aa2f07e658a40" default)))
  '(fci-rule-color "#efefef")
  '(vc-annotate-background nil)
  '(vc-annotate-very-old-color nil))
@@ -132,6 +137,8 @@
  '(ido-indicator ((t (:foreground "#ffffff"))))
  '(ido-only-match ((t (:foreground "#ffcc33"))))
  '(ido-subdir ((t (:foreground "#66ff00"))))
+ '(powerline-evil-insert-face ((t (:inherit powerline-evil-base-face :background "DodgerBlue2"))))
+ '(powerline-evil-normal-face ((t (:inherit powerline-evil-base-face :background "SpringGreen3"))))
  '(web-mode-current-element-highlight-face ((t (:background "black"))))
  '(web-mode-html-attr-name-face ((t (:foreground "royal blue"))))
  '(web-mode-html-tag-bracket-face ((t (:foreground "dim gray"))))

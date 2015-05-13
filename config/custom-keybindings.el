@@ -1,5 +1,11 @@
 (require 'evil)
 
+;; bind evil-args text objects
+(define-key evil-inner-text-objects-map "a" 'evil-inner-arg)
+(define-key evil-outer-text-objects-map "a" 'evil-outer-arg)
+
+(define-key isearch-mode-map (kbd "C-'") 'avy-isearch)
+
 (define-key evil-insert-state-map "\C-e" nil)
 (define-key evil-insert-state-map "\C-y" nil)
 
@@ -27,6 +33,14 @@
 (define-key popup-menu-keymap (kbd "<backtab>") 'popup-previous)
 (define-key popup-menu-keymap (kbd "M-p") 'popup-previous)
 (define-key yas-minor-mode-map (kbd "C-'") 'yas-expand)
+
+;; company-mode
+(with-eval-after-load 'company
+	(define-key company-active-map (kbd "C-j") 'company-select-next)
+	(define-key company-active-map (kbd "C-k") 'company-select-previous)
+	(define-key company-active-map (kbd "C-/") 'company-search-candidates)
+	(define-key company-active-map (kbd "C-M-/") 'company-filter-candidates)
+	(define-key company-active-map (kbd "C-d") 'company-show-doc-buffer))
 
 ;; Web mode
 (evil-define-key 'normal web-mode-map (kbd "M-l") 'web-mode-element-end)
@@ -62,9 +76,11 @@
 (global-set-key (kbd "C-x C-i") 'idomenu)
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (define-key evil-visual-state-map ",x" 'smex)
+(define-key evil-visual-state-map ",X" 'smex-major-mode-commands)
 (define-key evil-normal-state-map ",l" 'ido-switch-buffer)
 (define-key evil-normal-state-map ",ut" 'undo-tree-visualize)
 (define-key evil-normal-state-map ",x" 'smex)
+(define-key evil-normal-state-map ",X" 'smex-major-mode-commands)
 (define-key evil-normal-state-map ",n" 'neotree-toggle)
 (define-key evil-normal-state-map ",m" 'magit-status)
 (define-key evil-normal-state-map ",g" 'helm-imenu)
@@ -86,11 +102,11 @@
 
 ;; Comments
 (define-key evil-normal-state-map ",;" 'evilnc-comment-or-uncomment-lines)
-(define-key evil-normal-state-map ",cc" 'evilnc-copy-and-comment-lines)
-(define-key evil-visual-state-map ",cc" 'evilnc-copy-and-comment-lines)
-(define-key evil-normal-state-map ",cp" 'evilnc-comment-or-uncomment-paragraphs)
-(define-key evil-normal-state-map ",cr" 'comment-or-uncomment-region)
-(define-key evil-visual-state-map ",cr" 'comment-or-uncomment-region)
+;;(define-key evil-normal-state-map ",cc" 'evilnc-copy-and-comment-lines)
+;;(define-key evil-visual-state-map ",cc" 'evilnc-copy-and-comment-lines)
+;;(define-key evil-normal-state-map ",cp" 'evilnc-comment-or-uncomment-paragraphs)
+;;(define-key evil-normal-state-map ",cr" 'comment-or-uncomment-region)
+(define-key evil-visual-state-map ",;" 'comment-or-uncomment-region)
 
 ;; Lisp
 (define-key read-expression-map (kbd "TAB") 'lisp-complete-symbol)
@@ -180,6 +196,11 @@
 ;;Make evil-mode up/down operate in screen lines instead of logical lines
 (define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
 (define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
+(define-key evil-visual-state-map (kbd "j") 'evil-next-visual-line)
+(define-key evil-visual-state-map (kbd "k") 'evil-previous-visual-line)
+
+;; Make the current definition and/or comment visible.
+(define-key evil-normal-state-map "zf" 'reposition-window)
 
 ;; Paredit / Paxedit
 (evil-define-key 'normal paredit-mode-map "\\q" '(lambda () (kill-buffer "*nREPL error*")))
@@ -215,8 +236,8 @@
 (evil-define-key 'insert paredit-mode-map (kbd "M-<left>") 'paxedit-transpose-backward)
 
 ;;(evil-define-key 'normal paredit-mode-map "x" 'paredit-forward-delete)
-(evil-define-key 'normal paredit-mode-map "X" 'paredit-backward-delete)
-(evil-define-key 'normal paredit-mode-map "D" 'paredit-kill)
+;;(evil-define-key 'normal paredit-mode-map "X" 'paredit-backward-delete)
+;;(evil-define-key 'normal paredit-mode-map "D" 'paredit-kill)
 
 (evil-define-key 'normal paredit-mode-map (kbd "C-S-k") 'paxedit-kill)
 (evil-define-key 'insert paredit-mode-map (kbd "C-S-k") 'paxedit-kill)
@@ -258,6 +279,8 @@
 (evil-define-key 'normal clojure-mode-map "\\D" 'cider-doc)
 (evil-define-key 'normal clojure-mode-map "\\a" 'cider-apropos)
 (evil-define-key 'normal clojure-mode-map "\\A" 'cider-apropos-documentation)
+(evil-define-key 'normal clojure-mode-map ",je" 'cider-jump-to-compilation-error)
+(evil-define-key 'normal clojure-mode-map ",jr" 'cider-jump-to-resource)
 
 ;; Other modes
 ;;(evil-declare-key 'normal org-mode-map "T" 'org-todo)

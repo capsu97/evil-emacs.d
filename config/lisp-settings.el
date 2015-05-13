@@ -3,6 +3,19 @@
 ;; open boot build tool files in clojure mode
 (add-to-list 'auto-mode-alist '("\.boot$" . clojure-mode))
 
+;; shorten modeline text
+(add-hook 'emacs-lisp-mode-hook 
+  (lambda()
+    (setq mode-name "EL")))
+
+(add-hook 'clojure-mode-hook 
+  (lambda()
+    (setq mode-name "CLJ")))
+
+(add-hook 'lisp-interaction-mode-hook 
+  (lambda()
+    (setq mode-name "LI")))
+
 ;; ENHANCE lISP MODES
 (require 'paxedit)
 
@@ -15,6 +28,9 @@
 (add-hook 'clojure-mode-hook 'paredit-mode)
 (add-hook 'clojure-mode-hook 'paxedit-mode)
 
+(add-hook 'clojure-mode-hook #'evil-cleverparens-mode)
+(add-hook 'emacs-lisp-mode-hook #'evil-cleverparens-mode)
+
 ;; prettify fn in clojure/clojurescript
 (add-hook 'clojure-mode-hook 'pretty-fn)
 (add-hook 'clojurescript-mode-hook 'pretty-fn)
@@ -24,6 +40,7 @@
 
 ;;; CIDER CONFIG
 (require 'cider)
+(require 'cider-eval-sexp-fu)
 
 (defun hide-eol ()
   "Do not show ^M in files containing mixed UNIX and DOS line endings."

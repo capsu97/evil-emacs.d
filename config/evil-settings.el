@@ -10,6 +10,15 @@
 (require 'evil)
 (evil-mode 1)
 
+(require 'evil-exchange)
+;; change default key bindings (if you want) HERE
+;; (setq evil-exchange-key (kbd "zx"))
+(evil-exchange-install)
+
+(setq evil-jumper-file (concat user-emacs-directory "evil-jumps")
+            evil-jumper-auto-save-interval 3600)
+      (evil-jumper-mode t)
+
 ;; Evil nerd commenter
 (setq evilnc-hotkey-comment-operator ",,")
 (require 'evil-nerd-commenter)
@@ -59,5 +68,7 @@
   (setq evil-move-cursor-back nil)
   (evil-normal-state)
   (evil-echo "Switched to Normal state for the next command ..."))
+
+(global-vim-empty-lines-mode)
 
 (provide 'evil-settings)
