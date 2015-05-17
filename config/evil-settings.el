@@ -48,7 +48,7 @@
 (setq evil-normal-state-cursor '("orange" box))
 (setq evil-insert-state-cursor '("orange" bar))
 
-; Redefine function ("C-o o" wouldn't go back to insert mode for instance)
+;; Redefine function ("C-o o" wouldn't go back to insert mode for instance)
 (defun evil-execute-in-normal-state ()
   "Execute the next command in Normal state."
   (interactive)
@@ -73,6 +73,10 @@
   (evil-normal-state)
   (evil-echo "Switched to Normal state for the next command ..."))
 
-(global-vim-empty-lines-mode)
+;; Vim empty lines mode
+
+;;(global-vim-empty-lines-mode)
+(add-hook 'prog-mode-hook 'vim-empty-lines-mode)
+;;(add-hook 'text-mode-hook (lambda () (vim-empty-lines-mode -1)))
 
 (provide 'evil-settings)

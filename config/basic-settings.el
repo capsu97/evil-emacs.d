@@ -20,8 +20,8 @@
 (setq-default show-trailing-whitespace nil)
 
 ;; General programming hooks
-(add-hook 'prog-mode-hook 'pretty-lambdas)
-(add-hook 'prog-mode-hook 'esk-add-watchwords)
+(add-hook 'prog-mode-hook 'ot/pretty-lambdas)
+(add-hook 'prog-mode-hook 'ot/esk-add-watchwords)
 ;;(add-hook 'prog-mode-hook 'idle-highlight-mode)
 
 ;; SmartParens

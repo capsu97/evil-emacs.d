@@ -19,21 +19,30 @@
 ;; ENHANCE lISP MODES
 (require 'paxedit)
 
+;; Indentation
+(add-hook 'emacs-lisp-mode-hook #'aggressive-indent-mode)
+(add-hook 'clojure-mode-hook #'aggressive-indent-mode)
+
 (add-hook 'emacs-lisp-mode-hook 'turn-on-eldoc-mode)
-(add-hook 'emacs-lisp-mode-hook 'esk-remove-elc-on-save)
-(add-hook 'emacs-lisp-mode-hook 'esk-prog-mode-hook)
+(add-hook 'emacs-lisp-mode-hook 'ot/esk-remove-elc-on-save)
+(add-hook 'emacs-lisp-mode-hook 'ot/esk-prog-mode-hook)
 (add-hook 'emacs-lisp-mode-hook 'elisp-slime-nav-mode)
+(add-hook 'emacs-lisp-mode-hook 'highlight-symbol-mode)
+(add-hook 'clojure-mode-hook 'highlight-symbol-mode)
+
+;; some bugs and not everything works with smartparens-mode disabled
+;;(add-hook 'clojure-mode-hook #'evil-cleverparens-mode)
+;;(add-hook 'emacs-lisp-mode-hook #'evil-cleverparens-mode)
+
 (add-hook 'emacs-lisp-mode-hook 'paredit-mode)
 (add-hook 'emacs-lisp-mode-hook 'paxedit-mode)
+
 (add-hook 'clojure-mode-hook 'paredit-mode)
 (add-hook 'clojure-mode-hook 'paxedit-mode)
 
-(add-hook 'clojure-mode-hook #'evil-cleverparens-mode)
-(add-hook 'emacs-lisp-mode-hook #'evil-cleverparens-mode)
-
 ;; prettify fn in clojure/clojurescript
-(add-hook 'clojure-mode-hook 'pretty-fn)
-(add-hook 'clojurescript-mode-hook 'pretty-fn)
+(add-hook 'clojure-mode-hook 'ot/pretty-fn)
+(add-hook 'clojurescript-mode-hook 'ot/pretty-fn)
 
 ;;---------------------------------------------------------
 (require 'clojure-mode-extra-font-locking)

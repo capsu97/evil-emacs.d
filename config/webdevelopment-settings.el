@@ -2,6 +2,9 @@
 
 (require 'web-mode)
 
+;; Indentation
+(add-hook 'css-mode-hook #'aggressive-indent-mode)
+
 ;; expand region
 (require 'html-mode-expansions)
 

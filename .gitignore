@@ -4,6 +4,7 @@
 /.emacs.desktop.lock
 *.elc
 auto-save-list
+helm-adaptive-history
 evil-jumps
 savehist
 tramp

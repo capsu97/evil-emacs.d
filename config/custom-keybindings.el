@@ -6,12 +6,18 @@
 
 (define-key isearch-mode-map (kbd "C-'") 'avy-isearch)
 
+;; Activate occur easily inside isearch
+(define-key isearch-mode-map (kbd "C-o")
+  (lambda () (interactive)
+    (let ((case-fold-search isearch-case-fold-search))
+      (occur (if isearch-regexp isearch-string (regexp-quote isearch-string))))))
+
 (define-key evil-insert-state-map "\C-e" nil)
 (define-key evil-insert-state-map "\C-y" nil)
 
-(global-set-key (kbd "<M-return>") 'open-line-below)
+(global-set-key (kbd "<M-return>") 'ot/open-line-below)
 
-(evil-global-set-key 'normal "\\d" 'duplicate-current-line-or-region)
+(evil-global-set-key 'normal "\\d" 'ot/duplicate-current-line-or-region)
 (evil-global-set-key 'normal "\\c" 'delete-window)
 
 ;; org-mode keybindings
@@ -47,10 +53,10 @@
 (evil-define-key 'insert web-mode-map (kbd "M-l") 'web-mode-element-end)
 (evil-define-key 'normal web-mode-map (kbd "M-h") 'web-mode-element-beginning)
 (evil-define-key 'insert web-mode-map (kbd "M-h") 'web-mode-element-beginning)
-(evil-define-key 'normal web-mode-map (kbd "M-k") 'my-web-mode-element-inside-previous)
-(evil-define-key 'insert web-mode-map (kbd "M-k") 'my-web-mode-element-inside-previous)
-(evil-define-key 'normal web-mode-map (kbd "M-j") 'my-web-mode-element-inside-next)
-(evil-define-key 'insert web-mode-map (kbd "M-j") 'my-web-mode-element-inside-next)
+(evil-define-key 'normal web-mode-map (kbd "M-k") 'ot/web-mode-element-inside-previous)
+(evil-define-key 'insert web-mode-map (kbd "M-k") 'ot/web-mode-element-inside-previous)
+(evil-define-key 'normal web-mode-map (kbd "M-j") 'ot/web-mode-element-inside-next)
+(evil-define-key 'insert web-mode-map (kbd "M-j") 'ot/web-mode-element-inside-next)
 (evil-define-key 'normal web-mode-map (kbd "C-k") 'web-mode-element-kill)
 (evil-define-key 'insert web-mode-map (kbd "C-k") 'web-mode-element-kill)
 (evil-define-key 'normal web-mode-map (kbd "C-c /") 'web-mode-element-close)
@@ -64,10 +70,14 @@
 (evil-define-key 'insert web-mode-map (kbd "C-M-d") 'web-mode-element-clone)
 (evil-define-key 'normal web-mode-map (kbd "C-M-d") 'web-mode-element-clone)
 (evil-define-key 'normal web-mode-map (kbd "C-=") 'er/mark-outer-tag)
-(evil-define-key 'normal web-mode-map (kbd "M-<right>") 'my-web-mode-element-inside-next)
-(evil-define-key 'insert web-mode-map (kbd "M-<right>") 'my-web-mode-element-inside-next)
-(evil-define-key 'normal web-mode-map (kbd "M-<left>") 'my-web-mode-element-inside-previous)
-(evil-define-key 'insert web-mode-map (kbd "M-<left>") 'my-web-mode-element-inside-previous)
+(evil-define-key 'normal web-mode-map (kbd "M-<right>") 'ot/web-mode-element-inside-next)
+(evil-define-key 'insert web-mode-map (kbd "M-<right>") 'ot/web-mode-element-inside-next)
+(evil-define-key 'normal web-mode-map (kbd "M-<left>") 'ot/web-mode-element-inside-previous)
+(evil-define-key 'insert web-mode-map (kbd "M-<left>") 'ot/web-mode-element-inside-previous)
+
+;; Helm
+(global-set-key (kbd "M-y") 'helm-show-kill-ring)
+(define-key evil-normal-state-map ",g" 'helm-imenu)
 
 ;; using C-u for up already
 (global-set-key (kbd "C-M-u") 'universal-argument)
@@ -83,9 +93,8 @@
 (define-key evil-normal-state-map ",X" 'smex-major-mode-commands)
 (define-key evil-normal-state-map ",n" 'neotree-toggle)
 (define-key evil-normal-state-map ",m" 'magit-status)
-(define-key evil-normal-state-map ",g" 'helm-imenu)
 (define-key evil-normal-state-map ",bs" 'mark-whole-buffer)
-(define-key evil-normal-state-map "\\rb" 'indent-whole-buffer)
+(define-key evil-normal-state-map "\\rb" 'ot/indent-whole-buffer)
 
 (define-key global-map (kbd "C-+") 'text-scale-increase)
 (define-key global-map (kbd "C--") 'text-scale-decrease)
@@ -112,7 +121,7 @@
 (define-key read-expression-map (kbd "TAB") 'lisp-complete-symbol)
 (define-key lisp-mode-shared-map (kbd "RET") 'reindent-then-newline-and-indent)
 
-(global-set-key (kbd "C-=") 'ot-mark-outside-pairs)
+(global-set-key (kbd "C-=") 'ot/mark-outside-pairs)
 (global-set-key (kbd "M-=") 'er/expand-region)
 (global-set-key (kbd "M--") 'er/contract-region)
 
@@ -216,7 +225,7 @@
 (evil-define-key 'normal paredit-mode-map "\\w{" 'paredit-wrap-curly)
 (evil-define-key 'normal paredit-mode-map "\\{" 'paredit-wrap-curly)
 (evil-define-key 'normal paredit-mode-map "\\}" 'paredit-wrap-curly)
-(evil-define-key 'normal paredit-mode-map "\\d" 'paredit-duplicate-after-point)
+(evil-define-key 'normal paredit-mode-map "\\d" 'ot/paredit-duplicate-after-point)
 (evil-define-key 'normal paredit-mode-map "\\S" 'paredit-split-sexp)
 (evil-define-key 'normal paredit-mode-map "\\s" 'paredit-splice-sexp)
 (evil-define-key 'normal paredit-mode-map "\\fs" 'paredit-splice-sexp-killing-forward)
@@ -252,17 +261,27 @@
 (evil-define-key 'insert paredit-mode-map (kbd "C-<") 'paredit-backward-slurp-sexp)
 (evil-define-key 'insert paredit-mode-map (kbd "C->") 'paredit-backward-barf-sexp)
 
-(evil-define-key 'normal paredit-mode-map (kbd "M-;") 'evil-paredit-comment-dwim)
+(evil-define-key 'normal paredit-mode-map (kbd "M-;") 'ot/evil-paredit-comment-dwim)
 
 (evil-define-key 'visual paredit-mode-map "[" 'paredit-wrap-square)
 (evil-define-key 'visual paredit-mode-map "]" 'paredit-wrap-square)
 (evil-define-key 'visual paredit-mode-map "{" 'paredit-wrap-curly)
 (evil-define-key 'visual paredit-mode-map "}" 'paredit-wrap-curly)
+
 (evil-define-key 'visual paredit-mode-map "(" 'paredit-wrap-round)
 (evil-define-key 'visual paredit-mode-map ")" 'paredit-wrap-round)
+(evil-define-key 'normal paredit-mode-map "(" 'paredit-wrap-round)
+(evil-define-key 'normal paredit-mode-map ")" 'paredit-wrap-round)
+
+;;(add-hook 'evil-cleverparens-enabled-hook
+;;	(lambda ()
+;;		(evil-define-key 'visual evil-cleverparens-mode-map "(" 'paredit-wrap-round)
+;;		(evil-define-key 'visual evil-cleverparens-mode-map ")" 'paredit-wrap-round)
+;;		(evil-define-key 'normal evil-cleverparens-mode-map "(" 'paredit-wrap-round)
+;;		(evil-define-key 'normal evil-cleverparens-mode-map ")" 'paredit-wrap-round)))
 
 ;; Clojure / Cider
-(evil-define-key 'normal clojure-mode-map ",ch" 'helm-clojure-headlines)
+(evil-define-key 'normal clojure-mode-map ",ch" 'ot/helm-clojure-headlines)
 (evil-define-key 'normal clojure-mode-map (kbd "<C-return>") 'cider-eval-defun-at-point)
 (evil-define-key 'insert clojure-mode-map (kbd "<C-return>") 'cider-eval-defun-at-point)
 (evil-define-key 'visual clojure-mode-map (kbd "<C-return>") 'cider-eval-region)
@@ -290,11 +309,11 @@
 (global-set-key "\C-w" 'evil-window-map)
 
 ;; neotree
-(add-hook 'neotree-mode-hook
-          (lambda ()
-            (define-key evil-normal-state-local-map (kbd "TAB") 'neotree-enter)
-            (define-key evil-normal-state-local-map (kbd "SPC") 'neotree-enter)
-            (define-key evil-normal-state-local-map (kbd "q") 'neotree-hide)
-            (define-key evil-normal-state-local-map (kbd "RET") 'neotree-enter)))
+;;(add-hook 'neotree-mode-hook
+;;          (lambda ()
+;;            (define-key evil-normal-state-local-map (kbd "TAB") 'neotree-enter)
+;;            (define-key evil-normal-state-local-map (kbd "SPC") 'neotree-enter)
+;;            (define-key evil-normal-state-local-map (kbd "q") 'neotree-hide)
+;;            (define-key evil-normal-state-local-map (kbd "RET") 'neotree-enter)))
 
 (provide 'custom-keybindings)
