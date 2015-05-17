@@ -42,11 +42,11 @@
 
 ;; company-mode
 (with-eval-after-load 'company
-	(define-key company-active-map (kbd "C-j") 'company-select-next)
-	(define-key company-active-map (kbd "C-k") 'company-select-previous)
-	(define-key company-active-map (kbd "C-/") 'company-search-candidates)
-	(define-key company-active-map (kbd "C-M-/") 'company-filter-candidates)
-	(define-key company-active-map (kbd "C-d") 'company-show-doc-buffer))
+  (define-key company-active-map (kbd "C-j") 'company-select-next)
+  (define-key company-active-map (kbd "C-k") 'company-select-previous)
+  (define-key company-active-map (kbd "C-/") 'company-search-candidates)
+  (define-key company-active-map (kbd "C-M-/") 'company-filter-candidates)
+  (define-key company-active-map (kbd "C-d") 'company-show-doc-buffer))
 
 ;; Web mode
 (evil-define-key 'normal web-mode-map (kbd "M-l") 'web-mode-element-end)
@@ -80,16 +80,17 @@
 (define-key evil-normal-state-map ",g" 'helm-imenu)
 
 ;; Move up and down like isearch
-(define-key helm-swoop-map (kbd "C-k") 'helm-previous-line)
-(define-key helm-swoop-map (kbd "C-j") 'helm-next-line)
-(define-key helm-multi-swoop-map (kbd "C-k") 'helm-previous-line)
-(define-key helm-multi-swoop-map (kbd "C-j") 'helm-next-line)
+(with-eval-after-load 'helm-swoop
+  (define-key helm-swoop-map (kbd "C-k") 'helm-previous-line)
+  (define-key helm-swoop-map (kbd "C-j") 'helm-next-line)
+  (define-key helm-multi-swoop-map (kbd "C-k") 'helm-previous-line)
+  (define-key helm-multi-swoop-map (kbd "C-j") 'helm-next-line)
 
-;; From helm-swoop to helm-multi-swoop-all
-(define-key helm-swoop-map (kbd "M-i") 'helm-multi-swoop-all-from-helm-swoop)
+  ;; From helm-swoop to helm-multi-swoop-all
+  (define-key helm-swoop-map (kbd "M-i") 'helm-multi-swoop-all-from-helm-swoop))
 
 ;; When doing evil-search, hand the word over to helm-swoop
-(define-key evil-motion-state-map (kbd "M-i") 'helm-swoop-from-evil-search)
+;;(define-key evil-motion-state-map (kbd "M-i") 'helm-swoop-from-evil-search)
 
 ;; using C-u for up already
 (global-set-key (kbd "C-M-u") 'universal-argument)
@@ -286,11 +287,11 @@
 (evil-define-key 'normal paredit-mode-map ")" 'paredit-wrap-round)
 
 ;;(add-hook 'evil-cleverparens-enabled-hook
-;;	(lambda ()
-;;		(evil-define-key 'visual evil-cleverparens-mode-map "(" 'paredit-wrap-round)
-;;		(evil-define-key 'visual evil-cleverparens-mode-map ")" 'paredit-wrap-round)
-;;		(evil-define-key 'normal evil-cleverparens-mode-map "(" 'paredit-wrap-round)
-;;		(evil-define-key 'normal evil-cleverparens-mode-map ")" 'paredit-wrap-round)))
+;;  (lambda ()
+;;    (evil-define-key 'visual evil-cleverparens-mode-map "(" 'paredit-wrap-round)
+;;    (evil-define-key 'visual evil-cleverparens-mode-map ")" 'paredit-wrap-round)
+;;    (evil-define-key 'normal evil-cleverparens-mode-map "(" 'paredit-wrap-round)
+;;    (evil-define-key 'normal evil-cleverparens-mode-map ")" 'paredit-wrap-round)))
 
 ;; Clojure / Cider
 (evil-define-key 'normal clojure-mode-map ",ch" 'ot/helm-clojure-headlines)
