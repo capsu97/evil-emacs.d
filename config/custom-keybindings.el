@@ -79,6 +79,18 @@
 (global-set-key (kbd "M-y") 'helm-show-kill-ring)
 (define-key evil-normal-state-map ",g" 'helm-imenu)
 
+;; Move up and down like isearch
+(define-key helm-swoop-map (kbd "C-k") 'helm-previous-line)
+(define-key helm-swoop-map (kbd "C-j") 'helm-next-line)
+(define-key helm-multi-swoop-map (kbd "C-k") 'helm-previous-line)
+(define-key helm-multi-swoop-map (kbd "C-j") 'helm-next-line)
+
+;; From helm-swoop to helm-multi-swoop-all
+(define-key helm-swoop-map (kbd "M-i") 'helm-multi-swoop-all-from-helm-swoop)
+
+;; When doing evil-search, hand the word over to helm-swoop
+(define-key evil-motion-state-map (kbd "M-i") 'helm-swoop-from-evil-search)
+
 ;; using C-u for up already
 (global-set-key (kbd "C-M-u") 'universal-argument)
 

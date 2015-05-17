@@ -144,6 +144,7 @@
  '(anzu-mode-line ((t (:foreground "dark orange" :weight bold))))
  '(flx-highlight-face ((t (:inherit font-lock-variable-name-face :foreground "#69D2E7"))))
  '(helm-candidate-number ((t (:background "dodger blue" :foreground "white"))))
+ '(helm-header ((t (:background "orange3" :foreground "white"))))
  '(helm-selection ((t (:background "dodger blue" :distant-foreground "black" :foreground "white"))))
  '(helm-separator ((t (:foreground "dodger blue"))))
  '(helm-source-header ((t (:background "gray30" :foreground "white" :weight normal :height 1 :family "Sans Serif"))))

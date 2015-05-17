@@ -69,4 +69,11 @@
 ;; (setq helm-swoop-pre-input-function
 ;; (lambda () (format "\\_<%s\\_> " (thing-at-point 'symbol))))
 
+;; Optional face for line numbers
+;; Face name is `helm-swoop-line-number-face`
+(setq helm-swoop-use-line-number-face t)
+
+;; Save buffer when helm-multi-swoop-edit complete
+(setq helm-multi-swoop-edit-save t)
+
 (provide 'helm-settings)
