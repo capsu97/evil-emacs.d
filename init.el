@@ -38,6 +38,7 @@
                                      company company-quickhelp company-web helm-company ; autocomplete
                                      company-restclient restclient ; http rest client
                                      drag-stuff ; moving lines/regions up/down
+                                     ov ; library for managing overlays
                                      elisp-slime-nav redshank ; extensions for elisp
                                      diminish ; don't clutter the modeline with minor mode names
                                      ag swiper swiper-helm anzu ; search / grep
