@@ -65,6 +65,7 @@
 ;; Helm swoop ;;
 ;;;;;;;;;;;;;;;;
 
+(require 'helm-swoop)
 ;; match only for symbol
 ;; (setq helm-swoop-pre-input-function
 ;; (lambda () (format "\\_<%s\\_> " (thing-at-point 'symbol))))

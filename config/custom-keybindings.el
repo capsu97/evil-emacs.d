@@ -80,14 +80,13 @@
 (define-key evil-normal-state-map ",g" 'helm-imenu)
 
 ;; Move up and down like isearch
-(with-eval-after-load 'helm-swoop
-  (define-key helm-swoop-map (kbd "C-k") 'helm-previous-line)
-  (define-key helm-swoop-map (kbd "C-j") 'helm-next-line)
-  (define-key helm-multi-swoop-map (kbd "C-k") 'helm-previous-line)
-  (define-key helm-multi-swoop-map (kbd "C-j") 'helm-next-line)
+(define-key helm-swoop-map (kbd "C-k") 'helm-previous-line)
+(define-key helm-swoop-map (kbd "C-j") 'helm-next-line)
+(define-key helm-multi-swoop-map (kbd "C-k") 'helm-previous-line)
+(define-key helm-multi-swoop-map (kbd "C-j") 'helm-next-line)
 
-  ;; From helm-swoop to helm-multi-swoop-all
-  (define-key helm-swoop-map (kbd "M-i") 'helm-multi-swoop-all-from-helm-swoop))
+;; From helm-swoop to helm-multi-swoop-all
+(define-key helm-swoop-map (kbd "M-i") 'helm-multi-swoop-all-from-helm-swoop)
 
 ;; When doing evil-search, hand the word over to helm-swoop
 ;;(define-key evil-motion-state-map (kbd "M-i") 'helm-swoop-from-evil-search)
@@ -227,8 +226,8 @@
 ;; Paredit / Paxedit
 (evil-define-key 'normal paredit-mode-map "\\q" '(lambda () (kill-buffer "*nREPL error*")))
 (evil-define-key 'normal paredit-mode-map "\\fd" 'paredit-focus-on-defun)
-(evil-define-key 'normal paredit-mode-map "\\wr" 'paredit-wrap-round)
-(evil-define-key 'normal paredit-mode-map "\(" 'paredit-wrap-round)
+(evil-define-key 'normal paredit-mode-map "\\wr" 'ot/evil-paredit-wrap-round)
+(evil-define-key 'normal paredit-mode-map "\(" 'ot/evil-paredit-wrap-round)
 (evil-define-key 'normal paredit-mode-map "\\ws" 'paredit-wrap-square)
 (evil-define-key 'normal paredit-mode-map "\\W" 'paredit-wrap-square)
 (evil-define-key 'normal paredit-mode-map "\\w[" 'paredit-wrap-square)
@@ -281,9 +280,9 @@
 (evil-define-key 'visual paredit-mode-map "{" 'paredit-wrap-curly)
 (evil-define-key 'visual paredit-mode-map "}" 'paredit-wrap-curly)
 
-(evil-define-key 'visual paredit-mode-map "(" 'paredit-wrap-round)
+(evil-define-key 'visual paredit-mode-map "(" 'ot/evil-paredit-wrap-round)
 (evil-define-key 'visual paredit-mode-map ")" 'paredit-wrap-round)
-(evil-define-key 'normal paredit-mode-map "(" 'paredit-wrap-round)
+(evil-define-key 'normal paredit-mode-map "(" 'ot/evil-paredit-wrap-round)
 (evil-define-key 'normal paredit-mode-map ")" 'paredit-wrap-round)
 
 ;;(add-hook 'evil-cleverparens-enabled-hook

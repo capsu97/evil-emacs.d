@@ -58,6 +58,8 @@
   (when (and isearch-forward isearch-other-end (not isearch-mode-end-hook-quit))
     (goto-char isearch-other-end)))
 
+;; Based on Bodil Stokke's version
+;; Only if you duplicate something at the start of a line it will also add a newline above
 (defun ot/paredit-duplicate-after-point
     ()
   "Duplicates the content of the line that is after the point."
@@ -77,6 +79,28 @@
   ;; go to the next line and copy the sexprs we encountered
   (paredit-newline)
   (yank)
-  (exchange-point-and-mark))
+  (exchange-point-and-mark)
+  (when (eq (current-column) 0)
+    (paredit-newline)))
+
+(defun ot/evil-paredit-wrap-sexp (open close)
+  (interactive)
+  (paredit-wrap-sexp nil open close)
+  (evil-insert-state)
+  (unless (looking-at-p (string close))
+    (save-excursion
+      (insert " "))))
+
+(defun ot/evil-paredit-wrap-round ()
+  (interactive)
+  (ot/evil-paredit-wrap-sexp ?( ?)))
+
+(defun ot/evil-paredit-wrap-curly ()
+  (interactive)
+  (ot/evil-paredit-wrap-sexp ?{ ?}))
+
+(defun ot/evil-paredit-wrap-square ()
+  (interactive)
+  (ot/evil-paredit-wrap-sexp ?[ ?]))
 
 (provide 'my-defuns)
