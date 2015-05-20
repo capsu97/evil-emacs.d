@@ -1,6 +1,9 @@
 ;; go to beginning of match after search, not the end (not needed with evil)
 ;;(add-hook 'isearch-mode-end-hook 'my-goto-match-beginning)
 
+;; try to improve slow performance on windows.
+(setq w32-get-true-file-attributes nil)
+
 ;; Remove all backup files
 (setq make-backup-files nil)
 (setq backup-inhibited t)

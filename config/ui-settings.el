@@ -2,7 +2,7 @@
 
 (global-font-lock-mode t)
 
-(set-default-font "Meslo LG S DZ for Powerline-12")
+;;(set-default-font "Meslo LG S DZ for Powerline-12")
 
 (if (string= (symbol-name system-type) "windows-nt")
     (setq default-frame-alist '((font . "Consolas-11")))
