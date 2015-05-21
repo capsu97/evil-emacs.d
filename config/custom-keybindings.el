@@ -160,17 +160,15 @@
 
 (define-key evil-motion-state-map "\\" nil)
 (define-key evil-motion-state-map " " nil)
-(define-key evil-motion-state-map "  " 'evil-ace-jump-char-mode)
-(define-key evil-motion-state-map "S" 'evil-ace-jump-word-mode)
-(define-key evil-motion-state-map "s" 'evil-ace-jump-char-mode)
-(define-key evil-motion-state-map " c" 'evil-ace-jump-char-mode)
-(define-key evil-motion-state-map " t" 'evil-ace-jump-char-to-mode)
-(define-key evil-motion-state-map " l" 'evil-ace-jump-line-mode)
+(define-key evil-motion-state-map "  " 'avy-goto-char)
+(define-key evil-motion-state-map "S" 'avy-goto-word-or-subword-1)
+(define-key evil-motion-state-map "s" 'avy-goto-char)
+(define-key evil-motion-state-map " l" 'avy-goto-line)
 
 ;; Operator
-(define-key evil-operator-state-map " " nil)      ; similar to f
-(define-key evil-operator-state-map "  " 'evil-ace-jump-char-mode)      ; similar to f
-(define-key evil-operator-state-map " t" 'evil-ace-jump-char-to-mode) ; similar to t
+;; (define-key evil-operator-state-map " " nil)      ; similar to f
+;; (define-key evil-operator-state-map "  " 'evil-ace-jump-char-mode)      ; similar to f
+;; (define-key evil-operator-state-map " t" 'evil-ace-jump-char-to-mode) ; similar to t
 
 ;; Insert
 (define-key evil-insert-state-map (kbd "M-h") 'evil-backward-char)
@@ -183,7 +181,7 @@
 (define-key evil-insert-state-map (kbd "M-K") 'evil-backward-section-begin)
 (define-key evil-insert-state-map (kbd "M-L") 'evil-forward-word-begin)
 
-(define-key evil-insert-state-map (kbd "C-SPC") 'evil-ace-jump-char-mode)
+(define-key evil-insert-state-map (kbd "C-SPC") 'avy-goto-char)
 ;;(define-key evil-insert-state-map (kbd "C-x") 'evil-execute-in-normal-state)
 
 ;; Normal

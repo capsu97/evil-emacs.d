@@ -45,12 +45,12 @@
                                      clojure-mode clojure-mode-extra-font-locking clojure-cheatsheet ; clojure
                                      clj-refactor discover-clj-refactor align-cljlet ; clojure
                                      latest-clojure-libraries cider cider-eval-sexp-fu ; clojure
-                                     ace-jump-mode ace-window avy ; move quickly around buffers (see vim EasyMotion as well)
+                                     avy ; move quickly around buffers (see vim EasyMotion as well)
                                      markdown-mode markdown-mode+ markdown-toc ; markdown
                                      evil evil-mark-replace evil-anzu evil-args evil-exchange evil-numbers evil-indent-textobject ; evil vim emulation
                                      evil-surround evil-visualstar evil-nerd-commenter evil-jumper vim-empty-lines-mode ; evil vim emulation
-                                     evil-visual-mark-mode evil-cleverparens evil-lisp-state evil-iedit-state evil-matchit evil-easymotion evil-org; evil vim emulation
-                                     rainbow-delimiters highlight-parentheses smartparens paredit paredit-menu paxedit ; working with parens / delimiters
+                                     evil-visual-mark-mode evil-cleverparens evil-lisp-state evil-iedit-state evil-matchit evil-org; evil vim emulation
+                                     rainbow-delimiters highlight-parentheses lispy smartparens paredit paredit-menu paxedit ; working with parens / delimiters
                                      lush-theme sublime-themes monokai-theme smyx-theme molokai-theme color-theme-sanityinc-tomorrow ; color themes
                                      afternoon-theme noctilux-theme soft-morning-theme ; color themes
                                      solarized-theme flatui-theme subatomic256-theme tango-plus-theme zenburn-theme zonokai-theme atom-dark-theme ; color themes
@@ -141,6 +141,8 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(anzu-mode-line ((t (:foreground "dark orange" :weight bold))))
+ '(avy-lead-face ((t (:foreground "red"))))
+ '(avy-lead-face-0 ((t (:foreground "red1" :weight bold))))
  '(flx-highlight-face ((t (:inherit font-lock-variable-name-face :foreground "#69D2E7"))))
  '(helm-candidate-number ((t (:background "dodger blue" :foreground "white"))))
  '(helm-header ((t (:background "orange3" :foreground "white"))))
