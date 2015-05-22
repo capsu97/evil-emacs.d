@@ -20,9 +20,10 @@
                                      helm helm-flyspell helm-projectile helm-ag helm-swoop cljr-helm ; helm
                                      helm-descbinds helm-emmet helm-css-scss ; helm
                                      helm-c-moccur ; helm
+                                     focus ; focus mode (dim text you are not working on)
                                      hydra ; sticky bindings
                                      dash-at-point helm-dash ; dash
-                                     powerline powerline-evil ; better modeline
+                                        ; powerline powerline-evil ; better modeline
                                      volatile-highlights highlight-symbol ; highlighting
                                      aggressive-indent indent-guide ; indentation
                                      flyspell ; spell checking
@@ -54,7 +55,6 @@
                                      lush-theme sublime-themes monokai-theme smyx-theme molokai-theme color-theme-sanityinc-tomorrow ; color themes
                                      afternoon-theme noctilux-theme soft-morning-theme ; color themes
                                      solarized-theme flatui-theme subatomic256-theme tango-plus-theme zenburn-theme zonokai-theme atom-dark-theme ; color themes
-                                     git-rebase-mode gitattributes-mode git-commit-mode gitconfig-mode gitignore-mode ; git file modes
                                      gist magit diff-hl git-timemachine ; git integration
                                      emmet-mode tagedit js2-mode js2-refactor json-mode json-reformat web-mode ; web development
                                      scss-mode sass-mode rainbow-mode tern company-tern ; web development
