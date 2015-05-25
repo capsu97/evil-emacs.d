@@ -20,6 +20,7 @@
                                      helm helm-flyspell helm-projectile helm-ag helm-swoop cljr-helm ; helm
                                      helm-descbinds helm-emmet helm-css-scss ; helm
                                      helm-c-moccur ; helm
+                                     key-chord ; bind commands to multiple keypresses
                                      focus ; focus mode (dim text you are not working on)
                                      hydra ; sticky bindings
                                      dash-at-point helm-dash ; dash
