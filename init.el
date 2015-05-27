@@ -20,11 +20,11 @@
                                      helm helm-flyspell helm-projectile helm-ag helm-swoop cljr-helm ; helm
                                      helm-descbinds helm-emmet helm-css-scss ; helm
                                      helm-c-moccur ; helm
+                                     fic-mode ; show FIXME/TODO/BUG/KLUDGE in special face only in comments and strings
                                      key-chord ; bind commands to multiple keypresses
                                      focus ; focus mode (dim text you are not working on)
                                      hydra ; sticky bindings
                                      dash-at-point helm-dash ; dash
-                                        ; powerline powerline-evil ; better modeline
                                      volatile-highlights highlight-symbol ; highlighting
                                      aggressive-indent indent-guide ; indentation
                                      flyspell ; spell checking
@@ -49,14 +49,12 @@
                                      latest-clojure-libraries cider cider-eval-sexp-fu ; clojure
                                      avy ; move quickly around buffers (see vim EasyMotion as well)
                                      markdown-mode markdown-mode+ markdown-toc ; markdown
-                                     evil evil-mark-replace evil-anzu evil-args evil-exchange evil-numbers evil-indent-textobject ; evil vim emulation
-                                     evil-surround evil-visualstar evil-nerd-commenter evil-jumper vim-empty-lines-mode ; evil vim emulation
-                                     evil-visual-mark-mode evil-cleverparens evil-lisp-state evil-iedit-state evil-matchit evil-org; evil vim emulation
                                      rainbow-delimiters highlight-parentheses lispy smartparens paredit paredit-menu paxedit ; working with parens / delimiters
                                      lush-theme sublime-themes monokai-theme smyx-theme molokai-theme color-theme-sanityinc-tomorrow ; color themes
                                      afternoon-theme noctilux-theme soft-morning-theme ; color themes
                                      solarized-theme flatui-theme subatomic256-theme tango-plus-theme zenburn-theme zonokai-theme atom-dark-theme ; color themes
                                      gist magit diff-hl git-timemachine ; git integration
+                                     toggle-quotes ; toggle between single/double quotes
                                      emmet-mode tagedit js2-mode js2-refactor json-mode json-reformat web-mode ; web development
                                      scss-mode sass-mode rainbow-mode tern company-tern ; web development
                                      projectile ; moving around in projects
@@ -81,7 +79,7 @@
 (require 'my-defuns)
 (require 'third-party-defuns)
 (require 'basic-settings)
-(require 'evil-settings)
+;; (require 'evil-settings)
 (require 'expand-region)
 (require 'webdevelopment-settings)
 (require 'ui-settings)
@@ -156,8 +154,6 @@
  '(ido-indicator ((t (:foreground "#ffffff"))))
  '(ido-only-match ((t (:foreground "#ffcc33"))))
  '(ido-subdir ((t (:foreground "#66ff00"))))
- '(powerline-evil-insert-face ((t (:inherit powerline-evil-base-face :background "DodgerBlue2"))))
- '(powerline-evil-normal-face ((t (:inherit powerline-evil-base-face :background "SpringGreen3"))))
  '(web-mode-current-element-highlight-face ((t (:background "black"))))
  '(web-mode-html-attr-name-face ((t (:foreground "royal blue"))))
  '(web-mode-html-tag-bracket-face ((t (:foreground "dim gray"))))

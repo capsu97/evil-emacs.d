@@ -5,9 +5,9 @@
 ;; Volatile Highlights
 (require 'volatile-highlights)
 
-(vhl/give-advice-to-make-vhl-on-changes evil-paste-after)
-(vhl/give-advice-to-make-vhl-on-changes evil-paste-before)
-(vhl/give-advice-to-make-vhl-on-changes evil-paste-pop)
+;;(vhl/give-advice-to-make-vhl-on-changes evil-paste-after)
+;;(vhl/give-advice-to-make-vhl-on-changes evil-paste-before)
+;;(vhl/give-advice-to-make-vhl-on-changes evil-paste-pop)
 
 (volatile-highlights-mode t)
 
@@ -18,5 +18,12 @@
 
 (setq indent-guide-recursive t)
 (setq indent-guide-delay 0.1)
+
+;; Key chords
+(require 'key-chord)
+
+(setq key-chord-two-keys-delay 0.2)
+
+(key-chord-mode +1)
 
 (provide 'misc-package-settings)

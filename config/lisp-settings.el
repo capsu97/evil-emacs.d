@@ -1,18 +1,22 @@
+;; Make backspace able to delete selection in paredit mode-name
+(put 'paredit-forward-delete 'delete-selection 'supersede)
+(put 'paredit-backward-delete 'delete-selection 'supersede)
+
 ;; open clojurescript files in clojure mode
 (add-to-list 'auto-mode-alist '("\.cljs$" . clojure-mode))
 ;; open boot build tool files in clojure mode
 (add-to-list 'auto-mode-alist '("\.boot$" . clojure-mode))
 
 ;; shorten modeline text
-(add-hook 'emacs-lisp-mode-hook 
+(add-hook 'emacs-lisp-mode-hook
   (lambda()
     (setq mode-name "EL")))
 
-(add-hook 'clojure-mode-hook 
+(add-hook 'clojure-mode-hook
   (lambda()
     (setq mode-name "CLJ")))
 
-(add-hook 'lisp-interaction-mode-hook 
+(add-hook 'lisp-interaction-mode-hook
   (lambda()
     (setq mode-name "LI")))
 

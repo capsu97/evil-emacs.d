@@ -127,7 +127,6 @@
  read-file-name-completion-ignore-case t
  x-select-enable-clipboard t
  x-select-enable-primary t
- ;;save-interprogram-paste-before-kill t ; has problems with evil-mode in osx!!
  next-line-add-newlines t
  apropos-do-all t
  scroll-error-top-bottom t ; move to farthest point when not able to move up or down enough lines
@@ -139,7 +138,7 @@
  visible-bell nil
  color-theme-is-global t
  sentence-end-double-space nil
- shift-select-mode nil
+ shift-select-mode t
  mouse-yank-at-point t
  uniquify-buffer-name-style 'post-forward
  uniquify-ignore-buffers-re "^\\*"
@@ -182,9 +181,9 @@
 ;;(show-smartparens-global-mode t)
 
 ;; Macbook, make fn function as meta
-(setq-default mac-function-modifier 'meta)
+(setq-default mac-function-modifier 'hyper)
 (setq-default mac-command-modifier 'meta)
-(setq-default mac-option-modifier 'meta)
+(setq-default mac-option-modifier 'command)
 
 ;; Allow replacement of selected region or deletion of selected region by typing or using DEL
 (delete-selection-mode 1)
@@ -202,7 +201,7 @@
       ido-handle-duplicate-virtual-buffers 2
       confirm-nonexistent-file-or-buffer nil
       ido-file-extension-order '(".clj" ".cljs" ".el" ".org" ".txt")
-      ido-ignore-buffers '("\\` " "^\*")
+      ido-ignore-buffers '("\\` ")
       ido-ignore-extensions t
       ido-max-prospects 10
       ido-use-faces nil ;; disable ido faces to see flx highlights
