@@ -201,13 +201,21 @@
       ido-handle-duplicate-virtual-buffers 2
       confirm-nonexistent-file-or-buffer nil
       ido-file-extension-order '(".clj" ".cljs" ".el" ".org" ".txt")
-      ido-ignore-buffers '("\\` ")
       ido-ignore-extensions t
       ido-max-prospects 10
       ido-use-faces nil ;; disable ido faces to see flx highlights
       flx-ido-use-faces t ;; enable flx highlights
       ido-vertical-define-keys 'C-n-C-p-up-down-left-right
       )
+
+(defvar ido-dont-ignore-buffer-names '("*scratch*"))
+
+(defun ido-ignore-most-star-buffers (name)
+  (and
+   (string-match-p "^*" name)
+   (not (member name ido-dont-ignore-buffer-names))))
+
+(setq ido-ignore-buffers (list "\\` " #'ido-ignore-most-star-buffers))
 
 ;; Always allow narrowing, don't ask questions
 (put 'narrow-to-defun  'disabled nil)

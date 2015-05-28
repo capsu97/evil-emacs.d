@@ -116,18 +116,25 @@ _s-f_: file            _a_: ag                _i_: Ibuffer           _c_: cache 
 ;;;;;;;;;;;;;;;;
 ;; Key chords ;;
 ;;;;;;;;;;;;;;;;
-
 (key-chord-define-global ",x" 'smex)
 (key-chord-define-global ",l" 'ido-switch-buffer)
 (key-chord-define-global ",t" 'projectile-find-file-in-known-projects) ; TODO create hydra for projectile
 (key-chord-define-global ",f" 'projectile-find-file)
-(key-chord-define-global ",s" 'hydra-mark/body)
-(key-chord-define-global ",d" 'ot/duplicate-current-line-or-region)
+(key-chord-define-global ",s" 'projectile-switch-project)
+;;(key-chord-define-global ",d" 'ot/duplicate-current-line-or-region)
 (key-chord-define-global ",w" 'save-buffer)
 
 ;;;;;;;;;;;;;;;;;;;;;;;
 ;; Other keybindings ;;
 ;;;;;;;;;;;;;;;;;;;;;;;
+
+(define-key paredit-mode-map [H-backspace] 'paredit-forward-delete)
+(define-key paredit-mode-map (kbd "C-d") 'ot/paredit-duplicate-after-point)
+
+(global-set-key (kbd "C-d") 'ot/duplicate-current-line-or-region)
+
+(global-set-key [H-backspace] 'delete-char)
+
 
 (define-key isearch-mode-map (kbd "C-'") 'avy-isearch)
 

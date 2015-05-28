@@ -14,5 +14,6 @@
         evil-indent-i-indent
         evil-inner-tag
         evil-next-visual-line
+        multiple-cursors-hydra/mc/mark-next-like-this
         smex
         ))
