@@ -117,24 +117,20 @@ _s-f_: file            _a_: ag                _i_: Ibuffer           _c_: cache 
 ;; Key chords ;;
 ;;;;;;;;;;;;;;;;
 
-;; Redefine key-chord function so it only works when keypresses are in order. For instance ',x' works, 'x,' doesn't
-;; Normally both work because it was meant for simultaneous key presses.
-(defun key-chord-define (keymap keys command)
-  (if (/= 2 (length keys))
-      (error "Key-chord keys must have two elements"))
-  (let ((key1 (logand 255 (aref keys 0)))
-        (key2 (logand 255 (aref keys 1))))
-    (if (eq key1 key2)
-        (define-key keymap (vector 'key-chord key1 key2) command)
-      (define-key keymap (vector 'key-chord key1 key2) command))))
+;; Key chords to use:
+;; yy jj '; zx ., \] /. ?? ^^ '/ ;. ;, .; /' =- -=
+;; jq qg qk qy qz wq xz fq wx qx jx kq vq qj qh hx qp xk
+;; sx
 
 (key-chord-define-global ",x" 'smex)
+(key-chord-define-global "';" 'smex)
 (key-chord-define-global ",l" 'ido-switch-buffer)
 (key-chord-define-global ",t" 'projectile-find-file-in-known-projects) ; TODO create hydra for projectile
 (key-chord-define-global ",f" 'projectile-find-file)
 (key-chord-define-global ",s" 'projectile-switch-project)
 ;;(key-chord-define-global ",d" 'ot/duplicate-current-line-or-region)
 (key-chord-define-global ",w" 'save-buffer)
+(key-chord-define-global "/." 'hydra-mark/body)
 
 ;;;;;;;;;;;;;;;;;;;;;;;
 ;; Other keybindings ;;
