@@ -37,4 +37,8 @@
         (define-key keymap (vector 'key-chord key1 key2) command)
       (define-key keymap (vector 'key-chord key1 key2) command))))
 
+(require 'whole-line-or-region)
+
+(whole-line-or-region-mode 1)
+
 (provide 'misc-package-settings)
