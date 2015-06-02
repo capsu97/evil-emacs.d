@@ -48,7 +48,7 @@
                                      clojure-mode clojure-mode-extra-font-locking clojure-cheatsheet ; clojure
                                      clj-refactor discover-clj-refactor align-cljlet ; clojure
                                      latest-clojure-libraries cider cider-eval-sexp-fu ; clojure
-                                     avy ; move quickly around buffers (see vim EasyMotion as well)
+                                     avy avy-zap ; move quickly around buffers (see vim EasyMotion as well)
                                      markdown-mode markdown-mode+ markdown-toc ; markdown
                                      rainbow-delimiters highlight-parentheses lispy smartparens paredit paredit-menu paxedit ; working with parens / delimiters
                                      lush-theme sublime-themes monokai-theme smyx-theme molokai-theme color-theme-sanityinc-tomorrow ; color themes
