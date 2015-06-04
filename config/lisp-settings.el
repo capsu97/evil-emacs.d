@@ -1,6 +1,10 @@
-;; Make backspace able to delete selection in paredit mode-name
+;; making paredit work with delete-selection-mode
 (put 'paredit-forward-delete 'delete-selection 'supersede)
 (put 'paredit-backward-delete 'delete-selection 'supersede)
+(put 'paredit-open-round 'delete-selection t)
+(put 'paredit-open-square 'delete-selection t)
+(put 'paredit-doublequote 'delete-selection t)
+(put 'paredit-newline 'delete-selection t)
 
 ;; open clojurescript files in clojure mode
 (add-to-list 'auto-mode-alist '("\.cljs$" . clojure-mode))

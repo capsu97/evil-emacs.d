@@ -61,7 +61,7 @@
                                      projectile ; moving around in projects
                                      yasnippet auto-yasnippet clojure-snippets datomic-snippets helm-c-yasnippet ; snippets
                                      browse-kill-ring ; list / select / insert previously killed text
-                                     dired+ ; directory editor addon
+                                     dired+ dired-details ; directory editor addon
                                      expand-region ; easily select regions around point
                                      persp-mode ; per project window config
                                      multiple-cursors iedit ; multiple cursors a la Sublime Text

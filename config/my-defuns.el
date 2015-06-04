@@ -83,6 +83,10 @@
   (when (eq (current-column) 0)
     (paredit-newline)))
 
+(defun ot/join-line ()
+  (interactive)
+  (join-line -1))
+
 (defun ot/evil-paredit-wrap-sexp (open close)
   (interactive)
   (paredit-wrap-sexp nil open close)

@@ -136,6 +136,8 @@ _s-f_: file            _a_: ag                _i_: Ibuffer           _c_: cache 
 ;; Other keybindings ;;
 ;;;;;;;;;;;;;;;;;;;;;;;
 
+(global-set-key (kbd "M-j") 'ot/join-line)
+
 (define-key paredit-mode-map [H-backspace] 'paredit-forward-delete)
 (define-key paredit-mode-map (kbd "C-d") 'ot/paredit-duplicate-after-point)
 
