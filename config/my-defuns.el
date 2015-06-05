@@ -107,4 +107,11 @@
   (interactive)
   (ot/evil-paredit-wrap-sexp ?[ ?]))
 
+(defun ot/move-lines-down-from-point ()
+  "Insert empty lines above the current line but move the cursor down with the rest of the text."
+  (interactive)
+  (save-excursion
+    (move-beginning-of-line nil)
+    (newline-and-indent)))
+
 (provide 'my-defuns)

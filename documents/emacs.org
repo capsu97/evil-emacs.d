@@ -1,0 +1,218 @@
+* Emacs
+** Core
+| keybinding | command | description |
+|------------+---------+-------------|
+|            |         |             |
+** Packages
+*** misc-cmds
+| keybinding | command                   | description                                                                                |
+|------------+---------------------------+--------------------------------------------------------------------------------------------|
+| C-a        | beginning-of-line+        | Move cursor to start of line, or start of next line when used multiple times               |
+| C-e        | end-of-line+              | Move cursor to end of line, or end of next line when used multiple times                   |
+|            | beginning-of-visual-line+ | Move cursor to start of visual line, or start of next visual line when used multiple times |
+|            | end-of-visual-line+       | Move cursor to end of visual line, or end of next visual line when used multiple times     |
+|            | beginning-or-indentation  | Move cursor to start of this line or to its indentation                                    |
+|            | mark-buffer-after-point   | Select the part of the buffer after point                                                  |
+|            | mark-buffer-before-point  | Select the part of the buffer before point                                                 |
+|            | mark-line                 | Put mark at end of line, point at beginning                                                |
+|            | narrow-to-line            | Narrow to text of the current line                                                         |
+|            | goto-longest-line         | Go to the first of the longest lines in the region or buffer                               |
+|            | region-to-buffer          | Copy region to buffer, prefix >= 0 appends, prefix < 0 prepends, no prefix replaces        |
+|            | region-to-file            | Prefix arg means append, without it replaces                                               |
+|            | revert-buffer-no-confirm  | Revert buffer without confirmation                                                         |
+|            |                           |                                                                                            |
+*** paredit
+*** paxedit
+*** cider
+*** avy
+*** avy-zap
+*** expand-region
+*** clj-refactor
+*** focus
+*** whole-line-or-region
+*** key-chord
+*** projectile
+*** undo-tree
+*** smartparens
+*** magit
+*** hydra
+*** yasnippet
+*** multiple-cursors
+*** iedit
+*** drag-stuff
+*** org-plus-contrib
+**** General customization
+| variable                               | description | preferred value |
+|----------------------------------------+-------------+-----------------|
+| org-archive-location                   |             |                 |
+| org-startup-folded                     |             |                 |
+| org-agenda-files                       |             |                 |
+| org-directory                          |             |                 |
+| org-completion-use-ido                 |             |                 |
+| org-return-follows-link                |             |                 |
+| org-blank-before-new-entry             |             |                 |
+| org-todo-keywords                      |             |                 |
+| org-todo-keyword-faces                 |             |                 |
+| org-enforce-todo-dependencies          |             |                 |
+| org-enforce-todo-checkbox-dependencies |             |                 |
+| org-tag-alist                          |             |                 |
+| org-tags-column                        |             |                 |
+| org-fast-tag-selection-single-key      |             |                 |
+| org-log-done                           |             |                 |
+| org-support-shift-select               |             | t               |
+| org-catch-invisible-edits              |             |                 |
+**** Drawers
+| keybinding    | command                    | description                                 |
+|---------------+----------------------------+---------------------------------------------|
+| C-c C-x d     | org-insert-drawer          |                                             |
+| C-u C-c C-x d | org-insert-property-drawer |                                             |
+| M-<TAB>       |                            | Completion over drawer keywords             |
+| C-c C-z       |                            | Add time-stamped note to the LOGBOOK drawer |
+**** Lists
+Unordered list items start with -,+ or * as bullets.
+Ordered list items start with a numeral followed by either a period or a right parenthesis.
+Description list items are unordered list items, and contain the separator '::' to distinguish the description term from the description.
+
+| keybinding  | command            | description                                                                                                                      |
+|-------------+--------------------+----------------------------------------------------------------------------------------------------------------------------------|
+| <TAB>       | org-cycle          |                                                                                                                                  |
+| M-<RET>     | org-insert-heading |                                                                                                                                  |
+| M-S-<RET>   |                    | Insert new item with a checkbox                                                                                                  |
+| S-<up>      |                    | Jump to previous item in the current list (if org-support-shift-select is off)                                                   |
+| S-<down>    |                    | Jump to next item in the current list (if org-support-shift-select is off)                                                       |
+| M-<up>      |                    | Move the item including subitems up                                                                                              |
+| M-<down>    |                    | Move the item including subitems down                                                                                            |
+| M-<left>    |                    | Decrease indentation of an item, leaving the children alone                                                                      |
+| M-<right>   |                    | Increase indentation of an item, leaving the children alone                                                                      |
+| M-S-<left>  |                    | Decrease indentation of an item, including subitems                                                                              |
+| M-S-<right> |                    | Increase indentation of an item, including subitems                                                                              |
+| C-c C-c     |                    | If there is a checkbox in the item line, toggle the state. In any case verify bullets/indentation consistency                    |
+| C-c -       |                    | Cycle the entire list level                                                                                                      |
+| C-c *       |                    | Turn a plain list item into a headline                                                                                           |
+| C-c C-*     |                    | Turn the whole plain list into a subtree of the current heading                                                                  |
+| S-<left>    |                    | Cycles bullet styles when the cursor is on the bullet or anywhere in an item line, details depending on org-support-shift-select |
+| S-<right>   |                    | Cycles bullet styles when the cursor is on the bullet or anywhere in an item line, details depending on org-support-shift-select |
+| C-c ^       |                    | Sort the plain list                                                                                                              |
+**** Outlines
+| variable               | description | preferred value |
+|------------------------+-------------+-----------------|
+| org-hide-leading-stars |             |                 |
+| org-odd-levels-only    |             |                 |
+| org-special-ctrl-a/e   |             | t               |
+| org-special-ctrl-k     |             | t               |
+
+| keybinding        | command                                 | description                                                                 |
+|-------------------+-----------------------------------------+-----------------------------------------------------------------------------|
+| <TAB>             | org-cycle                               |                                                                             |
+| S-<TAB>           | org-global-cycle                        |                                                                             |
+| C-u C-u C-u <TAB> | show-all                                |                                                                             |
+| C-c C-r           | org-reveal                              | Reveal context around point                                                 |
+| C-c C-k           | show-branches                           | Expose all the headings of the subtree                                      |
+| C-c <TAB>         | show-children                           | Expose all the direct children of the subtree                               |
+| C-c C-x b         | org-tree-to-indirect-buffer             | Show the current subtree in an indirect buffer                              |
+| C-c C-x v         | org-copy-visible                        | Copy the visible text in the region into the kill ring                      |
+| C-c C-n           | outline-next-visible-heading            |                                                                             |
+| C-c C-p           | outline-previous-visible-heading        |                                                                             |
+| C-c C-f           | org-forward-same-level                  |                                                                             |
+| C-c C-b           | org-backward-same-level                 |                                                                             |
+| C-c C-u           | outline-up-heading                      |                                                                             |
+| C-c C-j           | org-goto                                |                                                                             |
+| M-<RET>           | org-insert-heading                      |                                                                             |
+| C-<RET>           | org-insert-heading-respect-content      | Like M-<RET> but adds the new heading after the body                        |
+| M-S-<RET>         | org-insert-todo-heading                 |                                                                             |
+| C-S-<RET>         | org-insert-todo-heading-respect-content |                                                                             |
+| M-<left>          | org-do-promote                          |                                                                             |
+| M-<right>         | org-do-demote                           |                                                                             |
+| M-S-<left>        | org-promote-subtree                     |                                                                             |
+| M-S-<right>       | org-demote-subtree                      |                                                                             |
+| M-S-<up>          | org-move-subtree-up                     |                                                                             |
+| M-S-<down>        | org-move-subtree-down                   |                                                                             |
+| M-h               | org-mark-element                        | Mark the element at point. Hitting repeatedly will mark subsequent elements |
+| C-c @             | org-mark-subtree                        |                                                                             |
+| C-c C-x C-w       | org-cut-subtree                         |                                                                             |
+| C-c C-x M-w       | org-copy-subtree                        |                                                                             |
+| C-c C-x C-y       | org-paste-subtree                       |                                                                             |
+| C-y               | org-yank                                |                                                                             |
+| C-c C-x c         | org-clone-subtree-with-time-shift       |                                                                             |
+| C-c C-w           | org-refile                              |                                                                             |
+| C-c ^             | org-sort                                |                                                                             |
+| C-x n s           | org-narrow-to-subtree                   |                                                                             |
+| C-x n b           | org-narrow-to-block                     |                                                                             |
+| C-x n w           | widen                                   |                                                                             |
+| C-c *             | org-toggle-heading                      |                                                                             |
+| C-c /             | org-sparse-tree                         |                                                                             |
+| C-c / r           | org-occur                               |                                                                             |
+| M-g n or M-g M-n  | next-error                              |                                                                             |
+| M-g p or M-g M-p  | previous-error                          |                                                                             |
+|                   |                                         |                                                                             |
+**** Capture
+| variable                    | description |
+|-----------------------------+-------------|
+| org-reverse-note-order      |             |
+| org-capture-templates       |             |
+| org-default-notes-file      |             |
+| org-refile-targets          |             |
+| org-refile-use-outline-path |             |
+**** Agenda
+| variable                          | description |
+|-----------------------------------+-------------|
+| org-agenda-start-on-weekday       |             |
+| org-agenda-ndays                  |             |
+| org-agenda-include-diary          |             |
+| org-agenda-custom-commands        |             |
+| org-agenda-sorting-strategy       |             |
+| org-stuck-projects                |             |
+| org-agenda-skip-scheduled-if-done |             |
+| org-agenda-skip-deadline-if-done  |             |
+| org-agenda-skip-timestamp-if-done |             |
+| org-agenda-todo-ignore-deadlines  |             |
+| org-agenda-todo-ignore-with-date  |             |
+| org-agenda-todo-ignore-scheduled  |             |
+**** Tables
+| keybinding  | command                                        | description                                                     |
+|-------------+------------------------------------------------+-----------------------------------------------------------------|
+| C-c <RET>   | org-table-hline-and-move or org-insert-heading | Create table from table header or insert new heading            |
+| C-c C-x \   | org-toggle-pretty-entities                     | Toggle display of entities as UTF-8 characters                  |
+| C-c \vert       | org-table-create-or-convert-from-region        | Convert active region to table. Supports csv,tab separated etc. |
+| C-c C-c     | org-table-align                                | Re-align table without moving to another field                  |
+| <TAB>       | org-table-next-field                           |                                                                 |
+| S-<TAB>     | org-table-previous-field                       |                                                                 |
+| <RET>       | org-table-next-row                             |                                                                 |
+| M-a         | org-table-beginning-of-field                   |                                                                 |
+| M-e         | org-table-end-of-field                         |                                                                 |
+| M-<left>    | org-table-move-column-left                     |                                                                 |
+| M-<right>   | org-table-move-column-right                    |                                                                 |
+| M-S-<left>  | org-table-delete-column                        |                                                                 |
+| M-S-<right> | org-table-insert-column                        |                                                                 |
+| M-<up>      | org-table-move-row-up                          |                                                                 |
+| M-<down>    | org-table-move-row-down                        |                                                                 |
+| M-S-<up>    | org-table-kill-row                             |                                                                 |
+| M-S-<down>  | org-table-insert-row                           |                                                                 |
+| C-c -       | org-table-insert-hline                         |                                                                 |
+| C-c ^       | org-table-sort-lines                           |                                                                 |
+| C-c C-x M-w | org-table-copy-region                          |                                                                 |
+| C-c C-x C-w | org-table-cut-region                           |                                                                 |
+| C-c C-x C-y | org-table-paste-rectangle                      |                                                                 |
+| M-<RET>     | org-table-wrap-region                          |                                                                 |
+| C-c +       | org-table-sum                                  |                                                                 |
+| S-<RET>     | org-table-copy-down                            |                                                                 |
+| C-c `       | org-table-edit-field                           |                                                                 |
+|             | org-table-import                               | Import file as a table. Should be TAB or whitespace separated   |
+| C-c \vert       | org-table-create-or-convert-from-region        |                                                                 |
+|             | org-table-export                               |                                                                 |
+
+You can turn off the automatic table editor, for instance when you want to start lines with '|':
+#+BEGIN_SRC emacs-lisp
+(setq org-enable-table-editor nil)
+#+END_SRC
+
+To insert a vertical bar into a table field, use \vert or, inside a word abc\vert{}def.
+**** Export / Publishing
+| variable                  | description |
+|---------------------------+-------------|
+| org-export-html-style     |             |
+| org-publish-project-alist |             |
+*** emmet-mode
+*** tagedit
+*** js2-mode
+*** web-mode
