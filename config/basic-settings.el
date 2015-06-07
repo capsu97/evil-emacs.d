@@ -129,6 +129,7 @@
  x-select-enable-primary t
  next-line-add-newlines t
  apropos-do-all t
+ apropos-sort-by-scores t
  scroll-error-top-bottom t ; move to farthest point when not able to move up or down enough lines
  read-buffer-completion-ignore-case t
  completion-auto-help 'lazy

@@ -61,9 +61,9 @@
 ;; Based on Bodil Stokke's version
 ;; Only if you duplicate something at the start of a line it will also add a newline above
 (defun ot/paredit-duplicate-after-point
-    ()
+    (&optional prefix)
   "Duplicates the content of the line that is after the point."
-  (interactive)
+  (interactive "P")
   ;; skips to the next sexp
   (while (looking-at " ")
     (forward-char))
@@ -80,7 +80,7 @@
   (paredit-newline)
   (yank)
   (exchange-point-and-mark)
-  (when (eq (current-column) 0)
+  (when prefix
     (paredit-newline)))
 
 (defun ot/join-line ()

@@ -123,6 +123,7 @@ _s-f_: file            _a_: ag                _i_: Ibuffer           _c_: cache 
 ;; sx
 
 (key-chord-define-global ",x" 'smex)
+(key-chord-define-global "x," 'smex)
 (key-chord-define-global "';" 'smex)
 (key-chord-define-global ",l" 'ido-switch-buffer)
 (key-chord-define-global ",t" 'projectile-find-file-in-known-projects) ; TODO create hydra for projectile
@@ -135,6 +136,8 @@ _s-f_: file            _a_: ag                _i_: Ibuffer           _c_: cache 
 ;;;;;;;;;;;;;;;;;;;;;;;
 ;; Other keybindings ;;
 ;;;;;;;;;;;;;;;;;;;;;;;
+
+;; Keybindings to use: M-o (other-window maybe???)
 
 (global-set-key (kbd "C-a") 'beginning-of-line+)
 (global-set-key (kbd "C-e") 'end-of-line+)
@@ -150,6 +153,8 @@ _s-f_: file            _a_: ag                _i_: Ibuffer           _c_: cache 
 
 
 (define-key isearch-mode-map (kbd "C-'") 'avy-isearch)
+
+(global-set-key (kbd "M-g M-g") 'avy-goto-line)
 
 ;; Activate occur easily inside isearch
 (define-key isearch-mode-map (kbd "C-o")
@@ -168,10 +173,14 @@ _s-f_: file            _a_: ag                _i_: Ibuffer           _c_: cache 
 (global-set-key (kbd "M-/") 'company-complete)
 
 ;; use regexp search by default
-(global-set-key (kbd "C-s") 'isearch-forward-regexp)
-(global-set-key (kbd "C-r") 'isearch-backward-regexp)
-(global-set-key (kbd "C-M-s") 'isearch-forward)
-(global-set-key (kbd "C-M-r") 'isearch-backward)
+;; (global-set-key (kbd "C-s") 'isearch-forward-regexp)
+;; (global-set-key (kbd "C-r") 'isearch-backward-regexp)
+;; (global-set-key (kbd "C-M-s") 'isearch-forward)
+;; (global-set-key (kbd "C-M-r") 'isearch-backward)
+
+;; use swiper instead of isearch
+(global-set-key (kbd "C-s") 'swiper)
+(global-set-key (kbd "C-r") 'swiper)
 
 ;; popup for yasnippet
 (define-key popup-menu-keymap (kbd "M-n") 'popup-next)

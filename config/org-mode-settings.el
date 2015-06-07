@@ -1,10 +1,10 @@
 (eval-after-load "org"
 	'(require 'ox-md nil t))
 
-;; (setq
-;;  org-directory (expand-file-name "~/orgs")
-;;  org-default-notes-file (concat org-directory "/Tasks.org")
-;;  org-agenda-files `(,org-directory))
+(setq
+ org-directory (expand-file-name "~/orgs")
+ org-default-notes-file (concat org-directory "/notes.org")
+ org-agenda-files `(,org-directory))
 
 ;; support shift-selection-mode
 (setq org-support-shift-select t)
@@ -24,22 +24,22 @@
 ;;         ("n" "Find a TAGged note" tags "" ((org-agenda-archives-mode t)))))
 
 
-;; (setq org-capture-templates
-;;       `(("t" "Task"
-;;          entry (file+olp ,org-default-notes-file "Inbox" "Personal")
-;;          "* TODO %?\n\n")
-;;         ("w" "Work task"
-;;          entry (file+olp ,org-default-notes-file "Inbox" "Work")
-;;          "* TODO %? :work:\n\n")
-;;         ("n" "Note"
-;;          entry (file+headline ,org-default-notes-file "Notes")
-;;          "* %?\n\n  %i\n")
-;;         ("b" "Bookmark"
-;;          entry (file+headline ,(expand-file-name "Bookmarks.org" org-directory) "Bookmarks")
-;;          "* %?\n\n  %c%i\n")
-;;         ("s" "Scratch"
-;;          entry (file+headline ,(expand-file-name "scratch.org" org-directory) "Scratch")
-;;          "* Scratch it %U\n%i\n   #+begin_src text\n%?\n   #+end_src\n")))
+(setq org-capture-templates
+      `(("t" "Task"
+         entry (file+olp ,org-default-notes-file "Inbox" "Personal")
+         "* TODO %?\n\n")
+        ("w" "Work task"
+         entry (file+olp ,org-default-notes-file "Inbox" "Work")
+         "* TODO %? :work:\n\n")
+        ("n" "Note"
+         entry (file+headline ,org-default-notes-file "Notes")
+         "* %?\n\n  %i\n")
+        ("b" "Bookmark"
+         entry (file+headline ,(expand-file-name "bookmarks.org" org-directory) "Bookmarks")
+         "* %?\n\n  %c%i\n")
+        ("s" "Scratch"
+         entry (file+headline ,(expand-file-name "scratch.org" org-directory) "Scratch")
+         "* Scratch it %U\n%i\n   #+begin_src text\n%?\n   #+end_src\n")))
 
 ;; define the sorting order
 (setq org-agenda-sorting-strategy '((agenda habit-down time-up todo-state-down)))
