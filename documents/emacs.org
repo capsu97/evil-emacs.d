@@ -61,6 +61,95 @@
 *** focus
 *** whole-line-or-region
 *** key-chord
+| key chord | command                                |
+|-----------+----------------------------------------|
+| ,l        | ido-switch-buffer                      |
+| ,s        | projectile-switch-project              |
+| ,f        | projectile-find-file                   |
+| ,t        | projectile-find-file-in-known-projects |
+| /.        | hydra-mark/body                        |
+| ,x        | smex                                   |
+| x,        | smex                                   |
+| ';        | smex                                   |
+| \]        |                                        |
+| ][        |                                        |
+| }{        |                                        |
+| \vert{}}        |                                        |
+| zx        |                                        |
+| `q        |                                        |
+| `w        |                                        |
+| `1        |                                        |
+| `2        |                                        |
+| zc        |                                        |
+| zv        |                                        |
+| vb        |                                        |
+| ,m        |                                        |
+| .m        |                                        |
+| .,        |                                        |
+| /,        |                                        |
+| \=-       |                                        |
+| qx        |                                        |
+| jx        |                                        |
+| kq        |                                        |
+| vq        |                                        |
+| qj        |                                        |
+| qh        |                                        |
+| hx        |                                        |
+| qp        |                                        |
+| xk        |                                        |
+| zj        |                                        |
+| vk        |                                        |
+| gq        |                                        |
+| bq        |                                        |
+| yq        |                                        |
+| vx        |                                        |
+| vz        |                                        |
+| sx        |                                        |
+| xj        |                                        |
+| qd        |                                        |
+| xg        |                                        |
+| kx        |                                        |
+| gx        |                                        |
+| qe        |                                        |
+| zf        |                                        |
+| qv        |                                        |
+| mq        |                                        |
+| vj        |                                        |
+| bx        |                                        |
+| fv        |                                        |
+| zk        |                                        |
+| qf        |                                        |
+| qm        |                                        |
+| mx        |                                        |
+| pq        |                                        |
+| qb        |                                        |
+| jy        |                                        |
+| qc        |                                        |
+| qo        |                                        |
+| qt        |                                        |
+| zd        |                                        |
+| px        |                                        |
+| vf        |                                        |
+| xn        |                                        |
+| qq        |                                        |
+| qr        |                                        |
+| qn        |                                        |
+| zc        |                                        |
+| xb        |                                        |
+| vb        |                                        |
+| tq        |                                        |
+| cj        |                                        |
+| lq        |                                        |
+| zn        |                                        |
+| vn        |                                        |
+| qs        |                                        |
+| zm        |                                        |
+| z,        | avy-zap-up-to-char                     |
+| z.        | avy-zap-to-char                        |
+| z/        |                                        |
+| Z<        |                                        |
+| Z>        |                                        |
+#+TBLFM: $1=-
 *** projectile
 *** undo-tree
 *** smartparens

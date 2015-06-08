@@ -133,11 +133,17 @@ _s-f_: file            _a_: ag                _i_: Ibuffer           _c_: cache 
 (key-chord-define-global ",w" 'save-buffer)
 (key-chord-define-global "/." 'hydra-mark/body)
 
+(key-chord-define-global "z," 'avy-zap-up-to-char)
+(key-chord-define-global "z." 'avy-zap-to-char)
+
 ;;;;;;;;;;;;;;;;;;;;;;;
 ;; Other keybindings ;;
 ;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; Keybindings to use: M-o (other-window maybe???)
+
+(global-set-key (kbd "M-z") 'avy-zap-to-char-dwim)
+(global-set-key (kbd "M-Z") 'avy-zap-up-to-char-dwim)
 
 (global-set-key (kbd "C-a") 'beginning-of-line+)
 (global-set-key (kbd "C-e") 'end-of-line+)
