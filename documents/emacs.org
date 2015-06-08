@@ -17,6 +17,12 @@
 | keybinding | command             | description                            |
 |------------+---------------------+----------------------------------------|
 | M-m        | back-to-indentation | Move to first non-whitespace character |
+| C-f        | forward-char        |                                        |
+| C-b        | backward-char       |                                        |
+| M-f        | forward-word        |                                        |
+| M-b        | backward-word       |                                        |
+| C-M-f      | forward-sexp        |                                        |
+| C-M-b      | backward-sexp       |                                        |
 
 ** Help
 | keybinding | command           | description                                                                                               |
@@ -44,7 +50,6 @@
 |            | region-to-buffer          | Copy region to buffer, prefix >= 0 appends, prefix < 0 prepends, no prefix replaces        |
 |            | region-to-file            | Prefix arg means append, without it replaces                                               |
 |            | revert-buffer-no-confirm  | Revert buffer without confirmation                                                         |
-|            |                           |                                                                                            |
 
 *** paredit
 *** paxedit
