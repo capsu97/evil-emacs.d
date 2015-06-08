@@ -47,7 +47,7 @@
                                      ag anzu ; search / grep
                                      buffer-move ; manage buffers
                                      clojure-mode clojure-mode-extra-font-locking clojure-cheatsheet ; clojure
-                                     clj-refactor discover-clj-refactor align-cljlet ; clojure
+                                     clj-refactor discover-clj-refactor align-cljlet inf-clojure ; clojure
                                      latest-clojure-libraries cider cider-eval-sexp-fu ; clojure
                                      avy avy-zap ; move quickly around buffers (see vim EasyMotion as well)
                                      markdown-mode markdown-mode+ markdown-toc ; markdown

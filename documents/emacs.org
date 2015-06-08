@@ -1,8 +1,32 @@
 * Emacs
 ** Core
-| keybinding | command | description |
-|------------+---------+-------------|
-|            |         |             |
+| keybinding  | command                    | description                                                               |
+|-------------+----------------------------+---------------------------------------------------------------------------|
+| C-x C-f     | find-file                  |                                                                           |
+| C-x C-s     | save-buffer                |                                                                           |
+| C-x b       | switch-buffer              |                                                                           |
+| C-x C-b     | ibuffer                    | Display all open buffers                                                  |
+| C-x C-c     | save-buffers-kill-terminal | When asked to save a file you can also press 'd' to get a diff            |
+| C-x k       | kill-buffer                |                                                                           |
+| C-x C-w     | write-file                 |                                                                           |
+| C-x s       | save-some-buffers          |                                                                           |
+| ESC ESC ESC | keyboard-escape-quit       | Delete windows, exit prompts, hide special bufers, cancel prefix args etc |
+|             |                            |                                                                           |
+
+** Movement
+| keybinding | command             | description                            |
+|------------+---------------------+----------------------------------------|
+| M-m        | back-to-indentation | Move to first non-whitespace character |
+
+** Help
+| keybinding | command           | description                                                                                               |
+|------------+-------------------+-----------------------------------------------------------------------------------------------------------|
+| C-h m      | describe-mode     | Display the documentation for the major mode and enabled minor modes. Only lists commands with bound keys |
+| C-h f      | describe-function |                                                                                                           |
+| C-h v      | describe-variable |                                                                                                           |
+| C-h k      | describe-key      |                                                                                                           |
+| C-h s      | describe-syntax   |                                                                                                           |
+
 ** Packages
 *** misc-cmds
 | keybinding | command                   | description                                                                                |
@@ -21,6 +45,7 @@
 |            | region-to-file            | Prefix arg means append, without it replaces                                               |
 |            | revert-buffer-no-confirm  | Revert buffer without confirmation                                                         |
 |            |                           |                                                                                            |
+
 *** paredit
 *** paxedit
 *** cider
@@ -61,6 +86,7 @@
 | org-log-done                           |             |                 |
 | org-support-shift-select               |             | t               |
 | org-catch-invisible-edits              |             |                 |
+
 **** Drawers
 | keybinding    | command                    | description                                 |
 |---------------+----------------------------+---------------------------------------------|
@@ -68,6 +94,7 @@
 | C-u C-c C-x d | org-insert-property-drawer |                                             |
 | M-<TAB>       |                            | Completion over drawer keywords             |
 | C-c C-z       |                            | Add time-stamped note to the LOGBOOK drawer |
+
 **** Lists
 Unordered list items start with -,+ or * as bullets.
 Ordered list items start with a numeral followed by either a period or a right parenthesis.
@@ -93,6 +120,7 @@ Description list items are unordered list items, and contain the separator '::' 
 | S-<left>    |                    | Cycles bullet styles when the cursor is on the bullet or anywhere in an item line, details depending on org-support-shift-select |
 | S-<right>   |                    | Cycles bullet styles when the cursor is on the bullet or anywhere in an item line, details depending on org-support-shift-select |
 | C-c ^       |                    | Sort the plain list                                                                                                              |
+
 **** Outlines
 | variable               | description | preferred value |
 |------------------------+-------------+-----------------|
@@ -145,6 +173,7 @@ Description list items are unordered list items, and contain the separator '::' 
 | M-g n or M-g M-n  | next-error                              |                                                                             |
 | M-g p or M-g M-p  | previous-error                          |                                                                             |
 |                   |                                         |                                                                             |
+
 **** Capture
 | variable                    | description |
 |-----------------------------+-------------|
@@ -153,6 +182,7 @@ Description list items are unordered list items, and contain the separator '::' 
 | org-default-notes-file      |             |
 | org-refile-targets          |             |
 | org-refile-use-outline-path |             |
+
 **** Agenda
 | variable                          | description |
 |-----------------------------------+-------------|
@@ -168,6 +198,7 @@ Description list items are unordered list items, and contain the separator '::' 
 | org-agenda-todo-ignore-deadlines  |             |
 | org-agenda-todo-ignore-with-date  |             |
 | org-agenda-todo-ignore-scheduled  |             |
+
 **** Tables
 | keybinding  | command                                        | description                                                     |
 |-------------+------------------------------------------------+-----------------------------------------------------------------|
@@ -207,11 +238,13 @@ You can turn off the automatic table editor, for instance when you want to start
 #+END_SRC
 
 To insert a vertical bar into a table field, use \vert or, inside a word abc\vert{}def.
+
 **** Export / Publishing
 | variable                  | description |
 |---------------------------+-------------|
 | org-export-html-style     |             |
 | org-publish-project-alist |             |
+
 *** emmet-mode
 *** tagedit
 *** js2-mode
