@@ -139,7 +139,7 @@
  visible-bell nil
  color-theme-is-global t
  sentence-end-double-space nil
- shift-select-mode t
+ shift-select-mode nil
  mouse-yank-at-point t
  uniquify-buffer-name-style 'post-forward
  uniquify-ignore-buffers-re "^\\*"

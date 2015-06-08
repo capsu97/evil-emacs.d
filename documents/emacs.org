@@ -14,15 +14,58 @@
 |             |                            |                                                                           |
 
 ** Movement
-| keybinding | command             | description                            |
-|------------+---------------------+----------------------------------------|
-| M-m        | back-to-indentation | Move to first non-whitespace character |
-| C-f        | forward-char        |                                        |
-| C-b        | backward-char       |                                        |
-| M-f        | forward-word        |                                        |
-| M-b        | backward-word       |                                        |
-| C-M-f      | forward-sexp        |                                        |
-| C-M-b      | backward-sexp       |                                        |
+| keybinding             | command             | description                            |
+|------------------------+---------------------+----------------------------------------|
+| M-m                    | back-to-indentation | Move to first non-whitespace character |
+| C-f                    | forward-char        |                                        |
+| C-b                    | backward-char       |                                        |
+| M-f                    | forward-word        |                                        |
+| M-b                    | backward-word       |                                        |
+| C-M-f                  | forward-sexp        |                                        |
+| C-M-b                  | backward-sexp       |                                        |
+| C-M-d                  |                     | Move down into a list                  |
+| C-M-u                  |                     | Move up out of a list                  |
+| C-M-n                  |                     | Move forward to the next list          |
+| C-M-p                  |                     | Move backward to the previous list     |
+| M-}                    |                     | Move forward to end of paragrah        |
+| M-{                    |                     | Move backward to start of paragraph    |
+| M-a                    |                     | Move to beginning of sentence          |
+| M-e                    |                     | Move to end of sentence                |
+| C-M-a                  |                     | Move to beginning of defun             |
+| C-M-e                  |                     | Move to end of defun                   |
+| C-x ]                  |                     | Move forward one page                  |
+| C-x [                  |                     | Move backward one page                 |
+| C-v                    |                     | Scroll down one page                   |
+| M-v                    |                     | Scroll up one page                     |
+| C-M-v                  |                     | Scroll down the other window           |
+| C-M-S-v or C-M-- C-M-v |                     | Scroll up the other window             |
+| C-x <                  |                     | Scroll left                            |
+| C-<next>               |                     | Scroll left                            |
+| C-<prior>              |                     | Scroll right                           |
+| C-x >                  |                     | Scroll right                           |
+| M-<                    |                     | Move to beginning of buffer            |
+| M->                    |                     | Move to end of buffer                  |
+| C-u C-<SPC>            |                     | Go back to last mark                   |
+
+** Bookmarks
+| keybinding | command | description     |
+|------------+---------+-----------------|
+| C-x r m    |         | Set a bookmark  |
+| C-x r l    |         | List bookmarks  |
+| C-x r b    |         | Jump to bokmark |
+
+** Mark / Select
+| keybinding         | command | description                                  |
+|--------------------+---------+----------------------------------------------|
+| C-<SPC>            |         | Set the mark                                 |
+| C-u C-<SPC>        |         | Jump to mark, repeated calls go back further |
+| C-x C-x            |         | Exchange point and mark                      |
+| M-h                |         | Mark next paragraph                          |
+| C-x h              |         | Mark whole buffer                            |
+| C-M-h              |         | Mark defun                                   |
+| C-x C-p            |         | Mark next page                               |
+| M-@                |         | Mark next word                               |
+| C-M-<SPC> or C-M-@ |         | Mark next s-expression                       |
 
 ** Help
 | keybinding | command           | description                                                                                               |
@@ -147,9 +190,7 @@
 | z,        | avy-zap-up-to-char                     |
 | z.        | avy-zap-to-char                        |
 | z/        |                                        |
-| Z<        |                                        |
-| Z>        |                                        |
-#+TBLFM: $1=-
+
 *** projectile
 *** undo-tree
 *** smartparens

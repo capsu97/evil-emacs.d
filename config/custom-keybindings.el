@@ -142,6 +142,8 @@ _s-f_: file            _a_: ag                _i_: Ibuffer           _c_: cache 
 
 ;; Keybindings to use: M-o (other-window maybe???)
 
+(global-set-key (kbd "M-i") 'helm-imenu)
+
 (global-set-key (kbd "M-z") 'avy-zap-to-char-dwim)
 (global-set-key (kbd "M-Z") 'avy-zap-up-to-char-dwim)
 
