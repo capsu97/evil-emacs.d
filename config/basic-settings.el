@@ -177,8 +177,8 @@
 (add-to-list 'recentf-exclude "/elpa")
 
 ;; Highlight matching parentheses when the point is on them.
-(show-paren-mode)
-(setq show-paren-delay 0)
+;; (show-paren-mode)
+;; (setq show-paren-delay 0)
 ;;(show-smartparens-global-mode t)
 
 ;; Macbook, make fn function as meta
@@ -252,7 +252,7 @@
 ;;(setq wg-morph-on nil)
 
 ;; highlight surrounding parentheses
-(add-hook 'prog-mode-hook 'highlight-parentheses-mode)
+;; (add-hook 'prog-mode-hook 'highlight-parentheses-mode)
 
 ;; disable highlighting the current line
 (global-hl-line-mode 0)

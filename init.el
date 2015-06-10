@@ -20,6 +20,7 @@
                                      helm helm-flyspell helm-projectile helm-ag helm-swoop cljr-helm ; helm
                                      helm-descbinds helm-emmet helm-css-scss ; helm
                                      helm-c-moccur ; helm
+                                     bind-key free-keys ; keybinding utilities
                                      whole-line-or-region ; if no region selected act on the current line
                                      misc-cmds ; misc useful functions
                                      fic-mode ; show FIXME/TODO/BUG/KLUDGE in special face only in comments and strings
@@ -42,7 +43,7 @@
                                      company company-quickhelp company-web helm-company ; autocomplete
                                      company-restclient restclient ; http rest client
                                      drag-stuff ; moving lines/regions up/down
-                                     elisp-slime-nav redshank ; extensions for elisp
+                                     elisp-slime-nav redshank highlight-defined ; extensions for elisp
                                      diminish ; don't clutter the modeline with minor mode names
                                      ag anzu ; search / grep
                                      buffer-move ; manage buffers
@@ -51,7 +52,7 @@
                                      latest-clojure-libraries cider cider-eval-sexp-fu ; clojure
                                      avy avy-zap ; move quickly around buffers (see vim EasyMotion as well)
                                      markdown-mode markdown-mode+ markdown-toc ; markdown
-                                     rainbow-delimiters highlight-parentheses lispy smartparens paredit paredit-menu paxedit ; working with parens / delimiters
+                                     hl-sexp lispy smartparens paredit paredit-menu paxedit ; working with parens / delimiters
                                      lush-theme sublime-themes monokai-theme smyx-theme molokai-theme color-theme-sanityinc-tomorrow ; color themes
                                      afternoon-theme noctilux-theme soft-morning-theme ; color themes
                                      solarized-theme flatui-theme subatomic256-theme tango-plus-theme zenburn-theme zonokai-theme atom-dark-theme ; color themes
@@ -144,6 +145,7 @@
  '(anzu-mode-line ((t (:foreground "dark orange" :weight bold))))
  '(avy-lead-face ((t (:foreground "red"))))
  '(avy-lead-face-0 ((t (:foreground "red1" :weight bold))))
+ '(cursor ((t (:background "OrangeRed1" :foreground "#2c3e50"))))
  '(flx-highlight-face ((t (:inherit font-lock-variable-name-face :foreground "#69D2E7"))))
  '(helm-candidate-number ((t (:background "dodger blue" :foreground "white"))))
  '(helm-header ((t (:background "orange3" :foreground "white"))))
@@ -151,11 +153,13 @@
  '(helm-separator ((t (:foreground "dodger blue"))))
  '(helm-source-header ((t (:background "gray30" :foreground "white" :weight normal :height 1 :family "Sans Serif"))))
  '(helm-visible-mark ((t (:background "dark orange" :foreground "white"))))
+ '(hl-sexp-face ((t (:background "LightSteelBlue1"))))
  '(ido-first-match ((t (:foreground "#ccff66"))))
  '(ido-incomplete-regexp ((t (:foreground "#ffffff"))))
  '(ido-indicator ((t (:foreground "#ffffff"))))
  '(ido-only-match ((t (:foreground "#ffcc33"))))
  '(ido-subdir ((t (:foreground "#66ff00"))))
+ '(show-paren-match ((t (:foreground "#ecf0f1" :weight bold))))
  '(web-mode-current-element-highlight-face ((t (:background "black"))))
  '(web-mode-html-attr-name-face ((t (:foreground "royal blue"))))
  '(web-mode-html-tag-bracket-face ((t (:foreground "dim gray"))))

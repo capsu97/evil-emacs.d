@@ -30,27 +30,6 @@
             (criterium.core/quick-benchmark %s)"
            (cider-eval-defun-at-point))))
 
-(defun ot/evil-sp-wrap-with-round ()
-  (interactive)
-  (sp-wrap-with-pair "(")
-  (evil-change-state 'insert)
-  (insert " ")
-  (backward-char 1))
-
-(defun ot/evil-sp-wrap-with-curly ()
-  (interactive)
-  (sp-wrap-with-pair "{")
-  (evil-change-state 'insert)
-  (insert " ")
-  (backward-char 1))
-
-(defun ot/evil-sp-wrap-with-square ()
-  (interactive)
-  (sp-wrap-with-pair "[")
-  (evil-change-state 'insert)
-  (insert " ")
-  (backward-char 1))
-
 (defun ot/mark-outside-pairs ()
   (interactive)
   (er/expand-region 1)
@@ -88,26 +67,6 @@
 (defun ot/join-line ()
   (interactive)
   (join-line -1))
-
-(defun ot/evil-paredit-wrap-sexp (open close)
-  (interactive)
-  (paredit-wrap-sexp nil open close)
-  (evil-insert-state)
-  (unless (looking-at-p (string close))
-    (save-excursion
-      (insert " "))))
-
-(defun ot/evil-paredit-wrap-round ()
-  (interactive)
-  (ot/evil-paredit-wrap-sexp ?( ?)))
-
-(defun ot/evil-paredit-wrap-curly ()
-  (interactive)
-  (ot/evil-paredit-wrap-sexp ?{ ?}))
-
-(defun ot/evil-paredit-wrap-square ()
-  (interactive)
-  (ot/evil-paredit-wrap-sexp ?[ ?]))
 
 (defun ot/move-lines-down-from-point ()
   "Insert empty lines above the current line but move the cursor down with the rest of the text."

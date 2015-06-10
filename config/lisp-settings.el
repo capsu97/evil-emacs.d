@@ -44,9 +44,11 @@
 
 (add-hook 'emacs-lisp-mode-hook 'paredit-mode)
 (add-hook 'emacs-lisp-mode-hook 'paxedit-mode)
+(add-hook 'emacs-lisp-mode-hook 'hl-sexp-mode)
 
 (add-hook 'clojure-mode-hook 'paredit-mode)
 (add-hook 'clojure-mode-hook 'paxedit-mode)
+(add-hook 'clojure-mode-hook 'hl-sexp-mode)
 
 ;; prettify fn in clojure/clojurescript
 (add-hook 'clojure-mode-hook 'ot/pretty-fn)
@@ -87,7 +89,7 @@
 (add-hook 'cider-repl-mode-hook #'subword-mode) ;Enabling CamelCase support for editing commands(like forward-word, backward-word, etc) in nREPL
 ;;(add-hook 'cider-repl-mode-hook 'smartparens-strict-mode) ;Enable smartparens strict mode in nRepl buffer
 (add-hook 'cider-repl-mode-hook #'paredit-mode) ;Enable paredit in nRepl buffer
-(add-hook 'cider-repl-mode-hook #'rainbow-delimiters-mode) ; rainbow delimiters
+;;(add-hook 'cider-repl-mode-hook #'rainbow-delimiters-mode) ; rainbow delimiters
 (add-hook 'cider-repl-mode-hook '(lambda () (linum-mode 0)))
 
 ;; Clojure mode
@@ -99,8 +101,8 @@
                                (clj-refactor-mode 1)))
 
 ;;; RAINBOW DELIMITERS
-;;(require 'rainbow-delimiters)
-;;(add-hook 'prog-mode-hook 'rainbow-delimiters-mode) ; all programming modes
+;; (require 'rainbow-delimiters)
+;; (add-hook 'prog-mode-hook 'rainbow-delimiters-mode) ; all programming modes
 ;;(global-rainbow-delimiters-mode) ; globally
 
 (provide 'lisp-settings)
