@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t -*-
+
 (defun ot/web-mode-element-inside-previous ()
   (interactive)
   (web-mode-element-parent)
@@ -113,5 +115,13 @@
   (save-excursion
     (move-beginning-of-line nil)
     (newline-and-indent)))
+
+(defun ot/avy-goto-paren (&optional prefix)
+  (interactive "P")
+  (let (ch)
+    (if prefix
+        (setq ch ")")
+      (setq ch "("))
+    (avy--generic-jump ch nil 'pre)))
 
 (provide 'my-defuns)
