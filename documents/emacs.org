@@ -384,3 +384,43 @@ To insert a vertical bar into a table field, use \vert or, inside a word abc\ver
 *** tagedit
 *** js2-mode
 *** web-mode
+*** multiple-cursors
+| keybinding | command                                | description                                                                                         |
+|------------+----------------------------------------+-----------------------------------------------------------------------------------------------------|
+|            | mc/mark-next-like-this                 |                                                                                                     |
+|            | mc/mark-next-word-like-this            |                                                                                                     |
+|            | mc/mark-next-symbol-like-this          |                                                                                                     |
+|            | mc/mark-previous-like-this             |                                                                                                     |
+|            | mc/mark-previous-word-like-this        |                                                                                                     |
+|            | mc/mark-previous-symbol-like-this      |                                                                                                     |
+|            | mc/mark-more-like-this-extended        | Use arrow keys to quickly mark/skip next/previous occurances                                        |
+|            | mc/add-cursor-on-click                 |                                                                                                     |
+|            | mc/mark-pop                            |                                                                                                     |
+|            | mc/unmark-next-like-this               |                                                                                                     |
+|            | mc/unmark-previous-like-this           |                                                                                                     |
+|            | mc/skip-to-next-like-this              |                                                                                                     |
+|            | mc/skip-to-previous-like-this          |                                                                                                     |
+|            | mc/mark-next-like-this-extended        |                                                                                                     |
+|            | mc/edit-lines                          | Adds one cursor to each line in current region                                                      |
+|            | mc/edit-beginnings-of-lines            | Adds a cursor at the start of each line in current region                                           |
+|            | mc/edit-end-of-lines                   | Adds a cursor at the end of each line in current region                                             |
+|            | mc/mark-all-like-this                  |                                                                                                     |
+|            | mc/mark-all-words-like-this            |                                                                                                     |
+|            | mc/mark-all-symbols-like-this          |                                                                                                     |
+|            | mc/mark-all-in-region                  | Prompts for a string to match in the region, adding cursors to all of them                          |
+|            | mc/mark-all-like-this-in-defun         |                                                                                                     |
+|            | mc/mark-all-words-like-this-in-defun   |                                                                                                     |
+|            | mc/mark-all-symbols-like-this-in-defun |                                                                                                     |
+|            | mc/mark-all-dwim                       | Tries to be smart about marking everything you want. Can be pressed multiple times to extend region |
+|            | set-rectangular-region-anchor          | Same as set-mark but for rectangular region                                                         |
+|            | mc/mark-sgml-tag-pair                  | Mark the current opening and closing tag                                                            |
+|            | mc/insert-numbers                      | Insert increasing numbers for each cursor, top to bottom                                            |
+|            | mc/sort-regions                        | Sort the marked regions alphabetically                                                              |
+|            | mc/reverse-regions                     | Reverse the order of the marked regions                                                             |
+
+**** Tips and tricks
+To insert a newline use C-j.
+Use C-' to hide all lines without a cursor. Press C-' again to unhide.
+Using mc/mark-next-like-this without region will add a cursor on the next line.
+Try mc/mark-all-like-this-dwim on tagname in html-mode.
+You can use pos or neg prefix with mc/edit-lines to change how it behaves on too short lines.

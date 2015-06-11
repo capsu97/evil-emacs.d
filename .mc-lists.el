@@ -6,7 +6,14 @@
         evil-change
         evil-insert
         evil-normal-state
+        hydra-mc/mc/mark-next-like-this
+        hydra-multiple-cursors/mc/mark-next-like-this
         keyboard-quit
+        multiple-cursors-hydra/mc/unmark-previous-like-this
+        paredit-forward-kill-word
+        paredit-raise-sexp
+        paredit-semicolon
+        transpose-sexps
         ))
 
 (setq mc/cmds-to-run-once
@@ -14,6 +21,13 @@
         evil-indent-i-indent
         evil-inner-tag
         evil-next-visual-line
+        hydra-mc-okke/mc/mark-next-like-this
+        hydra-multiple-cursors-hydra/mc/mark-next-like-this
+        hydra-multiple-cursors/mc/mark-previous-like-this
+        mc-hydra/mc/mark-next-like-this
         multiple-cursors-hydra/mc/mark-next-like-this
+        multiple-cursors-hydra/mc/mark-previous-like-this
+        multiple-cursors-hydra/mc/skip-to-next-like-this
+        okke-hydra-mc/mc/mark-next-like-this
         smex
         ))

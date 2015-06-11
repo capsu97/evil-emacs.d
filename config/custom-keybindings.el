@@ -1,3 +1,5 @@
+(require 'bind-key)
+
 ;;;;;;;;;;;;;
 ;; Hydra's ;;
 ;;;;;;;;;;;;;
@@ -25,8 +27,6 @@
   ("a" er/mark-html-attribute "HTML attribute")
   )
 
-(global-set-key (kbd "C-c m") 'hydra-mark/body)
-
 ;; Hydra - Yank
 (defhydra hydra-yank-pop ()
   "yank"
@@ -35,7 +35,7 @@
   ("Y" (yank-pop -1) "prev")
   ("l" helm-show-kill-ring "list" :color blue))   ; or browse-kill-ring
 
-(global-set-key (kbd "C-y") #'hydra-yank-pop/yank)
+(bind-key "C-y" 'hydra-yank-pop/yank)
 
 ;; Hydra - Goto line
 (defhydra hydra-goto-line (goto-map ""
@@ -111,7 +111,7 @@ _s-f_: file            _a_: ag                _i_: Ibuffer           _c_: cache 
   ("M-p" mc/unmark-previous-like-this)
   ("q" nil))
 
-
+(bind-key "C-c m" 'multiple-cursors-hydra/body)
 
 ;;;;;;;;;;;;;;;;
 ;; Key chords ;;
@@ -142,35 +142,39 @@ _s-f_: file            _a_: ag                _i_: Ibuffer           _c_: cache 
 
 ;; Keybindings to use: M-o (other-window maybe???)
 
-(global-set-key (kbd "M-i") 'helm-imenu)
+(bind-key "C-S-<mouse-1>" 'mc/add-cursor-on-click)
 
-(global-set-key (kbd "M-z") 'avy-zap-to-char-dwim)
-(global-set-key (kbd "M-Z") 'avy-zap-up-to-char-dwim)
+(bind-key "M-i" 'helm-imenu)
 
-(global-set-key (kbd "C-a") 'beginning-of-line+)
-(global-set-key (kbd "C-e") 'end-of-line+)
+(bind-key "M-z" 'avy-zap-to-char-dwim)
+(bind-key "M-Z" 'avy-zap-up-to-char-dwim)
+(bind-key "C-z" 'avy-goto-char)
 
-(global-set-key (kbd "M-j") 'ot/join-line)
+(bind-key "C-a" 'beginning-of-line+)
+(bind-key "C-e" 'end-of-line+)
 
-(define-key paredit-mode-map [H-backspace] 'paredit-forward-delete)
-(define-key paredit-mode-map (kbd "C-d") 'ot/paredit-duplicate-after-point)
+(bind-key "M-j" 'ot/join-line)
 
-(global-set-key (kbd "C-d") 'ot/duplicate-current-line-or-region)
+;;(define-key paredit-mode-map [H-backspace] 'paredit-forward-delete)
+(bind-key [H-backspace] 'paredit-forward-delete paredit-mode-map)
+(bind-key "C-d" 'ot/paredit-duplicate-after-point paredit-mode-map)
 
-(global-set-key [H-backspace] 'delete-char)
+(bind-key "C-d" 'ot/duplicate-current-line-or-region)
 
+;;(global-set-key [H-backspace] 'delete-char)
+(bind-key [H-backspace] 'delete-char)
 
-(define-key isearch-mode-map (kbd "C-'") 'avy-isearch)
+(bind-key "C-'" 'avy-isearch isearch-mode-map)
 
-(global-set-key (kbd "M-g M-g") 'avy-goto-line)
+(bind-key "M-g M-g" 'avy-goto-line)
 
 ;; Activate occur easily inside isearch
-(define-key isearch-mode-map (kbd "C-o")
-  (lambda () (interactive)
-    (let ((case-fold-search isearch-case-fold-search))
-      (occur (if isearch-regexp isearch-string (regexp-quote isearch-string))))))
+(bind-key "C-o" (lambda () (interactive)
+                  (let ((case-fold-search isearch-case-fold-search))
+                    (occur (if isearch-regexp isearch-string (regexp-quote isearch-string)))))
+          isearch-mode-map)
 
-(global-set-key (kbd "<M-return>") 'ot/open-line-below)
+(bind-key "<M-return>" 'ot/open-line-below)
 
 ;; (evil-global-set-key 'normal "\\d" 'ot/duplicate-current-line-or-region)
 
@@ -178,7 +182,7 @@ _s-f_: file            _a_: ag                _i_: Ibuffer           _c_: cache 
 ;; (global-set-key (kbd "C-c a") 'org-agenda)
 
 ;; use company-mode instead of abbrev
-(global-set-key (kbd "M-/") 'company-complete)
+(bind-key "M-/" 'company-complete)
 
 ;; use regexp search by default
 ;; (global-set-key (kbd "C-s") 'isearch-forward-regexp)
@@ -187,43 +191,43 @@ _s-f_: file            _a_: ag                _i_: Ibuffer           _c_: cache 
 ;; (global-set-key (kbd "C-M-r") 'isearch-backward)
 
 ;; use swiper instead of isearch
-(global-set-key (kbd "C-s") 'swiper)
-(global-set-key (kbd "C-r") 'swiper)
+(bind-key "C-s" 'swiper)
+(bind-key "C-r" 'swiper)
 
 ;; popup for yasnippet
-(define-key popup-menu-keymap (kbd "M-n") 'popup-next)
-(define-key popup-menu-keymap (kbd "TAB") 'popup-next)
-(define-key popup-menu-keymap (kbd "<tab>") 'popup-next)
-(define-key popup-menu-keymap (kbd "<backtab>") 'popup-previous)
-(define-key popup-menu-keymap (kbd "M-p") 'popup-previous)
-(define-key yas-minor-mode-map (kbd "C-'") 'yas-expand)
+(bind-key "M-n" 'popup-next popup-menu-keymap)
+(bind-key "TAB" 'popup-next popup-menu-keymap)
+(bind-key "<tab>" 'popup-next popup-menu-keymap)
+(bind-key "<backtab>" 'popup-previous popup-menu-keymap)
+(bind-key "M-p" 'popup-previous popup-menu-keymap)
+(bind-key "C-'" 'yas-expand yas-minor-mode-map)
 
 ;; company-mode
 (with-eval-after-load 'company
-  (define-key company-active-map (kbd "C-j") 'company-select-next)
-  (define-key company-active-map (kbd "C-k") 'company-select-previous)
-  (define-key company-active-map (kbd "C-/") 'company-search-candidates)
-  (define-key company-active-map (kbd "C-M-/") 'company-filter-candidates)
-  (define-key company-active-map (kbd "C-d") 'company-show-doc-buffer))
+  (bind-key "C-j" 'company-select-next company-active-map)
+  (bind-key "C-k" 'company-select-previous company-active-map)
+  (bind-key "C-/" 'company-search-candidates company-active-map)
+  (bind-key "C-M-/" 'company-filter-candidates company-active-map)
+  (bind-key "C-d" 'company-show-doc-buffer company-active-map))
 
 ;; Helm
 ;;(global-set-key (kbd "M-y") 'helm-show-kill-ring)
 
 ;; Move up and down like isearch
-(define-key helm-swoop-map (kbd "C-k") 'helm-previous-line)
-(define-key helm-swoop-map (kbd "C-j") 'helm-next-line)
-(define-key helm-multi-swoop-map (kbd "C-k") 'helm-previous-line)
-(define-key helm-multi-swoop-map (kbd "C-j") 'helm-next-line)
+(bind-key "C-k" 'helm-previous-line helm-swoop-map)
+(bind-key "C-j" 'helm-next-line helm-swoop-map)
+(bind-key "C-k" 'helm-previous-line helm-multi-swoop-map)
+(bind-key "C-j" 'helm-next-line helm-multi-swoop-map)
 
 ;; From helm-swoop to helm-multi-swoop-all
-(define-key helm-swoop-map (kbd "M-i") 'helm-multi-swoop-all-from-helm-swoop)
+(bind-key "M-i" 'helm-multi-swoop-all-from-helm-swoop helm-swoop-map)
 
 ;; using C-u for up already
-(global-set-key (kbd "C-M-u") 'universal-argument)
+(bind-key "C-M-u" 'universal-argument)
 
-(global-set-key (kbd "M-x") 'smex)
-(global-set-key (kbd "C-x C-i") 'idomenu)
-(global-set-key (kbd "C-x C-b") 'ibuffer)
+(bind-key "M-x" 'smex)
+(bind-key "C-x C-i" 'idomenu)
+(bind-key "C-x C-b" 'ibuffer)
 ;; (define-key evil-visual-state-map ",x" 'smex)
 ;; (define-key evil-visual-state-map ",X" 'smex-major-mode-commands)
 ;; (define-key evil-normal-state-map ",l" 'ido-switch-buffer)
@@ -239,19 +243,19 @@ _s-f_: file            _a_: ag                _i_: Ibuffer           _c_: cache 
 ;; (define-key evil-visual-state-map ",;" 'comment-or-uncomment-region)
 
 ;; Lisp
-(define-key read-expression-map (kbd "TAB") 'lisp-complete-symbol)
-(define-key lisp-mode-shared-map (kbd "RET") 'reindent-then-newline-and-indent)
+(bind-key "TAB" 'lisp-complete-symbol read-expression-map)
+(bind-key "RET" 'reindent-then-newline-and-indent lisp-mode-shared-map)
 
 ;; Windows
-(global-set-key (kbd "C-x o") 'ido-select-window)
+'minibuffer-keyboard-quit
 
 ;;; esc quits
 
-(define-key minibuffer-local-map [escape] 'minibuffer-keyboard-quit)
-(define-key minibuffer-local-ns-map [escape] 'minibuffer-keyboard-quit)
-(define-key minibuffer-local-completion-map [escape] 'minibuffer-keyboard-quit)
-(define-key minibuffer-local-must-match-map [escape] 'minibuffer-keyboard-quit)
-(define-key minibuffer-local-isearch-map [escape] 'minibuffer-keyboard-quit)
+(bind-key [escape] 'minibuffer-keyboard-quit minibuffer-local-ns-map)
+(bind-key "C-x o" 'ido-select-window)
+(bind-key [escape] 'minibuffer-keyboard-quit minibuffer-local-completion-map)
+(bind-key [escape] 'minibuffer-keyboard-quit minibuffer-local-must-match-map)
+(bind-key [escape] 'minibuffer-keyboard-quit minibuffer-local-isearch-map)
 
 ;;(define-key evil-insert-state-map (kbd "C-SPC") 'avy-goto-char)
 ;;(define-key evil-insert-state-map (kbd "C-x") 'evil-execute-in-normal-state)
