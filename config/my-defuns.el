@@ -45,24 +45,26 @@
     (&optional prefix)
   "Duplicates the content of the line that is after the point."
   (interactive "P")
-  ;; skips to the next sexp
-  (while (looking-at " ")
-    (forward-char))
-  (set-mark-command nil)
-  ;; while we find sexps we move forward on the line
-  (while (and (bounds-of-thing-at-point 'sexp)
-              (<= (point) (car (bounds-of-thing-at-point 'sexp)))
-              (not (= (point) (line-end-position))))
-    (forward-sexp)
+  (if (use-region-p)
+      (ot/duplicate-current-line-or-region 1)
+    ;; skips to the next sexp
     (while (looking-at " ")
-      (forward-char)))
-  (kill-ring-save (mark) (point))
-  ;; go to the next line and copy the sexprs we encountered
-  (paredit-newline)
-  (yank)
-  (exchange-point-and-mark)
-  (when prefix
-    (paredit-newline)))
+      (forward-char))
+    (set-mark-command nil)
+    ;; while we find sexps we move forward on the line
+    (while (and (bounds-of-thing-at-point 'sexp)
+                (<= (point) (car (bounds-of-thing-at-point 'sexp)))
+                (not (= (point) (line-end-position))))
+      (forward-sexp)
+      (while (looking-at " ")
+        (forward-char)))
+    (kill-ring-save (mark) (point))
+    ;; go to the next line and copy the sexprs we encountered
+    (paredit-newline)
+    (yank)
+    (exchange-point-and-mark)
+    (when prefix
+      (paredit-newline))))
 
 (defun ot/join-line ()
   (interactive)
