@@ -55,44 +55,6 @@
   ("b"  projectile-switch-to-buffer-other-window "buffer")
   ("q"  nil                                      "cancel" :color blue))
 
-(defhydra hydra-projectile (:color teal
-                                   :hint nil)
-  "
-     PROJECTILE: %(projectile-project-root)
-
-     Find File            Search/Tags          Buffers                Cache
-------------------------------------------------------------------------------------------
-_s-f_: file            _a_: ag                _i_: Ibuffer           _c_: cache clear
- _ff_: file dwim       _g_: update gtags      _b_: switch to buffer  _x_: remove known project
- _fd_: file curr dir   _o_: multi-occur     _s-k_: Kill all buffers  _X_: cleanup non-existing
-  _r_: recent file                                               ^^^^_z_: cache current
-  _d_: dir
-
-"
-  ("a"   projectile-ag)
-  ("b"   projectile-switch-to-buffer)
-  ("c"   projectile-invalidate-cache)
-  ("d"   projectile-find-dir)
-  ("s-f" projectile-find-file)
-  ("ff"  projectile-find-file-dwim)
-  ("fd"  projectile-find-file-in-directory)
-  ("g"   ggtags-update-tags)
-  ("s-g" ggtags-update-tags)
-  ("i"   projectile-ibuffer)
-  ("K"   projectile-kill-buffers)
-  ("s-k" projectile-kill-buffers)
-  ("m"   projectile-multi-occur)
-  ("o"   projectile-multi-occur)
-  ("s-p" projectile-switch-project "switch project")
-  ("p"   projectile-switch-project)
-  ("s"   projectile-switch-project)
-  ("r"   projectile-recentf)
-  ("x"   projectile-remove-known-project)
-  ("X"   projectile-cleanup-known-projects)
-  ("z"   projectile-cache-current-file)
-  ("`"   hydra-projectile-other-window/body "other window")
-  ("q"   nil "cancel" :color blue))
-
 ;; Hydra - Multiple cursors
 (defhydra multiple-cursors-hydra (:hint nil)
   "
@@ -111,7 +73,24 @@ _s-f_: file            _a_: ag                _i_: Ibuffer           _c_: cache 
   ("M-p" mc/unmark-previous-like-this)
   ("q" nil))
 
-(bind-key "C-c m" 'multiple-cursors-hydra/body)
+(defhydra hydra-paredit (:color blue
+                                :idle 1.0)
+  "Paredit"
+  ("(" paredit-wrap-round "Wrap round")
+  ("[" paredit-wrap-square "Wrap square")
+  ("]" paredit-wrap-square "Wrap square")
+  ("{" paredit-wrap-curly "Wrap curly")
+  ("c" paredit-wrap-curly "Wrap curly")
+  ("s" paredit-splice-sexp "Splice")
+  ("bs" paredit-splice-sexp-killing-backward "Splice kill backward")
+  ("fs" paredit-splice-sexp-killing-forward "Splice kill forward")
+  ("S" paredit-split-sexp "Split")
+  ("j" paredit-join-sexps "Join")
+  ("J" paredit-join-with-next-list "Join next list")
+  ("M-J" paredit-join-with-previous-list "Join prev list")
+  ("C" paredit-convolute-sexp "Convolute")
+  ("M-c" paredit-copy-as-kill "Copy as kill")
+  ("r" paredit-raise-sexp "Raise"))
 
 ;;;;;;;;;;;;;;;;
 ;; Key chords ;;
@@ -126,12 +105,12 @@ _s-f_: file            _a_: ag                _i_: Ibuffer           _c_: cache 
 (key-chord-define-global "x," 'smex)
 (key-chord-define-global "';" 'smex)
 (key-chord-define-global ",l" 'ido-switch-buffer)
-(key-chord-define-global ",t" 'projectile-find-file-in-known-projects) ; TODO create hydra for projectile
-(key-chord-define-global ",f" 'projectile-find-file)
-(key-chord-define-global ",s" 'projectile-switch-project)
+(key-chord-define-global ",f" 'ido-find-file)
+;;(key-chord-define-global ",p" 'hydra-projectile/body)
 ;;(key-chord-define-global ",d" 'ot/duplicate-current-line-or-region)
 (key-chord-define-global ",w" 'save-buffer)
 (key-chord-define-global "/." 'hydra-mark/body)
+(key-chord-define-global "\\]" 'hydra-paredit/body)
 
 (key-chord-define-global "z," 'avy-zap-up-to-char)
 (key-chord-define-global "z." 'avy-zap-to-char)
@@ -141,6 +120,10 @@ _s-f_: file            _a_: ag                _i_: Ibuffer           _c_: cache 
 ;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; Keybindings to use: M-o (other-window maybe???)
+
+(bind-key "C-;" 'iedit-mode)
+
+(bind-key "C-c m" 'multiple-cursors-hydra/body)
 
 (bind-key "C-S-<mouse-1>" 'mc/add-cursor-on-click)
 

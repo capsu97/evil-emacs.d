@@ -60,4 +60,23 @@
 (setq-default dired-details-hidden-string "--- ")
 (dired-details-install)
 
+;; Guide-key
+(require 'guide-key)
+(setq guide-key/idle-delay 1.0)
+;; (setq guide-key/recursive-key-sequence-flag t)
+;; (guide-key/key-chord-hack-on) ; to make it work with guide-key
+(setq guide-key/guide-key-sequence '("C-x r" "C-x 4" "C-c p" "C-x n"))
+(setq guide-key/text-scale-amount -1)
+(guide-key-mode 1)  ; Enable guide-key-mode
+
+(defun guide-key/my-hook-function-for-org-mode ()
+  (guide-key/add-local-guide-key-sequence "C-c")
+  (guide-key/add-local-guide-key-sequence "C-c C-x")
+  (guide-key/add-local-highlight-command-regexp "org-"))
+(add-hook 'org-mode-hook 'guide-key/my-hook-function-for-org-mode)
+
+;; Guide-key tip
+(require 'guide-key-tip)
+(setq guide-key-tip/enabled t)
+
 (provide 'misc-package-settings)

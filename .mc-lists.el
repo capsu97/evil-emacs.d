@@ -13,6 +13,10 @@
 (setq mc/cmds-to-run-once
       '(
         hydra-mc/mc/mark-next-like-this
+        multiple-cursors-hydra/mc/mark-next-like-this
+        multiple-cursors-hydra/mc/skip-to-next-like-this
+        multiple-cursors-hydra/mc/unmark-next-like-this
+        multiple-cursors-hydra/nil
         smex
         w32-drag-n-drop
         ))
