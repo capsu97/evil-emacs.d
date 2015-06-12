@@ -79,4 +79,7 @@
 (require 'guide-key-tip)
 (setq guide-key-tip/enabled t)
 
+;; Highlight symbol
+(setq highlight-symbol-idle-delay 0.5)
+
 (provide 'misc-package-settings)
