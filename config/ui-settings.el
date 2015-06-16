@@ -22,6 +22,10 @@
 ;; (load-theme 'solarized-light t)
 ;;(load-theme 'odersky t)
 
+;; Flat modeline
+(set-face-attribute 'mode-line nil :box nil)
+(set-face-attribute 'mode-line-inactive nil :box nil)
+
 (eval-after-load 'diff-mode
   '(progn
      (set-face-foreground 'diff-added "green4")
