@@ -20,6 +20,7 @@
                                      helm helm-flyspell helm-projectile helm-ag helm-swoop cljr-helm ; helm
                                      helm-descbinds helm-emmet helm-css-scss ; helm
                                      helm-c-moccur ; helm
+                                     wrap-region ; wrap region with quotes, parens etc
                                      bind-key free-keys region-bindings-mode ; keybinding utilities
                                      whole-line-or-region ; if no region selected act on the current line
                                      misc-cmds ; misc useful functions
@@ -37,7 +38,7 @@
                                      popup popwin ; popups
                                      esup ; emacs startup profiler
                                      cypher-mode ; neo4j cypher
-                                     org-plus-contrib org-bullets org-pomodoro org-repo-todo ; latest org-mode
+                                     org-plus-contrib org-bullets org-pomodoro org-repo-todo org-projectile ; latest org-mode
                                      neotree ; like NERDtree from vim
                                      undo-tree ; visualize undo as a tree (extremely handy)
                                      company company-quickhelp company-web helm-company ; autocomplete
