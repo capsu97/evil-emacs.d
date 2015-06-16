@@ -45,7 +45,8 @@
                                      company-restclient restclient ; http rest client
                                      drag-stuff ; moving lines/regions up/down
                                      elisp-slime-nav redshank highlight-defined ; extensions for elisp
-                                     diminish ; don't clutter the modeline with minor mode names
+                                     diminish rich-minority ; don't clutter the modeline with minor mode names
+                                     smart-mode-line ; customize modeline
                                      ag anzu ; search / grep
                                      buffer-move ; manage buffers
                                      clojure-mode clojure-mode-extra-font-locking clojure-cheatsheet ; clojure
