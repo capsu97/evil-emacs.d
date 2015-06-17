@@ -12,6 +12,7 @@ tramp
 places
 backups/
 recentf
+url/
 
 # elpa (automatically downloaded)
 elpa/

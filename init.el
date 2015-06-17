@@ -1,10 +1,17 @@
-(when (string= system-name "VDI056-PRD")
-  (setq url-proxy-services '(("http" . "proxy.eno.dom:8080"))))
-
 (require 'package)
-(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
-(add-to-list 'package-archives
-             '("melpa" . "http://melpa.milkbox.net/packages/") t)
+
+(when (>= emacs-major-version 24)
+  (setq package-archives '(("org" . "http://orgmode.org/elpa/")
+			   ("ELPA" . "http://elpa.gnu.org/packages/")
+			   ("melpa" . "http://melpa.org/packages/")
+                           ("melpa-stable" . "http://stable.melpa.org/packages/")
+                           )))
+
+;; Check if we're on Emacs 24.4 or newer, if so, use the pinned package feature
+(when (boundp 'package-pinned-packages)
+  (setq package-pinned-packages
+        '((cider . "melpa-stable")
+          )))
 
 ;;(add-to-list 'package-archives
 ;;    '("marmalade" .
