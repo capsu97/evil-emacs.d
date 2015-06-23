@@ -90,7 +90,7 @@
   ("M-J" paredit-join-with-previous-list "Join prev list")
   ("C" paredit-convolute-sexp "Convolute")
   ("M-c" paredit-copy-as-kill "Copy as kill")
-  ("r" paredit-raise-sexp "Raise"))
+  ("r" cljr-raise-sexp "Raise"))
 
 ;;;;;;;;;;;;;;;;
 ;; Key chords ;;
