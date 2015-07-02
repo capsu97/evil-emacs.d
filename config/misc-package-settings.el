@@ -26,17 +26,7 @@
 
 (key-chord-mode +1)
 
-;; Redefine key-chord function so it only works when keypresses are in order. For instance ',x' works, 'x,' doesn't
-;; Normally both work because it was meant for simultaneous key presses.
-(defun key-chord-define (keymap keys command)
-  (if (/= 2 (length keys))
-      (error "Key-chord keys must have two elements"))
-  (let ((key1 (logand 255 (aref keys 0)))
-        (key2 (logand 255 (aref keys 1))))
-    (if (eq key1 key2)
-        (define-key keymap (vector 'key-chord key1 key2) command)
-      (define-key keymap (vector 'key-chord key1 key2) command))))
-
+;; If no region is selected/marked assume the current line
 (require 'whole-line-or-region)
 
 (whole-line-or-region-mode 1)
@@ -53,12 +43,6 @@
         (set-marker p nil)
         (set-marker m nil))
     ad-do-it))
-
-;; Dired
-;; Make dired less verbose
-(require 'dired-details)
-(setq-default dired-details-hidden-string "--- ")
-(dired-details-install)
 
 ;; Guide-key
 (require 'guide-key)
