@@ -55,7 +55,6 @@
 (add-hook 'clojurescript-mode-hook 'ot/pretty-fn)
 
 ;;---------------------------------------------------------
-(require 'clojure-mode-extra-font-locking)
 
 ;;; CIDER CONFIG
 (require 'cider)

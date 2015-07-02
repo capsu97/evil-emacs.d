@@ -23,7 +23,7 @@
   (package-refresh-contents))
 
 ;; Add in your own as you wish:
-(defvar my-packages '(ido-ubiquitous ido-vertical-mode ido-select-window flx-ido idomenu smex ; mini-buffer on steroids (fuzzy completion etc)
+(defvar my-packages '(ido-ubiquitous ido-vertical-mode ido-select-window flx-ido idomenu smex ido-completing-read+ ; mini-buffer on steroids (fuzzy completion etc)
                                      helm helm-flyspell helm-projectile helm-ag helm-swoop cljr-helm ; helm
                                      helm-descbinds helm-emmet helm-css-scss ; helm
                                      helm-c-moccur ; helm
@@ -31,15 +31,14 @@
                                      bind-key free-keys region-bindings-mode ; keybinding utilities
                                      whole-line-or-region ; if no region selected act on the current line
                                      misc-cmds ; misc useful functions
-                                     fic-mode ; show FIXME/TODO/BUG/KLUDGE in special face only in comments and strings
-                                     key-chord ; bind commands to multiple keypresses
+                                     key-chord key-seq ; bind commands to multiple keypresses
                                      focus ; focus mode (dim text you are not working on)
                                      hydra ; sticky bindings
                                      dash-at-point helm-dash ; dash
                                      volatile-highlights highlight-symbol ; highlighting
                                      aggressive-indent indent-guide ; indentation
                                      flyspell ; spell checking
-                                     flycheck flycheck-pos-tip helm-flycheck ; syntax checking
+                                     flycheck flycheck-pos-tip helm-flycheck flycheck-clojure ; syntax checking
                                      guide-key guide-key-tip ; keystroke help
                                      command-log-mode ; log all used keystrokes/commands to buffer
                                      popup popwin ; popups
@@ -52,27 +51,23 @@
                                      company-restclient restclient ; http rest client
                                      drag-stuff ; moving lines/regions up/down
                                      elisp-slime-nav redshank highlight-defined ; extensions for elisp
-                                     diminish rich-minority ; don't clutter the modeline with minor mode names
+                                     rich-minority ; don't clutter the modeline with minor mode names
                                      smart-mode-line ; customize modeline
                                      ag anzu ; search / grep
                                      buffer-move ; manage buffers
-                                     clojure-mode clojure-mode-extra-font-locking clojure-cheatsheet ; clojure
-                                     clj-refactor discover-clj-refactor align-cljlet inf-clojure ; clojure
-                                     latest-clojure-libraries cider cider-eval-sexp-fu ; clojure
+                                     clojure-mode clojure-cheatsheet ; clojure
+                                     clj-refactor discover-clj-refactor align-cljlet ; clojure
+                                     cider cider-eval-sexp-fu ; clojure
                                      avy avy-zap ; move quickly around buffers (see vim EasyMotion as well)
                                      markdown-mode markdown-mode+ markdown-toc ; markdown
                                      hl-sexp lispy smartparens paredit paredit-menu paxedit ; working with parens / delimiters
-                                     lush-theme sublime-themes monokai-theme smyx-theme molokai-theme color-theme-sanityinc-tomorrow ; color themes
-                                     afternoon-theme noctilux-theme soft-morning-theme ; color themes
-                                     solarized-theme flatui-theme subatomic256-theme tango-plus-theme zenburn-theme zonokai-theme atom-dark-theme ; color themes
-                                     gist magit diff-hl git-timemachine ; git integration
-                                     toggle-quotes ; toggle between single/double quotes
+                                     solarized-theme flatui-theme ; color themes
+                                     magit diff-hl ; git integration
                                      emmet-mode tagedit js2-mode js2-refactor json-mode json-reformat web-mode ; web development
                                      scss-mode sass-mode rainbow-mode tern company-tern ; web development
                                      projectile ; moving around in projects
                                      yasnippet auto-yasnippet clojure-snippets datomic-snippets helm-c-yasnippet ; snippets
                                      browse-kill-ring ; list / select / insert previously killed text
-                                     dired+ dired-details ; directory editor addon
                                      expand-region ; easily select regions around point
                                      persp-mode ; per project window config
                                      multiple-cursors iedit ; multiple cursors a la Sublime Text
@@ -88,10 +83,8 @@
 
 (require 'misc)
 (require 'uniquify)
-(require 'my-defuns)
-(require 'third-party-defuns)
+(require 'custom-defuns)
 (require 'basic-settings)
-;; (require 'evil-settings)
 (require 'expand-region)
 (require 'webdevelopment-settings)
 (require 'ui-settings)
@@ -100,40 +93,13 @@
 (require 'projectile-settings)
 (require 'auto-complete-settings)
 (require 'yasnippet-settings)
-(require 'magit-settings)
+(require 'versioncontrol-settings)
 (require 'search-settings)
 (require 'helm-settings)
 (require 'org-mode-settings)
 (require 'syntax-checking-settings)
 (require 'misc-package-settings)
 (require 'custom-keybindings)
-;;(server-start)
-
-;; Diminish modes so they don't show up in the modeline
-(require 'diminish)
-(when (require 'diminish nil 'noerror)
-  (eval-after-load "company"
-    '(diminish 'company-mode))
-  (eval-after-load "highlight-parentheses"
-    '(diminish 'highlight-parentheses-mode))
-  (eval-after-load "undo-tree"
-    '(diminish 'undo-tree-mode))
-  (eval-after-load "cider"
-    '(diminish 'cider-mode "C"))
-  (eval-after-load "clj-refactor"
-    '(diminish 'clj-refactor-mode "R"))
-  (eval-after-load "anzu"
-    '(diminish 'anzu-mode nil))
-  (eval-after-load "eldoc"
-    '(diminish 'eldoc-mode))
-  (eval-after-load "paredit"
-    '(diminish 'paredit-mode "PE"))
-  (eval-after-load "paxedit"
-    '(diminish 'paxedit-mode "PX"))
-  (eval-after-load "elisp-slime-nav"
-    '(diminish 'elisp-slime-nav-mode))
-  (eval-after-load "yasnippet"
-    '(diminish 'yas-minor-mode)))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
