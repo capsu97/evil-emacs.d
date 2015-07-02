@@ -97,6 +97,10 @@
 
 ;; clj-refactor
 (require 'clj-refactor)
+
+(dolist (mapping '(("reagent" . "reagent.core")))
+  (add-to-list 'cljr-magic-require-namespaces mapping t))
+
 (add-hook 'clojure-mode-hook (lambda ()
                                (clj-refactor-mode 1)
                                (cljr-add-keybindings-with-prefix "C-=")))

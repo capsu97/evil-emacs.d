@@ -82,4 +82,7 @@
 ;; Highlight symbol
 (setq highlight-symbol-idle-delay 0.5)
 
+;; Wrap region mode
+(wrap-region-global-mode)
+
 (provide 'misc-package-settings)

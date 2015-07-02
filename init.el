@@ -45,7 +45,7 @@
                                      popup popwin ; popups
                                      esup ; emacs startup profiler
                                      cypher-mode ; neo4j cypher
-                                     org-plus-contrib org-bullets org-pomodoro org-repo-todo org-projectile ; latest org-mode
+                                     org-plus-contrib org-bullets ; latest org-mode
                                      neotree ; like NERDtree from vim
                                      undo-tree ; visualize undo as a tree (extremely handy)
                                      company company-quickhelp company-web helm-company ; autocomplete
@@ -163,7 +163,7 @@
  '(helm-source-header ((t (:background "gray30" :foreground "white" :weight normal :height 1 :family "Sans Serif"))))
  '(helm-visible-mark ((t (:background "dark orange" :foreground "white"))))
  '(highlight-symbol-face ((t (:background "gray88" :underline nil))))
- '(hl-sexp-face ((t (:background "LightSteelBlue1"))))
+ '(hl-sexp-face ((t (:background "LightBlue1"))))
  '(ido-first-match ((t (:foreground "#ccff66"))))
  '(ido-incomplete-regexp ((t (:foreground "#ffffff"))))
  '(ido-indicator ((t (:foreground "#ffffff"))))
