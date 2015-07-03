@@ -19,6 +19,10 @@
 (setq indent-guide-recursive t)
 (setq indent-guide-delay 0.1)
 
+;; Rich minority (clean up modeline)
+(rich-minority-mode 1)
+(setq rm-blacklist '(" Helm" " Anzu" " Guide" " hl-s" " SliNav" " company" " ing" " WLR" " wr" " yas" " ElDoc" " VHl"))
+
 ;; Key chords
 (require 'key-chord)
 
