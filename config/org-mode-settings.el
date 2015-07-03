@@ -64,13 +64,6 @@
       org-src-tab-acts-natively t ; inside a src block let tab act like it was in major mode of the src type
       )
 
-(require 'ob)
-
-(org-babel-do-load-languages
- 'org-babel-load-languages
- '((emacs-lisp . t)
-   (sh . t)))
-
 ;; make it possible to embed clojure code in org documents with org-babel(setq org-confirm-babel-evaluate nil ; stop asking if you are sure you want to evaluate a src block
 (require 'ob)
 

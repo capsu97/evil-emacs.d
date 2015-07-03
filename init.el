@@ -135,7 +135,6 @@
  '(helm-source-header ((t (:background "gray30" :foreground "white" :weight normal :height 1 :family "Sans Serif"))))
  '(helm-visible-mark ((t (:background "dark orange" :foreground "white"))))
  '(highlight-symbol-face ((t (:background "gray88" :underline nil))))
- '(hl-sexp-face ((t (:background "LightBlue1"))))
  '(ido-first-match ((t (:foreground "#ccff66"))))
  '(ido-incomplete-regexp ((t (:foreground "#ffffff"))))
  '(ido-indicator ((t (:foreground "#ffffff"))))
