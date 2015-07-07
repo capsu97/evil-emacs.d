@@ -285,4 +285,7 @@
 ;; Save clipboard contents into kill-ring before replace them
 (setq save-interprogram-paste-before-kill t)
 
+;; Automatically show images and not the binary text
+(auto-image-file-mode +1)
+
 (provide 'basic-settings)

@@ -73,4 +73,7 @@
 ;; Wrap region mode
 (wrap-region-global-mode)
 
+;; Open dot files in graphviz-dot-mode
+(add-to-list 'auto-mode-alist '("\.dot$" . graphviz-dot-mode))
+
 (provide 'misc-package-settings)

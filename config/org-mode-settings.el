@@ -73,6 +73,9 @@
    (dot . t)
    (sh . t)))
 
+;; Edit dot files in graphviz-dot-mode
+(add-to-list 'org-src-lang-modes (quote ("dot" . graphviz-dot)))
+
 ;; make it possible to embed clojure code in org documents with org-babel
 (add-to-list 'org-babel-tangle-lang-exts '("clojure" . "clj"))
 
