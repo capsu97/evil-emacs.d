@@ -70,6 +70,7 @@
 (org-babel-do-load-languages
  'org-babel-load-languages
  '((emacs-lisp . t)
+   (dot . t)
    (sh . t)))
 
 ;; make it possible to embed clojure code in org documents with org-babel
